@@ -1,12 +1,11 @@
 # Asset files
 *.blend[0-9]
-*.tar.gz
-*.zip
 *.obj
 *.fbx
 *.osgb
 *.tar.gz
 *.tar.xz
+*.zip
 
 # Compiled files
 src/**/fbx/*
