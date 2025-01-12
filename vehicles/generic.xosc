@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr> -->
+<!-- SPDX-License-Identifier: MPL-2.0 -->
+<OpenSCENARIO>
+  <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
+  <Catalog name="generic">
+    <Vehicle name="m2.generic.van.regular" vehicleCategory="van" mass="1850"
+      model3d="m2_generic_van_regular.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.62" height="2.67" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m2.generic.van.extended" vehicleCategory="van" mass="1850"
+      model3d="m2_generic_van_extended.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.37" height="2.67" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.box" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_box.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="7.19" height="2.82" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.box.long" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_box_long.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="7.89" height="2.82" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.box.extended" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_box_extended.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="7.95" height="2.82" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.caravan" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_caravan.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.3" height="2.19" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.chassis" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_chassis.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.09" height="2.32" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.dumper" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_dumper.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.10" height="2.36" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.dumper.long" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_dumper_long.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.89" height="2.15" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.dumper.extended" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_dumper_extended.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.98" height="2.32" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.flatbed" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_flatbed.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="7.46" height="2.26" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.flatbed.long" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_flatbed_long.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="8.67" height="2.26" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.truck.flatbed.trailer" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_truck_flatbed_trailer.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="7.77" height="2.24" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.van.regular" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_van_regular.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.62" height="2.03" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.van.long" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_van_long.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.90" height="2.32" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.generic.van.trailer" vehicleCategory="truck" mass="1850"
+      model3d="n2_generic_van_trailer.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.80" height="2.37" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m2.special.ambulance.regular" vehicleCategory="van" mass="1850"
+      model3d="m2_special_ambulance_regular.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.62" height="2.41" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m2.special.police.regular" vehicleCategory="van" mass="1850"
+      model3d="m2_special_police_regular.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.62" height="2.43" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m2.special.police.heavyduty" vehicleCategory="van" mass="1850"
+      model3d="m2_special_police_heavyduty.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.62" height="2.32" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.special.police.regular" vehicleCategory="van" mass="1850"
+      model3d="n2_special_police_regular.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.74" height="2.14" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.special.police.extended" vehicleCategory="van" mass="1850"
+      model3d="n2_special_police_extended.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.62" height="2.32" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.special.armored.regular" vehicleCategory="van" mass="1850"
+      model3d="n2_special_armored_regular.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.08" height="2.03" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.special.armored.extended" vehicleCategory="van" mass="1850"
+      model3d="n2_special_armored_extended.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="5.90" height="2.67" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.special.rare.001" vehicleCategory="van" mass="1850"
+      model3d="n2_special_rare_001.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="6.47" height="2.1" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000" positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.special.rare.002" vehicleCategory="van" mass="1850"
+      model3d="n2_special_rare_002.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="1.335" />
+        <Dimensions width="2.52" length="4.59" height="2.54" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="3.48"
+          positionZ="0.35" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.7" trackWidth="2.000"
+          positionX="0.0"
+          positionZ="0.35" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+  </Catalog>
+</OpenSCENARIO>

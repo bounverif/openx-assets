@@ -1,0 +1,13 @@
+# Asset files
+*.blend[0-9]
+*.tar.gz
+*.zip
+*.obj
+*.fbx
+*.osgb
+*.tar.gz
+*.tar.xz
+
+# Compiled files
+src/**/fbx/*
+src/**/osgb/*
