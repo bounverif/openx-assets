@@ -21,7 +21,7 @@ COLLECTION_DIR := ${PROJECT_SOURCE_DIR}/${COLLECTION}
 LICENSE_COPYRIGHT1 := "\# SPDX-FileCopyrightText: 2024 Vladek <https://sketchfab.com/vladek27>"
 LICENSE_COPYRIGHT2 := "\# SPDX-FileCopyrightText: 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
 
-LICENSE_IDENTIFIER := "\# SPDX-License-Identifier: MPL-2.0"
+LICENSE_IDENTIFIER := "\# SPDX-License-""Identifier: MPL-2.0 "
 
 # Determine which the Blender executable to use
 # Use the flatpak version of Blender if the native executable is not installed
