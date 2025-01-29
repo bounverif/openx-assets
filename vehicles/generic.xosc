@@ -5,7 +5,7 @@
   <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
   <Catalog name="generic">
     <Vehicle name="m2.generic.van.regular" vehicleCategory="van" mass="1850"
-      model3d="m2_generic_van_regular.osgb">
+      model3d="../models/generic/m2_generic_van_regular.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="1.335" />
         <Dimensions width="2.52" length="5.62" height="2.67" />
@@ -23,7 +23,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="m2.generic.van.extended" vehicleCategory="van" mass="1850"
-      model3d="m2_generic_van_extended.osgb">
+      model3d="../models/generic/m2_generic_van_extended.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="1.335" />
         <Dimensions width="2.52" length="6.37" height="2.67" />
@@ -221,7 +221,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="n2.generic.truck.flatbed.trailer" vehicleCategory="truck" mass="1850"
-      model3d="n2_generic_truck_flatbed_trailer.osgb">
+      model3d="../models/generic/n2_generic_truck_flatbed_trailer.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="1.335" />
         <Dimensions width="2.52" length="7.77" height="2.24" />
@@ -239,7 +239,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="n2.generic.van.regular" vehicleCategory="truck" mass="1850"
-      model3d="n2_generic_van_regular.osgb">
+      model3d="../models/generic/n2_generic_van_regular.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="1.335" />
         <Dimensions width="2.52" length="5.62" height="2.03" />
