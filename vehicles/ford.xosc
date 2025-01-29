@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr> -->
+<!-- SPDX-License-Identifier: MPL-2.0 -->
+<OpenSCENARIO>
+  <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
+  <Catalog name="ford">
+    <Vehicle name="m1.ford.focus.2018.sedan" vehicleCategory="car" mass="1350"
+      model3d="../assets/models/suv.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="1.825" length="4.647" height="1.483" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.700"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.focus.2018.hatchback" vehicleCategory="car" mass="1400"
+      model3d="../assets/models/suv.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="1.825" length="4.378" height="1.454" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.700"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.focus.2018.wagon" vehicleCategory="car" mass="1450"
+      model3d="../assets/models/suv.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="1.825" length="4.668" height="1.481" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.700"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.mondeo.2012" vehicleCategory="car" mass="1550"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="1.852" length="4.869" height="1.476" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.850"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.mondeo.2022" vehicleCategory="car" mass="1550"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="1.875" length="4.935" height="1.498" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.945"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.puma" vehicleCategory="car" mass="1200"
+      model3d="../assets/models/suv.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="1.805" length="4.186" height="1.537" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.588"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.courier.2014" vehicleCategory="van" mass="1250"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.975" />
+        <Dimensions width="1.796" length="4.160" height="1.747" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.489"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.courier.2023" vehicleCategory="van" mass="1350"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.975" />
+        <Dimensions width="1.790" length="4.340" height="1.830" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.690"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.connect.2021.swb" vehicleCategory="van" mass="1600"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.899" />
+        <Dimensions width="1.855" length="4.500" height="1.798" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.755"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.connect.2021.lwb" vehicleCategory="van" mass="1900"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.899" />
+        <Dimensions width="1.855" length="4.859" height="1.798" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.975"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.custom.2022.l1h1" vehicleCategory="van" mass="2500"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.975" />
+        <Dimensions width="1.986" length="4.973" height="1.950" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.933"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.custom.2022.l1h2" vehicleCategory="van" mass="2700"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="1.150" />
+        <Dimensions width="1.986" length="4.973" height="2.300" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.933"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.custom.2022.l2h1" vehicleCategory="van" mass="2800"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.642" y="0.0" z="0.975" />
+        <Dimensions width="1.986" length="5.340" height="1.950" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.300"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.ford.tourneo.custom.2022.l2h2" vehicleCategory="van" mass="3000"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.642" y="0.0" z="1.150" />
+        <Dimensions width="1.986" length="5.340" height="2.300" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.300"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.courier.2014" vehicleCategory="van" mass="1250"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.975" />
+        <Dimensions width="1.796" length="4.160" height="1.747" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.489"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.courier.2023" vehicleCategory="van" mass="1350"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.975" />
+        <Dimensions width="1.790" length="4.340" height="1.830" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.690"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.connect.2021.swb" vehicleCategory="van" mass="1600"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.899" />
+        <Dimensions width="1.855" length="4.500" height="1.798" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.755"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.connect.2021.lwb" vehicleCategory="van" mass="1900"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.899" />
+        <Dimensions width="1.855" length="4.859" height="1.798" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.975"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.custom.2022.l1h1" vehicleCategory="van" mass="2600"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="0.975" />
+        <Dimensions width="1.986" length="4.973" height="1.950" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.933"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.custom.2022.l1h2" vehicleCategory="van" mass="2900"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.458" y="0.0" z="1.150" />
+        <Dimensions width="1.986" length="4.973" height="2.300" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="2.933"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.custom.2022.l2h1" vehicleCategory="van" mass="3100"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.642" y="0.0" z="0.975" />
+        <Dimensions width="1.986" length="5.340" height="1.950" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.300"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n1.ford.transit.custom.2022.l2h2" vehicleCategory="van" mass="3400"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.642" y="0.0" z="1.150" />
+        <Dimensions width="1.986" length="5.340" height="2.300" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.300"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.ford.transit.2014.regular-low" vehicleCategory="van" mass="3900"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="2.065" length="5.590" height="2.120" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.300"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.ford.transit.2014.regular-medium" vehicleCategory="van" mass="4100"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="2.065" length="5.590" height="2.560" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.300"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.ford.transit.2014.long-low" vehicleCategory="van" mass="3900"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="2.065" length="6.040" height="2.120" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.800"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.ford.transit.2014.long-medium" vehicleCategory="van" mass="4100"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="2.065" length="6.040" height="2.560" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.800"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.ford.transit.2014.long-high" vehicleCategory="van" mass="4300"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="2.065" length="6.040" height="2.800" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.800"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="n2.ford.transit.2014.long-extended" vehicleCategory="van" mass="4500"
+      model3d="../assets/models/none.osgb">
+      <BoundingBox>
+        <Center x="1.4" y="0.0" z="0.768" />
+        <Dimensions width="2.065" length="6.700" height="2.800" />
+      </BoundingBox>
+      <Performance maxSpeed="${200/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.600"
+          positionX="3.800"
+          positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.600" positionX="0.0"
+          positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+  </Catalog>
+</OpenSCENARIO>
