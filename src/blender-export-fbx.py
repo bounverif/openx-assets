@@ -14,6 +14,6 @@ bpy.ops.export_scene.fbx(
     batch_mode='COLLECTION', 
     use_batch_own_dir=False,
     apply_scale_options='FBX_SCALE_ALL',
-    axis_forward='-X', 
-    axis_up='Z'
-    )
+    axis_forward='-X', # -X
+    axis_up='Z'        #  Z
+)
