@@ -16,7 +16,6 @@
 PROJECT_SOURCE_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 COLLECTION_DIR := ${PROJECT_SOURCE_DIR}/${COLLECTION}
-# COLLECTION_BUILD_DIR := /tmp/esmini-assets/build/${COLLECTION}
 
 LICENSE_COPYRIGHT1 := "\# SPDX-FileCopyrightText: 2024 Vladek <https://sketchfab.com/vladek27>"
 LICENSE_COPYRIGHT2 := "\# SPDX-FileCopyrightText: 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
@@ -41,18 +40,6 @@ ifeq ($(BLENDER_EXE),)
     $(error No Blender executable found. Please install Blender, Blender headless, or the Blender Flatpak package.)
 endif
 
-# ifeq ($(shell command -v blender 2>/dev/null),)
-#     ifeq ($(shell command -v flatpak 2>/dev/null),)
-#         $(error Neither 'blender' nor 'flatpak' is installed)
-#     else ifeq ($(shell flatpak list --app | grep -q org.blender.Blender && echo yes || echo no),yes)
-#         BLENDER_EXE := flatpak run org.blender.Blender 
-#     else
-#         $(error 'flatpak' is installed, but Blender is not installed in Flatpak)
-#     endif
-# else ifeq ($(shell blender --version | grep -q 'Blender' && echo yes || echo no),yes)
-#     BLENDER_EXE := blender
-# endif
-
 all: blender-export-fbx osgconv-build-osgb license
 
 blender-export-fbx:
@@ -69,16 +56,12 @@ osgconv-build-osgb:
 	done
 
 license:
-	@echo "Adding license files for osgb models"
-	@for osgb_model in ${COLLECTION_DIR}/osgb/*.osgb; do \
-		license_file="$${osgb_model}.license"; \
-		echo $(LICENSE_COPYRIGHT1) >  "$$license_file"; \
-		echo $(LICENSE_COPYRIGHT2) >> "$$license_file"; \
-		echo "#" >> "$$license_file"; \
-		echo $(LICENSE_IDENTIFIER) >> "$$license_file"; \
-	done
+	$(MAKE) -C ${COLLECTION_DIR} license
+
+bogazici:
+	$(MAKE) COLLECTION=bogazici all
 
 generic-vans:
 	$(MAKE) COLLECTION=generic-vans all
 
-.PHONY: all blender-export-fbx osgconv-build-osgb license generic-vans
+.PHONY: all blender-export-fbx osgconv-build-osgb license bogazici generic-vans
