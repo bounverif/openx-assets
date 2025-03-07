@@ -5,7 +5,7 @@
   <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
   <Catalog name="generic">
     <Vehicle name="m1.audi.q7.2015" vehicleCategory="car" mass="2200"
-      model3d="../models/bounego/m1_audi_q7_2015.osgb">
+      model3d="../models/bogazici/m1_audi_q7_2015.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="0.871" />
         <Dimensions width="2.240" length="5.052" height="1.741" />
@@ -23,7 +23,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="m1.audi.tt.2014.roadster" vehicleCategory="car" mass="1350"
-      model3d="../models/bounego/m1_audi_tt_2014_roadster.osgb">
+      model3d="../models/bogazici/m1_audi_tt_2014_roadster.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="0.668" />
         <Dimensions width="1.980" length="4.177" height="1.355" />
@@ -41,7 +41,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="m1.dacia.duster.2010" vehicleCategory="car" mass="1150"
-      model3d="../models/bounego/m1_dacia_duster_2010.osgb">
+      model3d="../models/bogazici/m1_dacia_duster_2010.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="0.825" />
         <Dimensions width="2.000" length="4.315" height="1.650" />
@@ -59,7 +59,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="m1.hyundai.tucson.2015" vehicleCategory="car" mass="1550"
-      model3d="../models/bounego/m1_hyundai_tucson_2015.osgb">
+      model3d="../models/bogazici/m1_hyundai_tucson_2015.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="0.823" />
         <Dimensions width="2.080" length="4.475" height="1.645" />
@@ -77,7 +77,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="m1.mini.countryman.2016" vehicleCategory="car" mass="1500"
-      model3d="../models/bounego/m1_mini_countryman_2016.osgb">
+      model3d="../models/bogazici/m1_mini_countryman_2016.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="0.779" />
         <Dimensions width="1.980" length="4.313" height="1.557" />
@@ -95,7 +95,7 @@
       </Properties>
     </Vehicle>
     <Vehicle name="n1.fiat.ducato.2014" vehicleCategory="van" mass="2000"
-      model3d="../models/bounego/n1_fiat_ducato_2014.osgb">
+      model3d="../models/bogazici/n1_fiat_ducato_2014.osgb">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="1.262" />
         <Dimensions width="2.51" length="5.000" height="2.524" />
