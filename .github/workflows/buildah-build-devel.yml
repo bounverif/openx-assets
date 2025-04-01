@@ -52,7 +52,7 @@ jobs:
         id: build-devel
         uses: redhat-actions/buildah-build@v2
         with:
-          context: ./containers/esmini-assets-devel
+          context: ./containers
           image: esmini
           tags: ${{ env.VERSION }}-devel ${{ env.VERSION }}-devel-${{ env.HOSTARCH }}
           layers: true
