@@ -23,6 +23,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       libgl1-mesa-dev \
       libxml2-dev \
       libjpeg-dev \
+      zlib1g-dev \
       libpng-dev \
       libtiff-dev \
       libfontconfig-dev \
@@ -43,11 +44,15 @@ RUN export FBXSDK_VERSION_MAJOR="${FBXSDK_VERSION_MAJOR:-2020}" &&\
 RUN git clone --single-branch --depth 1 --branch OpenSceneGraph-${OSG_VERSION:-3.6.5} https://github.com/OpenSceneGraph/OpenSceneGraph /tmp/osg && \
     cd /tmp/osg && \
     cmake . \
-        -DFBX_INCLUDE_DIR="/tmp/fbxsdk/install/include" \
-        -DFBX_LIBRARY="/tmp/fbxsdk/install/lib/release/libfbxsdk.a" \
-        -DFBX_LIBRARY_DEBUG="/tmp/fbxsdk/install/lib/debug/libfbxsdk.a" \
-        -DCMAKE_INSTALL_PREFIX="/usr/local" \
-        && \
+      -DFBX_INCLUDE_DIR="/tmp/fbxsdk/install/include" \
+      -DFBX_LIBRARY="/tmp/fbxsdk/install/lib/release/libfbxsdk.a" \
+      -DFBX_LIBRARY_DEBUG="/tmp/fbxsdk/install/lib/debug/libfbxsdk.a" \
+      -DFBX_XML2_LIBRARY="/usr/lib/x86_64-linux-gnu/libxml2.so" \
+      -DFBX_XML2_LIBRARY_DEBUG="/usr/lib/x86_64-linux-gnu/libxml2.so" \
+      -DFBX_ZLIB_LIBRARY="/usr/lib/x86_64-linux-gnu/libz.so" \
+      -DFBX_ZLIB_LIBRARY_DEBUG="/usr/lib/x86_64-linux-gnu/libz.so" \
+      -DCMAKE_INSTALL_PREFIX="/usr/local" \
+      && \
     cmake --build . --config Release --target install
 
 FROM docker.io/library/debian:trixie AS esmini-assets-devel
@@ -77,6 +82,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
     apt-get update -qq && \
     apt-get install -qy --no-install-recommends \
       blender \
+      libxml2 \
+      zlib1g \
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
@@ -95,4 +102,8 @@ WORKDIR /home/${USER}
 RUN export PIP_BREAK_SYSTEM_PACKAGES=1 &&\
     pip install --upgrade pip &&\
     pip install \
-      reuse
+      numpy \
+      reuse 
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
