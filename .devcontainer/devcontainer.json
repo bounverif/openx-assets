@@ -1,0 +1,11 @@
+{
+    "name": "Esmini Assets",
+    "build": {
+      "context": ".",
+      "dockerfile": "Dockerfile",
+      "args": {
+        "USER": "nonroot"
+      }
+    },
+    "remoteUser": "nonroot"
+  }
