@@ -8,8 +8,8 @@ path = [
   ".devcontainer/**",
   ".github/**",
   ".gitignore",
+  "containers/**",
   "README.md"
 ]
 SPDX-FileCopyrightText = ["2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"]
 SPDX-License-Identifier = "MPL-2.0"
-
