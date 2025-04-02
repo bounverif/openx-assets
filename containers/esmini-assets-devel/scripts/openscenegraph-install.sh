@@ -4,7 +4,7 @@ set -e
 # Set OpenSceneGraph version
 OPENSCENEGRAPH_VERSION="${OPENSCENEGRAPH_VERSION:-3.6.5}"
 OPENSCENEGRAPH_INSTALL_PREFIX="${OPENSCENEGRAPH_INSTALL_PREFIX:-/usr/local}"
-FBXSDK_INSTALL_PREFIX="${FBXSDK_INSTALL_PREFIX:-/usr/local}"
+FBXSDK_INSTALL_PREFIX="${FBXSDK_INSTALL_PREFIX:-/opt/fbxsdk}"
 
 # Clone OpenSceneGraph repository
 git clone --single-branch --depth 1 --branch "OpenSceneGraph-${OPENSCENEGRAPH_VERSION}" https://github.com/OpenSceneGraph/OpenSceneGraph /tmp/osg
