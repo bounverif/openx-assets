@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Prepare environment variables
+        run: |
+          echo "VERSION=$(date +'%Y%m%d')" >> $GITHUB_ENV
       - name: Download and install FBX SDK
         run: |
           export FBXSDK_INSTALL_PREFIX="/tmp/install"
@@ -25,3 +28,15 @@ jobs:
           ldconfig
       - name: Build and package assets
         run: make esmini-assets
+      - name: Create github release
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: esmini-assets.zip
+          name: "Latest Esmini Assets"
+          tag_name: ${{ env.VERSION }}
+          make_latest: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
