@@ -3,8 +3,8 @@
 #
 COLLECTION_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-LICENSE_COPYRIGHT1 := "\# SPDX-FileCopyrightText: 2019 razor24 <https://sketchfab.com/razor24>"
-LICENSE_COPYRIGHT2 := "\# SPDX-FileCopyrightText: 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+LICENSE_COPYRIGHT1 := "\# SPDX-FileCopyrightText: 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+LICENSE_COPYRIGHT2 := "\# SPDX-FileCopyrightText: 2019 razor24 <https://sketchfab.com/razor24>"
 LICENSE_IDENTIFIER := "\# SPDX-License-""Identifier: MPL-2.0 "
 
 license:
