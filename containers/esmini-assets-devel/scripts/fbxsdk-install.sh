@@ -19,3 +19,6 @@ curl -kL --user-agent "Mozilla/5.0" "$FBXSDK_DOWNLOAD_URL" | tar xzv -C /tmp/fbx
 
 # Install FBX SDK
 yes yes | /tmp/fbxsdk/fbx${FBXSDK_VERSION}_fbxsdk_linux ${FBXSDK_INSTALL_PREFIX}
+
+# Clean up
+rm -rf /tmp/fbxsdk
