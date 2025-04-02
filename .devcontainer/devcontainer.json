@@ -1,5 +1,7 @@
 {
   "name": "Esmini Assets",
-  "image": "ghcr.io/bounverif/esmini-assets:latest-devel",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "remoteUser": "nonroot"
 }
