@@ -41,6 +41,9 @@ RUN export FBXSDK_INSTALL_PREFIX=/opt/fbxsdk &&\
 FROM docker.io/library/debian:trixie AS esmini-assets-devel
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 # Install dependencies
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -73,18 +76,15 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 # Container user
-ARG USER=nonroot
-ARG USERGROUP=${USER}
-ARG UID=1000
-ARG GID=${UID}
-RUN groupadd ${USERGROUP} -g ${GID}; \
-    useradd -ms /bin/bash ${USER} -g ${USERGROUP} -u ${UID} -G sudo; \
-    printf "${USER} ALL= NOPASSWD: ALL\\n" >> /etc/sudoers
+# ARG USER=nonroot
+# ARG USERGROUP=${USER}
+# ARG UID=1000
+# ARG GID=${UID}
+# RUN groupadd ${USERGROUP} -g ${GID}; \
+#     useradd -ms /bin/bash ${USER} -g ${USERGROUP} -u ${UID} -G sudo; \
+#     printf "${USER} ALL= NOPASSWD: ALL\\n" >> /etc/sudoers
 
-USER ${USER}
-WORKDIR /home/${USER}
+# USER ${USER}
+# WORKDIR /home/${USER}
 
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
 
-CMD ["sudo", "./usr/local/bin/fbxsdk-install.sh"]
