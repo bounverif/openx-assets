@@ -48,6 +48,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build builder container image
+        id: build-builder
+        uses: redhat-actions/buildah-build@v2
+        with:
+          context: ./containers
+          image: ${{ env.IMAGE_NAME }}
+          tags: ${{ env.VERSION }}-builder ${{ env.VERSION }}-builder-${{ env.HOSTARCH }}
+          layers: true
+          oci: true
+          build-args: |
+            VERSION=${{ env.VERSION }}
+          extra-args: |
+            --target esmini-assets-builder
+          containerfiles: |
+            ./containers/esmini-assets-devel/Dockerfile
+
       - name: Build devel container image
         id: build-devel
         uses: redhat-actions/buildah-build@v2
@@ -63,6 +79,16 @@ jobs:
             --target esmini-assets-devel
           containerfiles: |
             ./containers/esmini-assets-devel/Dockerfile
+
+      - name: Push to GitHub Container Repository
+        if: github.ref == 'refs/heads/main'
+        id: push-builder-ghcr
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          image: ${{ steps.build-builder.outputs.image }}
+          tags: ${{ env.VERSION }}-builder-${{ env.HOSTARCH }}
+          digestfile: ${{ runner.temp }}/digest-builder-${{ env.VERSION }}-${{ env.PLATFORM }}
 
       - name: Push to GitHub Container Repository
         if: github.ref == 'refs/heads/main'
@@ -90,7 +116,6 @@ jobs:
     needs: buildah-build
     if: github.ref == 'refs/heads/main' && always()
     steps:
-      # - run: mkdir -p $TMPDIR
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
@@ -104,6 +129,17 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push manifest list for esmini-assets-builder
+        run: |
+          MANIFEST=esmini-builder
+          FULL_IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          buildah manifest create $MANIFEST
+          for digest in ${{ runner.temp }}/digests/digest-builder-*; do
+            echo "Adding $(cat $digest)"
+            buildah manifest add $MANIFEST $FULL_IMAGE_NAME@$(cat $digest)
+          done
+          buildah manifest push --all $MANIFEST docker://$FULL_IMAGE_NAME:${{ env.VERSION }}-builder
 
       - name: Create and push manifest list for esmini-assets-devel
         run: |
