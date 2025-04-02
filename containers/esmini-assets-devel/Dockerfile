@@ -38,7 +38,7 @@ RUN export FBXSDK_INSTALL_PREFIX=/opt/fbxsdk &&\
     sh /usr/local/bin/fbxsdk-install.sh &&\
     sh /usr/local/bin/openscenegraph-install.sh
 
-FROM docker.io/library/debian:trixie AS esmini-assets-devel
+FROM docker.io/library/debian:trixie AS esmini-assets-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 ENV LANG C.UTF-8
@@ -75,16 +75,19 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-# Container user
-# ARG USER=nonroot
-# ARG USERGROUP=${USER}
-# ARG UID=1000
-# ARG GID=${UID}
-# RUN groupadd ${USERGROUP} -g ${GID}; \
-#     useradd -ms /bin/bash ${USER} -g ${USERGROUP} -u ${UID} -G sudo; \
-#     printf "${USER} ALL= NOPASSWD: ALL\\n" >> /etc/sudoers
+FROM esmini-assets-builder AS esmini-assets-devel
+ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
-# USER ${USER}
-# WORKDIR /home/${USER}
+# Container user
+ARG USER=nonroot
+ARG USERGROUP=${USER}
+ARG UID=1000
+ARG GID=${UID}
+RUN groupadd ${USERGROUP} -g ${GID}; \
+    useradd -ms /bin/bash ${USER} -g ${USERGROUP} -u ${UID} -G sudo; \
+    printf "${USER} ALL= NOPASSWD: ALL\\n" >> /etc/sudoers
+
+USER ${USER}
+WORKDIR /home/${USER}
 
 
