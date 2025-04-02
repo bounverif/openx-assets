@@ -53,7 +53,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           context: ./containers
-          image: esmini
+          image: ${{ env.IMAGE_NAME }}
           tags: ${{ env.VERSION }}-devel ${{ env.VERSION }}-devel-${{ env.HOSTARCH }}
           layers: true
           oci: true
