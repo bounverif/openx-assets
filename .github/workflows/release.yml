@@ -34,6 +34,7 @@ jobs:
         with:
           files: esmini-assets.zip
           name: "Esmini Assets"
+          tag_name: ${{ env.VERSION }}
           make_latest: true
           draft: false
           prerelease: false
