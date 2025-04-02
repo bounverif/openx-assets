@@ -33,9 +33,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-COPY esmini-assets-devel/scripts/* /opt/bin/
-RUN sh /opt/bin/fbxsdk-install.sh &&\
-    sh /opt/bin/openscenegraph-install.sh
+COPY esmini-assets-devel/scripts/* /usr/local/bin/
+RUN export FBXSDK_INSTALL_PREFIX=/opt/fbxsdk &&\
+    sh /usr/local/bin/fbxsdk-install.sh &&\
+    sh /usr/local/bin/openscenegraph-install.sh
 
 FROM docker.io/library/debian:trixie AS esmini-assets-devel
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
@@ -64,6 +65,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
     apt-get update -qq && \
     apt-get install -qy --no-install-recommends \
       blender \
+      python3-numpy \
+      reuse \
       libxml2 \
       zlib1g \
       && \
@@ -81,11 +84,7 @@ RUN groupadd ${USERGROUP} -g ${GID}; \
 USER ${USER}
 WORKDIR /home/${USER}
 
-RUN export PIP_BREAK_SYSTEM_PACKAGES=1 &&\
-    pip install --upgrade pip &&\
-    pip install \
-      numpy \
-      reuse 
-
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
+
+CMD ["sudo", "./usr/local/bin/fbxsdk-install.sh"]
