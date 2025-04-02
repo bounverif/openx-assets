@@ -2,7 +2,7 @@
 <!-- SPDX-FileCopyrightText: 2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr> -->
 <!-- SPDX-License-Identifier: MPL-2.0 -->
 <OpenSCENARIO>
-  <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
+  <FileHeader revMajor="1" revMinor="0" author="Dogan Ulus" />
   <Catalog name="volvo">
     <Vehicle name="m1.volvo.s60.2000" vehicleCategory="car" mass="1550">
       <BoundingBox>

@@ -2,7 +2,7 @@
 <!-- SPDX-FileCopyrightText: 2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr> -->
 <!-- SPDX-License-Identifier: MPL-2.0 -->
 <OpenSCENARIO>
-  <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
+  <FileHeader revMajor="1" revMinor="0" author="Dogan Ulus" />
   <Catalog name="ford">
     <Vehicle name="m1.ford.focus.2018.sedan" vehicleCategory="car" mass="1350"
       model3d="../assets/models/suv.osgb">

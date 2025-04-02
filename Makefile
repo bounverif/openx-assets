@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-COLLECTIONS ?= bogazici generic-vans
+COLLECTIONS ?= bogazici generic
 
 esmini-assets:
 	rm -rf /tmp/esmini-assets
@@ -25,15 +25,15 @@ bogazici:
 	rm -rf ${PROJECT_DIR}/src/bogazici/fbx
 	rm -rf ${PROJECT_DIR}/src/bogazici/osgb
 
-generic-vans:
+generic:
 	@mkdir -p /tmp/esmini-assets/models/generic
 	@mkdir -p ${PROJECT_DIR}/assets/models/generic/
 	#
-	$(MAKE) -C src generic-vans 
-	@cp -r ${PROJECT_DIR}/src/generic-vans/osgb/* ${PROJECT_DIR}/assets/models/generic/
+	$(MAKE) -C src generic 
+	@cp -r ${PROJECT_DIR}/src/generic/osgb/* ${PROJECT_DIR}/assets/models/generic/
 	@cp -r ${PROJECT_DIR}/assets/models/generic/ /tmp/esmini-assets/models/generic/
 	@cp -r ${PROJECT_DIR}/assets/vehicles/generic.xosc /tmp/esmini-assets/vehicles/
-	rm -rf ${PROJECT_DIR}/src/generic-vans/fbx
-	rm -rf ${PROJECT_DIR}/src/generic-vans/osgb
+	rm -rf ${PROJECT_DIR}/src/generic/fbx
+	rm -rf ${PROJECT_DIR}/src/generic/osgb
 
 .PHONY: all generic-package
