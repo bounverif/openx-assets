@@ -31,7 +31,7 @@ generic:
 	#
 	$(MAKE) -C src generic 
 	@cp -r ${PROJECT_DIR}/src/generic/osgb/* ${PROJECT_DIR}/assets/models/generic/
-	@cp -r ${PROJECT_DIR}/assets/models/generic/* /tmp/esmini-assets/models/
+	@cp -r ${PROJECT_DIR}/assets/models/generic/* /tmp/esmini-assets/models/generic/
 	@cp -r ${PROJECT_DIR}/assets/vehicles/generic.xosc /tmp/esmini-assets/vehicles/
 	rm -rf ${PROJECT_DIR}/src/generic/fbx
 	rm -rf ${PROJECT_DIR}/src/generic/osgb
