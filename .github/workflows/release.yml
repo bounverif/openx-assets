@@ -11,13 +11,12 @@ jobs:
   release-assets:
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/bounverif/esmini-assets:latest-devel
+      image: ghcr.io/bounverif/esmini-assets:latest-builder
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: 
+      - name: Download and install FBX SDK
         run: |
-          sudo su
           export FBXSDK_INSTALL_PREFIX="/tmp/install"
           mkdir -p ${FBXSDK_INSTALL_PREFIX}
           sh /usr/local/bin/fbxsdk-install.sh
@@ -26,4 +25,3 @@ jobs:
           ldconfig
       - name: Build and package assets
         run: make esmini-assets
-
