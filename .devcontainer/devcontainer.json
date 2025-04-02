@@ -1,8 +1,8 @@
 {
     "name": "Esmini Assets",
     "build": {
-      "context": ".",
-      "dockerfile": "Dockerfile",
+      "context": "../containers",
+      "dockerfile": "../containers/esmini-assets-devel/Dockerfile",
       "args": {
         "USER": "nonroot"
       }
