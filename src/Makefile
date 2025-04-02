@@ -14,17 +14,10 @@
 # It is assumed that the FBX files are in the same directory as this script
 
 PROJECT_SOURCE_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-
 COLLECTION_DIR := ${PROJECT_SOURCE_DIR}/${COLLECTION}
-
-LICENSE_COPYRIGHT1 := "\# SPDX-FileCopyrightText: 2024 Vladek <https://sketchfab.com/vladek27>"
-LICENSE_COPYRIGHT2 := "\# SPDX-FileCopyrightText: 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
-
-LICENSE_IDENTIFIER := "\# SPDX-License-""Identifier: MPL-2.0 "
 
 # Determine which the Blender executable to use
 # Use the flatpak version of Blender if the native executable is not installed
-
 BLENDER_EXE := $(shell \
     if command -v flatpak >/dev/null 2>&1 && flatpak list --app | grep -q org.blender.Blender; then \
         echo "flatpak run org.blender.Blender"; \
@@ -55,13 +48,13 @@ osgconv-build-osgb:
 		osgconv "$$fbx_model" "${COLLECTION_DIR}/osgb/$$(basename $${fbx_model%.fbx}.osgb)" -o 90-1,0,0; \
 	done
 
-license:
-	$(MAKE) -C ${COLLECTION_DIR} license
-
 bogazici:
 	$(MAKE) COLLECTION=bogazici all
 
-generic-vans:
-	$(MAKE) COLLECTION=generic-vans all
+generic:
+	$(MAKE) COLLECTION=generic all
 
-.PHONY: all blender-export-fbx osgconv-build-osgb license bogazici generic-vans
+license:
+	$(MAKE) -C ${COLLECTION_DIR} license
+
+.PHONY: all blender-export-fbx osgconv-build-osgb license bogazici generic

@@ -2,8 +2,8 @@
 <!-- SPDX-FileCopyrightText: 2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr> -->
 <!-- SPDX-License-Identifier: MPL-2.0 -->
 <OpenSCENARIO>
-  <FileHeader revMajor="1" revMinor="3" author="Dogan Ulus" />
-  <Catalog name="generic">
+  <FileHeader revMajor="1" revMinor="0" author="Dogan Ulus" />
+  <Catalog name="bogazici">
     <Vehicle name="m1.audi.q7.2015" vehicleCategory="car" mass="2200"
       model3d="../models/bogazici/m1_audi_q7_2015.osgb">
       <BoundingBox>
