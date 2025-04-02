@@ -33,8 +33,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: esmini-assets.zip
-          name: "Latest Esmini Assets"
-          tag_name: ${{ env.VERSION }}
+          name: "Esmini Assets"
           make_latest: true
           draft: false
           prerelease: false
