@@ -19,7 +19,7 @@ The current asset pipeline is Blender-based and uses:
 - Blender API to export 3D models as `.fbx` 
 - `osgconv` (with the FBX plugin) to convert `.fbx` to `.osgb`
 
-Due to licensing restrictions, we cannot distribute the Autodesk FBX plugin, which is needed to convert `.fbx`  models into `.osgb`. However, you can install the plugin inside the devcontainer using the script at `/usr/local/bin/fbxsdk-install.sh`.
+Due to licensing restrictions, we cannot distribute the Autodesk FBX SDK, which is needed to convert `.fbx`  models into `.osgb`. However, you can install the plugin inside the devcontainer using the script at `/usr/local/bin/fbxsdk-install.sh`.
 
 ## License Information
 
