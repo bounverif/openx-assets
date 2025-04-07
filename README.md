@@ -1,5 +1,26 @@
 # Esmini Assets
 
-## Copyright Notice 
+This repository provides simulation assets for use with [Esmini](https://esmini.github.io/), a lightweight OpenScenario simulator that supports the ASAM OpenX standards: [OpenDrive](https://www.asam.net/standards/detail/opendrive/), [OpenScenario XML](https://www.asam.net/standards/detail/openscenario-xml/), and [OpenSimulationInterface](https://www.asam.net/standards/detail/osi/). 
 
-This software contains Autodesk® FBX® code developed by Autodesk, Inc. Copyright 2019 Autodesk, Inc. All rights, reserved. Such code is provided "as is" and Autodesk, Inc. disclaims any and all warranties, whether express or implied, including without limitation the implied warranties of merchantability, fitness for a particular purpose or non-infringement of third party rights. In no event shall Autodesk, Inc. be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of such code.
+## What's Included
+
+The latest release is available under [Releases](https://github.com/bounverif/esmini-assets/releases) and currently includes:
+- ASAM OpenScenario XML vehicle catalogs featuring real-world vehicle models with:
+   - Bounding box info ✔️
+   - Bass info ✔️
+   - Kinematic info ⏳ (needs help)
+- Low and medium polygon 3D vehicle model collections for visual enhancement in Esmini. Blender source files are in the repository for customizations.
+
+We also plan to add real-world and procedurally generated road networks in the OpenDrive format.
+
+## For Asset Developers
+
+The current asset pipeline is Blender-based and uses:
+- Blender API to export 3D models as `.fbx` 
+- `osgconv` (with the FBX plugin) to convert `.fbx` to `.osgb`
+
+Due to licensing restrictions, we cannot distribute the Autodesk FBX plugin, which is needed to convert `.fbx`  models into `.osgb`. However, you can install the plugin inside the devcontainer using the script at `/usr/local/bin/fbxsdk-install.sh`.
+
+## License Information
+
+All assets include a `.license` file in accordance with the REUSE specification. This repository is REUSE-compliant.
