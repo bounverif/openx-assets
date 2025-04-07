@@ -7,7 +7,7 @@ This repository provides simulation assets for use with [Esmini](https://esmini.
 The latest release is available under [Releases](https://github.com/bounverif/esmini-assets/releases) and currently includes:
 - ASAM OpenScenario XML vehicle catalogs featuring real-world vehicle models with:
    - Bounding box info ✔️
-   - Bass info ✔️
+   - Mass info ✔️
    - Kinematic info ⏳ (needs help)
 - Low and medium polygon 3D vehicle model collections for visual enhancement in Esmini. Blender source files are in the repository for customizations.
 
