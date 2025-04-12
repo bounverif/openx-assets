@@ -36,4 +36,36 @@ generic:
 	rm -rf ${PROJECT_DIR}/src/generic/fbx
 	rm -rf ${PROJECT_DIR}/src/generic/osgb
 
+openx-assets:
+	rm -rf /tmp/openx-assets
+	@for collection in $(COLLECTIONS); do \
+		echo "Processing $$collection"; \
+		mkdir -p /tmp/openx-assets/$$collection; \
+		$(MAKE) xom-$$collection; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.xoma /tmp/openx-assets/$$collection/ || true; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.gltf /tmp/openx-assets/$$collection/ || true; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.bin /tmp/openx-assets/$$collection/ || true; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.fbx /tmp/openx-assets/$$collection/ || true; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.osgb /tmp/openx-assets/$$collection/ || true; \
+	done
+	@cd /tmp/openx-assets && zip -r "$(PROJECT_DIR)/openx-assets.zip" .
+
+xom-bogazici:
+	blender --background \
+		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.blend \
+		--python scripts/blender-export-xom.py \
+		-- \
+		--xoma-template collections/bogazici/collection.xoma.json \
+		--export-fbx \
+		--export-gltf
+	osgconv -o 90-1,0,0 \
+		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.fbx \
+		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.osgb 
+	osgconv -o -90-0,0,1 \
+		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.osgb \
+		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.osgb 
+
+xom-generic:
+	@echo "Processing generic"
+
 .PHONY: all generic-package
