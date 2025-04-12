@@ -1,4 +1,6 @@
-name: release
+name: OpenX Assets Release
+description: |
+  This workflow builds and packages the OpenX assets and creates a GitHub release.
 on:
   workflow_dispatch:
   schedule:
