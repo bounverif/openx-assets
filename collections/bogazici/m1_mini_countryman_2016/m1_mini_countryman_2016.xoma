@@ -6,11 +6,12 @@
     "assetVersion": "2025.4.12",
     "openMaterial3dVersion": "1.0.0",
     "copyrights": [
-      "(C) 2025 Dogan Ulus"
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2019 razor24 <https://sketchfab.com/razor24>"
     ],
     "license": "MPL-2.0",
     "authors": [
-      "dogan.ulus@bogazici.edu.tr"
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
     "modelCreationTool": "Blender",
     "assetType": "object",
