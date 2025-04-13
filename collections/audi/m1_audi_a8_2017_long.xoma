@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "metadata": {
+    "name": "m1.audi.a8.2017.long",
+    "openMaterial3dVersion": "1.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "uuid": "633f5c10-87ce-57e6-9ff7-06e7c9568a92",
+    "assetVersion": "2025.4.13",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "mass": 2000,
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.5,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.644,
+          "positionX": 1.532,
+          "positionZ": 0.4
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.633,
+          "positionX": -1.466,
+          "positionZ": 0.4
+        }
+      },
+      "performance": {
+        "maxSpeed": 50,
+        "maxAcceleration": 5.0,
+        "maxDeceleration": 10.0
+      }
+    },
+    "boundingBox": {
+      "x": [
+        -2.651,
+        2.651
+      ],
+      "y": [
+        -1.065,
+        1.065
+      ],
+      "z": [
+        0,
+        1.485
+      ]
+    },
+    "animated": true,
+    "triangleCount": 1,
+    "meshCount": 1,
+    "textureResolutions": [
+      ""
+    ],
+    "normalMapFormat": "OpenGL",
+    "pbrMaterialWorkflow": "metallic"
+  }
+}

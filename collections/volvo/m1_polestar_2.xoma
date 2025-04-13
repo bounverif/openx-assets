@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "metadata": {
+    "name": "m1.polestar.2",
+    "openMaterial3dVersion": "1.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "uuid": "0a2c5d61-18eb-5846-bb49-0cdd015ea674",
+    "assetVersion": "2025.4.13",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "mass": 2050,
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.5,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.602,
+          "positionX": 1.39,
+          "positionZ": 0.4
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.601,
+          "positionX": -1.345,
+          "positionZ": 0.4
+        }
+      },
+      "performance": {
+        "maxSpeed": 55,
+        "maxAcceleration": 5.0,
+        "maxDeceleration": 10.0
+      }
+    },
+    "boundingBox": {
+      "x": [
+        -2.303,
+        2.303
+      ],
+      "y": [
+        -0.9295,
+        0.9295
+      ],
+      "z": [
+        0,
+        1.482
+      ]
+    },
+    "animated": true,
+    "triangleCount": 1,
+    "meshCount": 1,
+    "textureResolutions": [
+      ""
+    ],
+    "normalMapFormat": "OpenGL",
+    "pbrMaterialWorkflow": "metallic"
+  }
+}

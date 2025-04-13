@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "metadata": {
+    "name": "m1.ford.tourneo.custom.2022.l1h2",
+    "openMaterial3dVersion": "1.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "uuid": "585a3975-6ee2-5a1b-8448-3631a956399c",
+    "assetVersion": "2025.4.13",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "mass": 2700,
+    "vehicleClassData": {
+      "vehicleCategory": "van",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.5,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.6,
+          "positionX": 1.475,
+          "positionZ": 0.4
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.6,
+          "positionX": -1.458,
+          "positionZ": 0.4
+        }
+      },
+      "performance": {
+        "maxSpeed": 55,
+        "maxAcceleration": 5.0,
+        "maxDeceleration": 10.0
+      }
+    },
+    "boundingBox": {
+      "x": [
+        -2.4865,
+        2.4865
+      ],
+      "y": [
+        -0.993,
+        0.993
+      ],
+      "z": [
+        0,
+        2.3
+      ]
+    },
+    "animated": true,
+    "triangleCount": 1,
+    "meshCount": 1,
+    "textureResolutions": [
+      ""
+    ],
+    "normalMapFormat": "OpenGL",
+    "pbrMaterialWorkflow": "metallic"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "metadata": {
+    "name": "m1.volvo.s90l.2016",
+    "openMaterial3dVersion": "1.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "uuid": "4a7b601f-efa4-52a3-9a88-d39cc5e4fc6c",
+    "assetVersion": "2025.4.13",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "mass": 2050,
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.5,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.617,
+          "positionX": 1.66,
+          "positionZ": 0.4
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.617,
+          "positionX": -1.4,
+          "positionZ": 0.4
+        }
+      },
+      "performance": {
+        "maxSpeed": 55,
+        "maxAcceleration": 5.0,
+        "maxDeceleration": 10.0
+      }
+    },
+    "boundingBox": {
+      "x": [
+        -2.5415,
+        2.5415
+      ],
+      "y": [
+        -0.945,
+        0.945
+      ],
+      "z": [
+        0,
+        1.45
+      ]
+    },
+    "animated": true,
+    "triangleCount": 1,
+    "meshCount": 1,
+    "textureResolutions": [
+      ""
+    ],
+    "normalMapFormat": "OpenGL",
+    "pbrMaterialWorkflow": "metallic"
+  }
+}

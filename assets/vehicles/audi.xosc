@@ -6,27 +6,27 @@
   <Catalog name="audi">
     <Vehicle name="m1.audi.a1.2010" vehicleCategory="car" mass="1100">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.740" length="3.954" height="1.416" />
+        <Center x="1.300" y="0.0" z="0.708" />
+        <Dimensions width="1.940" length="3.954" height="1.416" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.469" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.477" positionX="2.469" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.471" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
       </Properties>
     </Vehicle>
-    <Vehicle name="m1.audi.a1.2018" vehicleCategory="car" mass="1250">
+    <Vehicle name="m1.audi.a1.2018.sportback" vehicleCategory="car" mass="1250">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="2.563" length="4.029" height="1.409" />
+        <Center x="1.295" y="0.0" z="0.711" />
+        <Dimensions width="1.906" length="3.973" height="1.422" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.563" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.477" positionX="2.563" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.471" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -34,13 +34,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.1996" vehicleCategory="car" mass="1100">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.735"  length="4.152" height="1.423" />
+        <Center x="1.303" y="0.0" z="0.711" />
+        <Dimensions width="1.847"  length="4.152" height="1.423" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.513" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.513" positionX="2.513" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.492" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -48,13 +48,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2003.3door" vehicleCategory="car" mass="1100">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.765" length="4.215" height="1.420" />
+        <Center x="1.355" y="0.0" z="0.71" />
+        <Dimensions width="1.995" length="4.215" height="1.420" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.578" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.522" positionX="2.578" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.507" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -62,13 +62,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2003.5door" vehicleCategory="car" mass="1250">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.765" length="4.285" height="1.420" />
+        <Center x="1.313" y="0.0" z="0.71" />
+        <Dimensions width="1.995" length="4.285" height="1.420" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.578" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.534" positionX="2.578" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.507" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -76,13 +76,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2012.2door" vehicleCategory="car" mass="1350">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="" length="" height="" />
+        <Center x="1.254" y="0.0" z="0.704" />
+        <Dimensions width="1.993" length="4.423" height="1.409" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.555" positionX="2.595" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.526" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -90,13 +90,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2012.3door" vehicleCategory="car" mass="1350">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="" length="" height="" />
+        <Center x="1.351" y="0.0" z="0.71" />
+        <Dimensions width="1.977" length="4.237" height="1.421" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.542" positionX="2.601" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.514" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -104,13 +104,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2012.4door" vehicleCategory="car" mass="1350">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="" length="" height="" />
+        <Center x="1.277" y="0.0" z="0.708" />
+        <Dimensions width="1.960" length="4.456" height="1.416" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.555" positionX="2.636" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.526" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -118,13 +118,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2012.5door" vehicleCategory="car" mass="1350">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="" length="" height="" />
+        <Center x="1.337" y="0.0" z="0.71" />
+        <Dimensions width="1.985" length="4.310" height="1.421" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.559" positionX="2.636" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.514" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -132,13 +132,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2020.sportback" vehicleCategory="car" mass="1600">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.816" length="4.337" height="1.425" />
+        <Center x="1.366" y="0.0" z="0.712" />
+        <Dimensions width="1.984" length="4.337" height="1.425" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.640" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.554" positionX="2.640" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.525" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -146,13 +146,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2020.sedan" vehicleCategory="car" mass="1600">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.816" length="4.495" height="1.425" />
+        <Center x="1.293" y="0.0" z="0.712" />
+        <Dimensions width="1.984" length="4.495" height="1.425" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.636" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.554" positionX="2.636" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.525" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -160,13 +160,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a3.2024.sportback" vehicleCategory="car" mass="1600">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.816" length="4.337" height="1.425" />
+        <Center x="1.369" y="0.0" z="0.712" />
+        <Dimensions width="1.984" length="4.337" height="1.425" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.640" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.554" positionX="2.640" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.525" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -174,13 +174,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a5.2017.coupe" vehicleCategory="car" mass="1500">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.846" length="4.697" height="1.371" />
+        <Center x="1305" y="0.0" z="0.685" />
+        <Dimensions width="2.029" length="4.697" height="1.371" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.764" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.587" positionX="2.764" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.568" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -188,13 +188,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.a5.2017.cabriolet" vehicleCategory="car" mass="1500">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.846" length="4.697" height="1.371" />
+        <Center x="1.306" y="0.0" z="0.685" />
+        <Dimensions width="2.029" length="4.697" height="1.371" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.764" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.587" positionX="2.764" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.568" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -202,69 +202,97 @@
     </Vehicle>
     <Vehicle name="m1.audi.a5.2017.sportback" vehicleCategory="car" mass="1500">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.843" length="4.733" height="1.386" />
+        <Center x="1.315" y="0.0" z="0.693" />
+        <Dimensions width="2.029" length="4.733" height="1.386" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.824" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.587" positionX="2.824" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.587" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
       </Properties>
     </Vehicle>
-    <Vehicle name="m1.audi.a5.2024" vehicleCategory="car" mass="1900">
+    <Vehicle name="m1.audi.a5.2024.sedan" vehicleCategory="car" mass="1900">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.860" length="4.829" height="1.440" />
+        <Center x="1.385" y="0.0" z="0.72" />
+        <Dimensions width="2.099" length="4.829" height="1.440" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.900" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.624" positionX="2.900" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.611" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
       </Properties>
     </Vehicle>
-    <Vehicle name="m1.audi.a6.2018" vehicleCategory="car" mass="1850">
+    <Vehicle name="m1.audi.a6.2018.sedan" vehicleCategory="car" mass="1850">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.886" length="4.939" height="1.457" />
+        <Center x="1.374" y="0.0" z="0.729" />
+        <Dimensions width="2.110" length="4.939" height="1.457" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.924" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.630" positionX="2.924" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.617" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
       </Properties>
     </Vehicle>
-    <Vehicle name="m1.audi.a7.2018" vehicleCategory="car" mass="1890">
+    <Vehicle name="m1.audi.a6.2025.sedan" vehicleCategory="car" mass="1850">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.926" length="4.969" height="1.422" />
+        <Center x="1.361" y="0.0" z="0.729" />
+        <Dimensions width="2.099" length="4.999" height="1.472" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.926" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.626" positionX="2.923" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.610" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
       </Properties>
     </Vehicle>
-    <Vehicle name="m1.audi.a8.2017" vehicleCategory="car" mass="2000">
+    <Vehicle name="m1.audi.a7.2018.sportback" vehicleCategory="car" mass="1890">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.945" length="5.172" height="1.485" />
+        <Center x="1.368" y="0.0" z="0.711" />
+        <Dimensions width="2.118" length="4.969" height="1.422" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.998" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.651" positionX="2.926" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.637" positionX="0.0" positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.audi.a8.2017.sedan" vehicleCategory="car" mass="2000">
+      <BoundingBox>
+        <Center x="1.401" y="0.0" z="0.742" />
+        <Dimensions width="2.130" length="5.172" height="1.485" />
+      </BoundingBox>
+      <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.644" positionX="2.998" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.633" positionX="0.0" positionZ="0.4" />
+      </Axles>
+      <Properties>
+        <Property name="scaleMode" value="ModelToBB" />
+      </Properties>
+    </Vehicle>
+    <Vehicle name="m1.audi.a8.2017.long" vehicleCategory="car" mass="2000">
+      <BoundingBox>
+        <Center x="1.466" y="0.0" z="0.742" />
+        <Dimensions width="2.130" length="5.302" height="1.485" />
+      </BoundingBox>
+      <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
+      <Axles>
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.644" positionX="2.998" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.633" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -272,13 +300,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.tt.2014.coupe" vehicleCategory="car" mass="1350">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.832" length="4.191" height="1.343" />
+        <Center x="1.302" y="0.0" z="0.671" />
+        <Dimensions width="1.966" length="4.191" height="1.343" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.505" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.574" positionX="2.505" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.553" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />
@@ -286,13 +314,13 @@
     </Vehicle>
     <Vehicle name="m1.audi.tt.2014.roadster" vehicleCategory="car" mass="1350">
       <BoundingBox>
-        <Center x="" y="0.0" z="" />
-        <Dimensions width="1.832" length="4.177" height="1.355" />
+        <Center x="1.300" y="0.0" z="0.677" />
+        <Dimensions width="1.966" length="4.177" height="1.355" />
       </BoundingBox>
       <Performance maxSpeed="${180/3.6}" maxDeceleration="10.0" maxAcceleration="5.0" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="" positionX="2.505" positionZ="0.4" />
-        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="" positionX="0.0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="0.8" trackWidth="1.572" positionX="2.505" positionZ="0.4" />
+        <RearAxle maxSteering="0.0" wheelDiameter="0.8" trackWidth="1.552" positionX="0.0" positionZ="0.4" />
       </Axles>
       <Properties>
         <Property name="scaleMode" value="ModelToBB" />

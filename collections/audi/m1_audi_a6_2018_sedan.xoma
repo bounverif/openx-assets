@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "metadata": {
+    "name": "m1.audi.a6.2018.sedan",
+    "openMaterial3dVersion": "1.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "uuid": "9f6aac91-a286-5955-ac66-d605093248ff",
+    "assetVersion": "2025.4.13",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "mass": 1850,
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.5,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.63,
+          "positionX": 1.55,
+          "positionZ": 0.4
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8,
+          "trackWidth": 1.617,
+          "positionX": -1.374,
+          "positionZ": 0.4
+        }
+      },
+      "performance": {
+        "maxSpeed": 50,
+        "maxAcceleration": 5.0,
+        "maxDeceleration": 10.0
+      }
+    },
+    "boundingBox": {
+      "x": [
+        -2.4695,
+        2.4695
+      ],
+      "y": [
+        -1.055,
+        1.055
+      ],
+      "z": [
+        0,
+        1.457
+      ]
+    },
+    "animated": true,
+    "triangleCount": 1,
+    "meshCount": 1,
+    "textureResolutions": [
+      ""
+    ],
+    "normalMapFormat": "OpenGL",
+    "pbrMaterialWorkflow": "metallic"
+  }
+}
