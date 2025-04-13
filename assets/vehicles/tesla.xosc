@@ -39,7 +39,7 @@
       </BoundingBox>
       <Performance maxSpeed="${217/3.6}" maxDeceleration="10" maxAcceleration="5" />
       <Axles>
-        <FrontAxle maxSteering="0.5" wheelDiameter="1,560" trackWidth="1.705 " positionX="2.965" positionZ="0.45" />
+        <FrontAxle maxSteering="0.5" wheelDiameter="1.560" trackWidth="1.705 " positionX="2.965" positionZ="0.45" />
         <RearAxle maxSteering="0.0" wheelDiameter="0.9" trackWidth="1.710" positionX="0.0" positionZ="0.45" />
       </Axles>
       <Properties>
