@@ -4,6 +4,9 @@
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 COLLECTIONS ?= bogazici generic
 
+OPENX_ASSETS_COLLECTIONS := bogazici 
+OPENX_ASSETS_VANILLA_COLLECTIONS := audi fiat ford tesla toyota volkswagen volvo
+
 esmini-assets:
 	rm -rf /tmp/esmini-assets
 	@mkdir -p /tmp/esmini-assets/models
@@ -38,7 +41,12 @@ generic:
 
 openx-assets:
 	rm -rf /tmp/openx-assets
-	@for collection in $(COLLECTIONS); do \
+	mkdir -p /tmp/openx-assets/vanilla
+	@for collection in $(OPENX_ASSETS_VANILLA_COLLECTIONS); do \
+		echo "Processing $$collection"; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*.xoma /tmp/openx-assets/vanilla/ || true; \
+	done
+	@for collection in $(OPENX_ASSETS_COLLECTIONS); do \
 		echo "Processing $$collection"; \
 		mkdir -p /tmp/openx-assets/$$collection; \
 		$(MAKE) xom-$$collection; \
