@@ -94,18 +94,18 @@ def get_mesh_count(collection_name='Grp_Root'):
     mesh_count = sum(1 for obj in collection.all_objects if obj.type == 'MESH')
     return mesh_count
 
-def get_axle_info(axle=0):
-    grp_wheel_right = bpy.data.collections.get('Grp_Wheel_{}_0'.format(axle))
-    grp_wheel_left = bpy.data.collections.get('Grp_Wheel_{}_1'.format(axle))
+def get_axle_info(axle=0, collection_name='Grp_Exterior_Dynamic'):
 
-    wheel_object_right = grp_wheel_right.objects.get('Grp_Wheel_Steering_Rotating_{}_0'.format(axle))
-    wheel_object_left = grp_wheel_left.objects.get('Grp_Wheel_Steering_Rotating_{}_1'.format(axle))
+    collection = bpy.data.collections.get(collection_name)
+
+    wheel_right = collection.objects.get('Grp_Wheel_{}_0'.format(axle))
+    wheel_left = collection.objects.get('Grp_Wheel_{}_1'.format(axle))
 
     return {
-        "wheelDiameter": round(wheel_object_right.dimensions.z,4),
-        "trackWidth": round(wheel_object_left.location.y,4) - round(wheel_object_right.location.y,4),
-        "positionX": round(wheel_object_right.location.x,4),
-        "positionZ": round(wheel_object_right.location.z,4),
+        "wheelDiameter": round(wheel_right.dimensions.z,4),
+        "trackWidth": round(wheel_left.location.y,4) - round(wheel_right.location.y,4),
+        "positionX": round(wheel_right.location.x,4),
+        "positionZ": round(wheel_right.location.z,4),
     }
     
 def export_blender_fbx(filepath):
@@ -123,6 +123,15 @@ def export_blender_gltf(filepath):
         filepath=filepath,
         export_hierarchy_full_collections=True,
         export_format='GLTF_SEPARATE',
+        export_yup=True,
+    )
+
+def export_blender_glb(filepath):
+    print(f"Exporting GLTF to {filepath}")
+    bpy.ops.export_scene.gltf(
+        filepath=filepath,
+        export_hierarchy_full_collections=True,
+        export_format='GLB',
         export_yup=True,
     )
 
@@ -157,12 +166,16 @@ def main(args):
         json.dump(xoma_data, f, indent=2)
 
     if args.export_fbx:
-        fbx_path = os.path.join(asset_dirname, '{}.fbx'.format(asset_name))
-        export_blender_fbx(fbx_path)
+        asset_path = os.path.join(asset_dirname, '{}.fbx'.format(asset_name))
+        export_blender_fbx(asset_path)
 
     if args.export_gltf:
-        gltf_path = os.path.join(asset_dirname, '{}.gltf'.format(asset_name))
-        export_blender_gltf(gltf_path)
+        asset_path = os.path.join(asset_dirname, '{}.gltf'.format(asset_name))
+        export_blender_gltf(asset_path)
+
+    if args.export_glb:
+        asset_path = os.path.join(asset_dirname, '{}.glb'.format(asset_name))
+        export_blender_gltf(asset_path)
 
 if __name__ == "__main__":
     argv = sys.argv
