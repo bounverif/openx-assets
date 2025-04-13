@@ -43,8 +43,9 @@ openx-assets:
 		mkdir -p /tmp/openx-assets/$$collection; \
 		$(MAKE) xom-$$collection; \
 		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.xoma /tmp/openx-assets/$$collection/ || true; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.gltf /tmp/openx-assets/$$collection/ || true; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.bin /tmp/openx-assets/$$collection/ || true; \
+		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.glb /tmp/openx-assets/$$collection/ || true; \
+		# cp -r ${PROJECT_DIR}/collections/$$collection/*/*.gltf /tmp/openx-assets/$$collection/ || true; \
+		# cp -r ${PROJECT_DIR}/collections/$$collection/*/*.bin /tmp/openx-assets/$$collection/ || true; \
 		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.fbx /tmp/openx-assets/$$collection/ || true; \
 		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.osgb /tmp/openx-assets/$$collection/ || true; \
 	done
@@ -57,7 +58,8 @@ xom-bogazici:
 		-- \
 		--xoma-template collections/bogazici/collection.xoma.json \
 		--export-fbx \
-		--export-gltf
+		--export-gltf \
+		--export-glb
 	osgconv -o 90-1,0,0 \
 		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.fbx \
 		collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.osgb 
