@@ -112,6 +112,7 @@ def export_blender_fbx(filepath):
     print(f"Exporting FBX to {filepath}")
     bpy.ops.export_scene.fbx(
         filepath=filepath,
+        colors_type='NONE',
         apply_scale_options='FBX_SCALE_ALL',
         axis_forward='-X', # -X
         axis_up='Z'        #  Z
@@ -121,6 +122,7 @@ def export_blender_gltf(filepath):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
+        export_vertex_color='NONE',
         export_hierarchy_full_collections=True,
         export_format='GLTF_SEPARATE',
         export_yup=True,
@@ -130,6 +132,7 @@ def export_blender_glb(filepath):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
+        export_vertex_color='NONE',
         export_hierarchy_full_collections=True,
         export_format='GLB',
         export_yup=True,
@@ -175,7 +178,7 @@ def main(args):
 
     if args.export_glb:
         asset_path = os.path.join(asset_dirname, '{}.glb'.format(asset_name))
-        export_blender_gltf(asset_path)
+        export_blender_glb(asset_path)
 
 if __name__ == "__main__":
     argv = sys.argv
