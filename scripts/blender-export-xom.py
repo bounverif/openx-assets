@@ -47,10 +47,11 @@ def get_bounding_box(normalize=False, collection_name='Grp_Root'):
         offset = (-center_x, -center_y, -offset_z)
 
         # Move all objects in the collection by the offset
-        for obj in collection.all_objects:
+        for obj in collection.objects:
             obj.location.x += offset[0]
             obj.location.y += offset[1]
             obj.location.z += offset[2]
+
 
         min_x += offset[0]
         min_y += offset[1]
@@ -102,7 +103,7 @@ def get_axle_info(axle=0, collection_name='Grp_Exterior_Dynamic'):
     wheel_left = collection.objects.get('Grp_Wheel_{}_1'.format(axle))
 
     return {
-        "wheelDiameter": round(wheel_right.dimensions.z,4),
+        "wheelDiameter": round(wheel_right.location.z * 2,4),
         "trackWidth": round(wheel_left.location.y,4) - round(wheel_right.location.y,4),
         "positionX": round(wheel_right.location.x,4),
         "positionZ": round(wheel_right.location.z,4),
@@ -165,6 +166,7 @@ def main(args):
     xoma_data['metadata']['vehicleClassData']['axles']["rearAxle"] |= get_axle_info(1)
 
     output_path = os.path.join(asset_dirname, '{}.xoma'.format(asset_name))
+
     with open(output_path, 'w') as f:
         json.dump(xoma_data, f, indent=2)
 

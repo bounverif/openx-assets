@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
   "metadata": {
-    "name": "m1_mini_countryman_2016",
+    "name": "m1_audi_q7_2015",
     "description": "OpenX Assets - Bogazici University Collection",
-    "uuid": "aa536d40-2ebd-575e-9f3b-f7988afdbfb5",
+    "uuid": "1681423c-e9b8-5ecc-87ca-1a0dc8f34409",
     "assetVersion": "2025.4.16",
     "openMaterial3dVersion": "1.0.0",
     "copyrights": [
@@ -27,40 +27,40 @@
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,
-          "wheelDiameter": 0.6817,
-          "trackWidth": 1.515,
-          "positionX": 1.3277,
-          "positionZ": 0.3409
+          "wheelDiameter": 0.7719,
+          "trackWidth": 1.6608,
+          "positionX": 1.6957,
+          "positionZ": 0.386
         },
         "rearAxle": {
           "maxSteering": 0.0,
-          "wheelDiameter": 0.6817,
-          "trackWidth": 1.515,
-          "positionX": -1.3481,
-          "positionZ": 0.3409
+          "wheelDiameter": 0.7719,
+          "trackWidth": 1.6608,
+          "positionX": -1.2969,
+          "positionZ": 0.386
         }
       }
     },
     "animated": false,
     "pbrMaterialWorkflow": "metallic",
-    "triangleCount": 32286,
-    "meshCount": 42,
+    "triangleCount": 39175,
+    "meshCount": 41,
     "textureResolutions": [
       "1K"
     ],
     "normalMapFormat": "OpenGL",
     "boundingBox": {
       "x": [
-        -2.1538,
-        2.1538
+        -2.5192,
+        2.5192
       ],
       "y": [
-        -0.9877,
-        0.9877
+        -1.1656,
+        1.1656
       ],
       "z": [
         0.0,
-        1.5874
+        1.7475
       ]
     }
   }
