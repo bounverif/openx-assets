@@ -4,7 +4,7 @@
     "name": "m1_mini_countryman_2016",
     "description": "OpenX Assets - Bogazici University Collection",
     "uuid": "aa536d40-2ebd-575e-9f3b-f7988afdbfb5",
-    "assetVersion": "2025.4.16",
+    "assetVersion": "2025.4.18",
     "openMaterial3dVersion": "1.0.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
@@ -44,7 +44,7 @@
     "animated": false,
     "pbrMaterialWorkflow": "metallic",
     "triangleCount": 32286,
-    "meshCount": 42,
+    "meshCount": 44,
     "textureResolutions": [
       "1K"
     ],
