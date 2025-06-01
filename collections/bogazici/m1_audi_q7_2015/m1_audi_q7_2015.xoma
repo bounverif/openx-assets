@@ -4,7 +4,7 @@
     "name": "m1_audi_q7_2015",
     "description": "OpenX Assets - Bogazici University Collection",
     "uuid": "1681423c-e9b8-5ecc-87ca-1a0dc8f34409",
-    "assetVersion": "2025.4.18",
+    "assetVersion": "2025.6.1",
     "openMaterial3dVersion": "1.0.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
@@ -44,7 +44,7 @@
     "animated": false,
     "pbrMaterialWorkflow": "metallic",
     "triangleCount": 39175,
-    "meshCount": 41,
+    "meshCount": 39,
     "textureResolutions": [
       "1K"
     ],
