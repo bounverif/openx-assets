@@ -11,6 +11,7 @@
 *.fbx.license
 *.osgb
 *.osgb.license
+*.osgt
 *.glb
 *.gltf
 *.bin
