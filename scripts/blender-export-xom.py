@@ -8,7 +8,7 @@ import datetime
 import argparse
 import json
 
-def get_bounding_box(normalize=False, collection_name='Grp_Root'):
+def get_bounding_box(normalize=False, collection_name='Scene'):
     def transform_point(matrix, point):
         x, y, z = point
         # Homogeneous coordinates
@@ -38,27 +38,14 @@ def get_bounding_box(normalize=False, collection_name='Grp_Root'):
                 max_x = max(max_x, x)
                 max_y = max(max_y, y)
                 max_z = max(max_z, z)
+    
+    # Eliminate negative zero values
+    if -0.0001 < min_z < 0:
+        min_z = 0.0
 
-    if normalize:
-        center_x = (min_x + max_x) / 2
-        center_y = (min_y + max_y) / 2
-        offset_z = min_z
-
-        offset = (-center_x, -center_y, -offset_z)
-
-        # Move all objects in the collection by the offset
-        for obj in collection.objects:
-            obj.location.x += offset[0]
-            obj.location.y += offset[1]
-            obj.location.z += offset[2]
-
-
-        min_x += offset[0]
-        min_y += offset[1]
-        min_z += offset[2]
-        max_x += offset[0]
-        max_y += offset[1]
-        max_z += offset[2]
+    print(f"  Offset X: {-(min_x+max_x)/2}")
+    print(f"  Offset Y: {-(min_y+max_y)/2}")
+    print(f"  Offset Z: {-min_z}")
 
     return {
         "x": (round(min_x,4), round(max_x,4)),
@@ -66,7 +53,7 @@ def get_bounding_box(normalize=False, collection_name='Grp_Root'):
         "z": (round(min_z,4), round(max_z,4)),
     }
 
-def get_collection_triangle_count(collection_name='Grp_Root'):
+def get_collection_triangle_count(collection_name='Scene'):
     collection = bpy.data.collections.get(collection_name)
     if collection is None:
         print(f"Collection '{collection_name}' not found.")
@@ -90,12 +77,12 @@ def get_calendar_version():
     calver = today.strftime("%Y.%-m.%-d")
     return calver
 
-def get_mesh_count(collection_name='Grp_Root'):
+def get_mesh_count(collection_name='Scene'):
     collection = bpy.data.collections.get(collection_name)
     mesh_count = sum(1 for obj in collection.all_objects if obj.type == 'MESH')
     return mesh_count
 
-def get_axle_info(axle=0, collection_name='Grp_Exterior_Dynamic'):
+def get_axle_info(axle=0, collection_name='Scene'):
 
     collection = bpy.data.collections.get(collection_name)
 
@@ -109,34 +96,39 @@ def get_axle_info(axle=0, collection_name='Grp_Exterior_Dynamic'):
         "positionZ": round(wheel_right.location.z,4),
     }
     
-def export_blender_fbx(filepath):
+def export_blender_fbx(filepath, collection='Scene'):
     print(f"Exporting FBX to {filepath}")
     bpy.ops.export_scene.fbx(
         filepath=filepath,
+        collection=collection,
         colors_type='NONE',
         apply_scale_options='FBX_SCALE_ALL',
         axis_forward='-X', # -X
         axis_up='Z'        #  Z
     )
 
-def export_blender_gltf(filepath):
+def export_blender_gltf(filepath, collection='Scene'):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
+        collection=collection,
         export_vertex_color='NONE',
-        export_hierarchy_full_collections=True,
         export_format='GLTF_SEPARATE',
         export_yup=True,
+        export_animations=False,
+        at_collection_center=True,
     )
 
-def export_blender_glb(filepath):
+def export_blender_glb(filepath, collection='Scene'):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
+        collection=collection,
         export_vertex_color='NONE',
-        export_hierarchy_full_collections=True,
         export_format='GLB',
         export_yup=True,
+        export_animations=False,
+        at_collection_center=True,
     )
 
 def main(args):
@@ -161,7 +153,7 @@ def main(args):
     xoma_data['metadata']['uuid'] = str(uuid.uuid5(uuid.NAMESPACE_URL, asset_name))
     xoma_data['metadata']['triangleCount'] = get_collection_triangle_count()
     xoma_data['metadata']['meshCount'] = get_mesh_count()
-    xoma_data['metadata']['boundingBox'] |= get_bounding_box(normalize=True)
+    xoma_data['metadata']['boundingBox'] |= get_bounding_box()
     xoma_data['metadata']['vehicleClassData']['axles']["frontAxle"] |= get_axle_info(0)
     xoma_data['metadata']['vehicleClassData']['axles']["rearAxle"] |= get_axle_info(1)
 

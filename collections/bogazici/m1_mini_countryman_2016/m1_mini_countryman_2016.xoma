@@ -4,7 +4,7 @@
     "name": "m1_mini_countryman_2016",
     "description": "OpenX Assets - Bogazici University Collection",
     "uuid": "aa536d40-2ebd-575e-9f3b-f7988afdbfb5",
-    "assetVersion": "2025.6.1",
+    "assetVersion": "2025.6.3",
     "openMaterial3dVersion": "1.0.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
@@ -27,24 +27,24 @@
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,
-          "wheelDiameter": 0.6817,
+          "wheelDiameter": 0.6829,
           "trackWidth": 1.515,
-          "positionX": 1.3277,
-          "positionZ": 0.3409
+          "positionX": 1.3266,
+          "positionZ": 0.3415
         },
         "rearAxle": {
           "maxSteering": 0.0,
-          "wheelDiameter": 0.6817,
+          "wheelDiameter": 0.6829,
           "trackWidth": 1.515,
-          "positionX": -1.3481,
-          "positionZ": 0.3409
+          "positionX": -1.3492,
+          "positionZ": 0.3415
         }
       }
     },
     "animated": false,
     "pbrMaterialWorkflow": "metallic",
     "triangleCount": 32286,
-    "meshCount": 44,
+    "meshCount": 42,
     "textureResolutions": [
       "1K"
     ],
