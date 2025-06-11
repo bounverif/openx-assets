@@ -2,16 +2,16 @@ schema_version = "1.0.0"
 
 # Example of manifest file for a Blender extension
 # Change the values according to your extension
-id = "openx_assets_extension"
+id = "openx_assets"
 version = "0.1.0"
-name = "OpenX Assets Extension"
+name = "OpenX Assets"
 tagline = "This is another extension"
 maintainer = "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
 # Supported types: "add-on", "theme"
 type = "add-on"
 
 # # Optional: link to documentation, support, source files, etc
-# website = "https://extensions.blender.org/add-ons/my-example-package/"
+website = "https://github.com/bounverif/openx-assets/"
 
 # # Optional: tag list defined by Blender and server, see:
 # # https://docs.blender.org/manual/en/dev/advanced/extensions/tags.html

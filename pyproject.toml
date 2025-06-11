@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MPL-2.0"}
 dependencies = [
-    "bpy >=4.0.0",
+    "bpy >=4.2.0",
 ]
 
 [build-system]

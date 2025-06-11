@@ -7,6 +7,8 @@ COLLECTIONS ?= bogazici generic
 OPENX_ASSETS_COLLECTIONS := bogazici 
 OPENX_ASSETS_VANILLA_COLLECTIONS := audi fiat ford tesla toyota volkswagen volvo
 
+BLENDER_USER_RESOURCES := $(shell blender --background --factory-startup --python-expr "import bpy; print(bpy.utils.resource_path('USER'))" | head -n 1)
+
 esmini-assets:
 	rm -rf /tmp/esmini-assets
 	@mkdir -p /tmp/esmini-assets/models
@@ -81,5 +83,9 @@ xom-bogazici:
 
 xom-generic:
 	@echo "Processing generic"
+
+blender:
+	mkdir -p ${BLENDER_USER_RESOURCES}/extensions/user_default
+	ln -s ${PROJECT_DIR}/python/openx_assets ${BLENDER_USER_RESOURCES}/extensions/user_default/
 
 .PHONY: all generic-package
