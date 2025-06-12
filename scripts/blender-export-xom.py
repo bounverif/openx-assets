@@ -8,7 +8,7 @@ import datetime
 import argparse
 import json
 
-def get_bounding_box(normalize=False, collection_name='Scene'):
+def get_bounding_box(normalize=False):
     def transform_point(matrix, point):
         x, y, z = point
         # Homogeneous coordinates
@@ -17,15 +17,10 @@ def get_bounding_box(normalize=False, collection_name='Scene'):
         pz = matrix[2][0]*x + matrix[2][1]*y + matrix[2][2]*z + matrix[2][3]
         return (px, py, pz)
 
-    collection = bpy.data.collections.get(collection_name)
-    if collection is None:
-        print(f"Collection '{collection_name}' not found.")
-        return None
-
     min_x = min_y = min_z = float('inf')
     max_x = max_y = max_z = float('-inf')
 
-    for obj in collection.all_objects:
+    for obj in bpy.data.objects:
         if obj.type == 'MESH':
             matrix = obj.matrix_world
             m = [[matrix[i][j] for j in range(4)] for i in range(4)]
@@ -53,16 +48,11 @@ def get_bounding_box(normalize=False, collection_name='Scene'):
         "z": (round(min_z,4), round(max_z,4)),
     }
 
-def get_collection_triangle_count(collection_name='Scene'):
-    collection = bpy.data.collections.get(collection_name)
-    if collection is None:
-        print(f"Collection '{collection_name}' not found.")
-        return 0
-
+def get_collection_triangle_count():
     depsgraph = bpy.context.evaluated_depsgraph_get()
     total_tris = 0
 
-    for obj in collection.all_objects:
+    for obj in bpy.data.objects:
         if obj.type == 'MESH':
             obj_eval = obj.evaluated_get(depsgraph)
             mesh = obj_eval.to_mesh()
@@ -77,17 +67,14 @@ def get_calendar_version():
     calver = today.strftime("%Y.%-m.%-d")
     return calver
 
-def get_mesh_count(collection_name='Scene'):
-    collection = bpy.data.collections.get(collection_name)
-    mesh_count = sum(1 for obj in collection.all_objects if obj.type == 'MESH')
+def get_mesh_count():
+    mesh_count = sum(1 for obj in bpy.data.objects if obj.type == 'MESH')
     return mesh_count
 
-def get_axle_info(axle=0, collection_name='Scene'):
+def get_axle_info(axle=0):
 
-    collection = bpy.data.collections.get(collection_name)
-
-    wheel_right = collection.objects.get('Grp_Wheel_{}_0'.format(axle))
-    wheel_left = collection.objects.get('Grp_Wheel_{}_1'.format(axle))
+    wheel_right = bpy.data.objects.get('Grp_Wheel_{}_0'.format(axle))
+    wheel_left = bpy.data.objects.get('Grp_Wheel_{}_1'.format(axle))
 
     return {
         "wheelDiameter": round(wheel_right.location.z * 2,4),
@@ -96,22 +83,20 @@ def get_axle_info(axle=0, collection_name='Scene'):
         "positionZ": round(wheel_right.location.z,4),
     }
     
-def export_blender_fbx(filepath, collection='Scene'):
+def export_blender_fbx(filepath):
     print(f"Exporting FBX to {filepath}")
     bpy.ops.export_scene.fbx(
         filepath=filepath,
-        collection=collection,
         colors_type='NONE',
         apply_scale_options='FBX_SCALE_ALL',
         axis_forward='-X', # -X
         axis_up='Z'        #  Z
     )
 
-def export_blender_gltf(filepath, collection='Scene'):
+def export_blender_gltf(filepath):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
-        collection=collection,
         export_vertex_color='NONE',
         export_format='GLTF_SEPARATE',
         export_yup=True,
@@ -119,11 +104,10 @@ def export_blender_gltf(filepath, collection='Scene'):
         at_collection_center=True,
     )
 
-def export_blender_glb(filepath, collection='Scene'):
+def export_blender_glb(filepath):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
-        collection=collection,
         export_vertex_color='NONE',
         export_format='GLB',
         export_yup=True,
