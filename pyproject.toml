@@ -2,12 +2,13 @@
 name = "openx-assets"
 version = "0.1.0"
 description = "OpenX Assets"
-readme = "README.md"
+readme = "python/openx_assets/README.md"
 requires-python = ">=3.10"
-license = {text = "MPL-2.0"}
+license = "GPL-3.0-or-later"
 dependencies = [
     "bpy >=4.2.0",
 ]
+license-files = ["python/openx_assets/LICENSE.md"]
 
 [build-system]
 requires = ["setuptools >= 77.0.3"]
