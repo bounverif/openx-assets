@@ -137,18 +137,18 @@ def add_empty_door_bottom_structure(number=1):
         add_empty_node(f"Grp_Door_Bottom_{door_bottom_idx}", "Grp_Exterior_Dynamic")
 
 def add_empty_lights_structure(lights=dict()):
-    add_empty_light_brake_structure(lights.get('brake', 1))
+    add_empty_light_brake_structure(lights.get('brake', 2))
     add_empty_light_corner_structure(lights.get('corner', 1))
     add_empty_light_day_structure(lights.get('day', 1))
     add_empty_light_fog_structure(lights.get('fog', 1))
-    add_empty_light_high_beam_structure(lights.get('high_beam', 1))
-    add_empty_light_indicator_structure(lights.get('indicator', 2))
+    add_empty_light_high_beam_structure(lights.get('high_beam', 2))
+    add_empty_light_indicator_structure(lights.get('indicator', 3))
     add_empty_light_license_plate_structure(lights.get('license_plate', 0))
-    add_empty_light_low_beam_structure(lights.get('low_beam', 1))
+    add_empty_light_low_beam_structure(lights.get('low_beam', 2))
     add_empty_light_park_structure(lights.get('park', 1))
     add_empty_light_position_structure(lights.get('position', 1))
     add_empty_light_reverse_structure(lights.get('reverse', 1))
-    add_empty_light_tail_structure(lights.get('tail', 1))
+    add_empty_light_tail_structure(lights.get('tail', 2))
     add_empty_light_warning_structure(lights.get('warning', 0))
 
 def add_empty_light_brake_structure(number=1):
@@ -223,3 +223,4 @@ def add_empty_seats_structure(seats=dict()):
 def add_convertible_top_structure(enabled=False):
     if enabled:
         add_empty_node("Grp_Convertible_Top", "Grp_Exterior_Dynamic")
+        
