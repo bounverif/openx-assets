@@ -4,7 +4,7 @@
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 COLLECTIONS ?= bogazici generic
 
-OPENX_ASSETS_COLLECTIONS := bogazici 
+OPENX_ASSETS_COLLECTIONS := bogazici
 OPENX_ASSETS_VANILLA_COLLECTIONS := audi fiat ford tesla toyota volkswagen volvo
 
 BLENDER_USER_RESOURCES := $(shell blender --background --factory-startup --python-expr "import bpy; print(bpy.utils.resource_path('USER'))" | head -n 1)
@@ -34,7 +34,7 @@ generic:
 	@mkdir -p /tmp/esmini-assets/models/generic
 	@mkdir -p ${PROJECT_DIR}/assets/models/generic/
 	#
-	$(MAKE) -C src generic 
+	$(MAKE) -C src generic
 	@cp -r ${PROJECT_DIR}/src/generic/osgb/* ${PROJECT_DIR}/assets/models/generic/
 	@cp -r ${PROJECT_DIR}/assets/models/generic/* /tmp/esmini-assets/models/generic/
 	@cp -r ${PROJECT_DIR}/assets/vehicles/generic.xosc /tmp/esmini-assets/vehicles/

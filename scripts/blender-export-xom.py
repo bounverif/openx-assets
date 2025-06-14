@@ -8,20 +8,21 @@ import datetime
 import argparse
 import json
 
+
 def get_bounding_box(normalize=False):
     def transform_point(matrix, point):
         x, y, z = point
         # Homogeneous coordinates
-        px = matrix[0][0]*x + matrix[0][1]*y + matrix[0][2]*z + matrix[0][3]
-        py = matrix[1][0]*x + matrix[1][1]*y + matrix[1][2]*z + matrix[1][3]
-        pz = matrix[2][0]*x + matrix[2][1]*y + matrix[2][2]*z + matrix[2][3]
+        px = matrix[0][0] * x + matrix[0][1] * y + matrix[0][2] * z + matrix[0][3]
+        py = matrix[1][0] * x + matrix[1][1] * y + matrix[1][2] * z + matrix[1][3]
+        pz = matrix[2][0] * x + matrix[2][1] * y + matrix[2][2] * z + matrix[2][3]
         return (px, py, pz)
 
-    min_x = min_y = min_z = float('inf')
-    max_x = max_y = max_z = float('-inf')
+    min_x = min_y = min_z = float("inf")
+    max_x = max_y = max_z = float("-inf")
 
     for obj in bpy.data.objects:
-        if obj.type == 'MESH':
+        if obj.type == "MESH":
             matrix = obj.matrix_world
             m = [[matrix[i][j] for j in range(4)] for i in range(4)]
 
@@ -33,7 +34,7 @@ def get_bounding_box(normalize=False):
                 max_x = max(max_x, x)
                 max_y = max(max_y, y)
                 max_z = max(max_z, z)
-    
+
     # Eliminate negative zero values
     if -0.0001 < min_z < 0:
         min_z = 0.0
@@ -43,17 +44,18 @@ def get_bounding_box(normalize=False):
     print(f"  Offset Z: {-min_z}")
 
     return {
-        "x": (round(min_x,4), round(max_x,4)),
-        "y": (round(min_y,4), round(max_y,4)),
-        "z": (round(min_z,4), round(max_z,4)),
+        "x": (round(min_x, 4), round(max_x, 4)),
+        "y": (round(min_y, 4), round(max_y, 4)),
+        "z": (round(min_z, 4), round(max_z, 4)),
     }
+
 
 def get_collection_triangle_count():
     depsgraph = bpy.context.evaluated_depsgraph_get()
     total_tris = 0
 
     for obj in bpy.data.objects:
-        if obj.type == 'MESH':
+        if obj.type == "MESH":
             obj_eval = obj.evaluated_get(depsgraph)
             mesh = obj_eval.to_mesh()
             mesh.calc_loop_triangles()
@@ -62,58 +64,66 @@ def get_collection_triangle_count():
 
     return total_tris
 
+
 def get_calendar_version():
     today = datetime.date.today()
     calver = today.strftime("%Y.%-m.%-d")
     return calver
 
+
 def get_mesh_count():
-    mesh_count = sum(1 for obj in bpy.data.objects if obj.type == 'MESH')
+    mesh_count = sum(1 for obj in bpy.data.objects if obj.type == "MESH")
     return mesh_count
+
 
 def get_axle_info(axle=0):
 
-    wheel_right = bpy.data.objects.get('Grp_Wheel_{}_0'.format(axle))
-    wheel_left = bpy.data.objects.get('Grp_Wheel_{}_1'.format(axle))
+    wheel_right = bpy.data.objects.get("Grp_Wheel_{}_0".format(axle))
+    wheel_left = bpy.data.objects.get("Grp_Wheel_{}_1".format(axle))
 
     return {
-        "wheelDiameter": round(wheel_right.location.z * 2,4),
-        "trackWidth": round(wheel_left.location.y,4) - round(wheel_right.location.y,4),
-        "positionX": round(wheel_right.location.x,4),
-        "positionZ": round(wheel_right.location.z,4),
+        "wheelDiameter": round(wheel_right.location.z * 2, 4),
+        "trackWidth": round(wheel_left.location.y, 4)
+        - round(wheel_right.location.y, 4),
+        "positionX": round(wheel_right.location.x, 4),
+        "positionZ": round(wheel_right.location.z, 4),
     }
-    
+
+
 def export_blender_fbx(filepath):
     print(f"Exporting FBX to {filepath}")
     bpy.ops.export_scene.fbx(
         filepath=filepath,
-        colors_type='NONE',
-        apply_scale_options='FBX_SCALE_ALL',
-        axis_forward='-X', # -X
-        axis_up='Z'        #  Z
+        colors_type="NONE",
+        apply_scale_options="FBX_SCALE_ALL",
+        axis_forward="-X",  # -X
+        axis_up="Z",  #  Z
     )
+
 
 def export_blender_gltf(filepath):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
-        export_vertex_color='NONE',
-        export_format='GLTF_SEPARATE',
+        export_vertex_color="NONE",
+        export_format="GLTF_SEPARATE",
         export_yup=True,
         export_animations=False,
         at_collection_center=True,
     )
 
+
 def export_blender_glb(filepath):
     print(f"Exporting GLTF to {filepath}")
     bpy.ops.export_scene.gltf(
         filepath=filepath,
-        export_vertex_color='NONE',
-        export_format='GLB',
+        export_vertex_color="NONE",
+        export_format="GLB",
         export_yup=True,
         export_animations=False,
         at_collection_center=True,
     )
+
 
 def main(args):
 
@@ -121,42 +131,43 @@ def main(args):
 
     if not blend_file:
         blend_file = args.blend_file
-    
+
     if not blend_file:
         print("No blend file specified.")
         return
 
-    asset_name = os.path.basename(blend_file).split('.')[0]
+    asset_name = os.path.basename(blend_file).split(".")[0]
     asset_dirname = os.path.dirname(blend_file)
 
     with open(args.xoma_template) as f:
         xoma_data = json.load(f)
 
-    xoma_data['metadata']['name'] = asset_name
-    xoma_data['metadata']['assetVersion'] = get_calendar_version()
-    xoma_data['metadata']['uuid'] = str(uuid.uuid5(uuid.NAMESPACE_URL, asset_name))
-    xoma_data['metadata']['triangleCount'] = get_collection_triangle_count()
-    xoma_data['metadata']['meshCount'] = get_mesh_count()
-    xoma_data['metadata']['boundingBox'] |= get_bounding_box()
-    xoma_data['metadata']['vehicleClassData']['axles']["frontAxle"] |= get_axle_info(0)
-    xoma_data['metadata']['vehicleClassData']['axles']["rearAxle"] |= get_axle_info(1)
+    xoma_data["metadata"]["name"] = asset_name
+    xoma_data["metadata"]["assetVersion"] = get_calendar_version()
+    xoma_data["metadata"]["uuid"] = str(uuid.uuid5(uuid.NAMESPACE_URL, asset_name))
+    xoma_data["metadata"]["triangleCount"] = get_collection_triangle_count()
+    xoma_data["metadata"]["meshCount"] = get_mesh_count()
+    xoma_data["metadata"]["boundingBox"] |= get_bounding_box()
+    xoma_data["metadata"]["vehicleClassData"]["axles"]["frontAxle"] |= get_axle_info(0)
+    xoma_data["metadata"]["vehicleClassData"]["axles"]["rearAxle"] |= get_axle_info(1)
 
-    output_path = os.path.join(asset_dirname, '{}.xoma'.format(asset_name))
+    output_path = os.path.join(asset_dirname, "{}.xoma".format(asset_name))
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         json.dump(xoma_data, f, indent=2)
 
     if args.export_fbx:
-        asset_path = os.path.join(asset_dirname, '{}.fbx'.format(asset_name))
+        asset_path = os.path.join(asset_dirname, "{}.fbx".format(asset_name))
         export_blender_fbx(asset_path)
 
     if args.export_gltf:
-        asset_path = os.path.join(asset_dirname, '{}.gltf'.format(asset_name))
+        asset_path = os.path.join(asset_dirname, "{}.gltf".format(asset_name))
         export_blender_gltf(asset_path)
 
     if args.export_glb:
-        asset_path = os.path.join(asset_dirname, '{}.glb'.format(asset_name))
+        asset_path = os.path.join(asset_dirname, "{}.glb".format(asset_name))
         export_blender_glb(asset_path)
+
 
 if __name__ == "__main__":
     argv = sys.argv
@@ -164,19 +175,32 @@ if __name__ == "__main__":
     # Parse args after `--` if in Blender, else just use sys.argv[1:]
     if "blender" in argv[0].lower():
         if "--" in argv:
-            python_argv = argv[argv.index("--") + 1:]
+            python_argv = argv[argv.index("--") + 1 :]
         else:
-            python_argv = []  
+            python_argv = []
     else:
         python_argv = argv[1:]
 
     # Common parser
-    parser = argparse.ArgumentParser(prog='blexom')
-    parser.add_argument('--blend-file', type=str, required=False, help='Path to the Blender file')
-    parser.add_argument('--xoma-template', type=str, required=False, help='Path to the XOMA template file')
-    parser.add_argument('--export-fbx', action='store_true', help='Export the scene as FBX')
-    parser.add_argument('--export-glb', action='store_true', help='Export the scene as GLB')
-    parser.add_argument('--export-gltf', action='store_true', help='Export the scene as GLTF')
+    parser = argparse.ArgumentParser(prog="blexom")
+    parser.add_argument(
+        "--blend-file", type=str, required=False, help="Path to the Blender file"
+    )
+    parser.add_argument(
+        "--xoma-template",
+        type=str,
+        required=False,
+        help="Path to the XOMA template file",
+    )
+    parser.add_argument(
+        "--export-fbx", action="store_true", help="Export the scene as FBX"
+    )
+    parser.add_argument(
+        "--export-glb", action="store_true", help="Export the scene as GLB"
+    )
+    parser.add_argument(
+        "--export-gltf", action="store_true", help="Export the scene as GLTF"
+    )
     args = parser.parse_args(python_argv)
 
     main(args)
