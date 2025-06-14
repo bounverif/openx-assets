@@ -3,8 +3,8 @@
     {
       "fileMatch": [
         "*.xoma",
-        "*.xomm",
+        "*.xomm"
       ]
     }
-  ],
+  ]
 }

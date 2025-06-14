@@ -7,13 +7,13 @@ import bpy
 import sys
 import os
 
-EXPORT_PATH = os.path.join(sys.argv[-1], '')
+EXPORT_PATH = os.path.join(sys.argv[-1], "")
 
 bpy.ops.export_scene.fbx(
     filepath=EXPORT_PATH,
-    batch_mode='COLLECTION', 
+    batch_mode="COLLECTION",
     use_batch_own_dir=False,
-    apply_scale_options='FBX_SCALE_ALL',
-    axis_forward='-X', # -X
-    axis_up='Z'        #  Z
+    apply_scale_options="FBX_SCALE_ALL",
+    axis_forward="-X",  # -X
+    axis_up="Z",  #  Z
 )

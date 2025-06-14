@@ -3,7 +3,7 @@
 #
 # This script is used to build the generic model collection from FBX files
 #
-# Use the following Blender FBX Export settings: 
+# Use the following Blender FBX Export settings:
 #
 # Batch Mode: Collection (unset Batch Own Dir option)
 # Transform:

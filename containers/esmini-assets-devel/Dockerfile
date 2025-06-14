@@ -89,5 +89,3 @@ RUN groupadd ${USERGROUP} -g ${GID}; \
 
 USER ${USER}
 WORKDIR /home/${USER}
-
-
