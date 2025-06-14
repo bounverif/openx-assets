@@ -5,12 +5,12 @@
 if "bpy" in locals():
     import importlib
     importlib.reload(xom3d_vehicle)
+    importlib.reload(xom3d_info_panel)
 else:
     from . import xom3d_vehicle
+    from . import xom3d_info_panel
 
 import bpy
-
-
 
 class OBJECT_OT_xom3d_add_empty_vehicle_structure(bpy.types.Operator):
     bl_idname = "xom3d_vehicle.add_empty_vehicle_structure"
@@ -21,7 +21,7 @@ class OBJECT_OT_xom3d_add_empty_vehicle_structure(bpy.types.Operator):
     def execute(self, context):
         xom3d_vehicle.add_empty_vehicle_structure()
         return {'FINISHED'}
-    
+
 class OBJECT_OT_xom3d_trim_vehicle_structure(bpy.types.Operator):
     bl_idname = "xom3d_vehicle.trim_vehicle_structure"
     bl_label = "Trim Vehicle Structure"
@@ -58,6 +58,7 @@ classes = (
 
 
 def register():
+    xom3d_info_panel.register()
     for cls in classes:
         bpy.utils.register_class(cls)
     bpy.types.VIEW3D_MT_object.append(draw_object_menu_openx)
@@ -66,6 +67,7 @@ def unregister():
     bpy.types.VIEW3D_MT_object.remove(draw_object_menu_openx)
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
+    xom3d_info_panel.unregister()
 
 if __name__ == "__main__":
     register()
