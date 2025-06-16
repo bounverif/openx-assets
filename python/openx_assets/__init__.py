@@ -4,70 +4,38 @@
 
 if "bpy" in locals():
     import importlib
-    importlib.reload(xom3d_vehicle)
-    importlib.reload(xom3d_info_panel)
+
+    importlib.reload(ops)
+    importlib.reload(props)
+    importlib.reload(xom3d_utils)
+    importlib.reload(xom3d_vehicle_structure)
+    importlib.reload(ui_vehicle_menu)
+    importlib.reload(ui_vehicle_info_panel)
+
 else:
-    from . import xom3d_vehicle
-    from . import xom3d_info_panel
+    from . import ops
+    from . import props
+    from . import xom3d_utils
+    from . import xom3d_vehicle_structure
+    from . import ui_vehicle_menu
+    from . import ui_vehicle_info_panel
 
 import bpy
 
-class OBJECT_OT_xom3d_add_empty_vehicle_structure(bpy.types.Operator):
-    bl_idname = "xom3d_vehicle.add_empty_vehicle_structure"
-    bl_label = "Add Empty Vehicle Structure"
-    bl_description = "Add an empty ASAM OpenMATERIAL 3D vehicle structure"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    def execute(self, context):
-        xom3d_vehicle.add_empty_vehicle_structure()
-        return {'FINISHED'}
-
-class OBJECT_OT_xom3d_trim_vehicle_structure(bpy.types.Operator):
-    bl_idname = "xom3d_vehicle.trim_vehicle_structure"
-    bl_label = "Trim Vehicle Structure"
-    bl_description = "Trim ASAM OpenMATERIAL 3D vehicle structure"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    def execute(self, context):
-        xom3d_vehicle.trim_vehicle_structure()
-        return {'FINISHED'}
-
-# Define the dropdown submenu
-class VIEW3D_MT_object_openx_submenu(bpy.types.Menu):
-    bl_idname = "VIEW3D_MT_object_openx_submenu"
-    bl_label = "OpenX Assets"
-
-    def draw(self, context):
-        layout = self.layout
-        layout.operator(OBJECT_OT_xom3d_add_empty_vehicle_structure.bl_idname, icon='EMPTY_AXIS')
-        layout.operator(OBJECT_OT_xom3d_trim_vehicle_structure.bl_idname, icon='EMPTY_AXIS')
-        # Add more operators here if needed
-
-# Add the dropdown menu to the Object menu
-def draw_object_menu_openx(self, context):
-    layout = self.layout
-    layout.separator()
-    layout.menu(VIEW3D_MT_object_openx_submenu.bl_idname, icon='AUTO')
-
-# Registration
-classes = (
-    OBJECT_OT_xom3d_add_empty_vehicle_structure,
-    OBJECT_OT_xom3d_trim_vehicle_structure,
-    VIEW3D_MT_object_openx_submenu,
-)
-
 
 def register():
-    xom3d_info_panel.register()
-    for cls in classes:
-        bpy.utils.register_class(cls)
-    bpy.types.VIEW3D_MT_object.append(draw_object_menu_openx)
+    ops.register()
+    props.register()
+    ui_vehicle_menu.register()
+    ui_vehicle_info_panel.register()
+
 
 def unregister():
-    bpy.types.VIEW3D_MT_object.remove(draw_object_menu_openx)
-    for cls in reversed(classes):
-        bpy.utils.unregister_class(cls)
-    xom3d_info_panel.unregister()
+    ui_vehicle_info_panel.unregister()
+    ui_vehicle_menu.unregister()
+    props.unregister()
+    ops.unregister()
+
 
 if __name__ == "__main__":
     register()
