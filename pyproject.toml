@@ -8,7 +8,7 @@ license = "GPL-3.0-or-later"
 dependencies = [
     "bpy >=4.2.0",
 ]
-license-files = ["python/openx_assets/LICENSE.md"]
+license-files = ["python/openx_assets/LICENSE"]
 
 [build-system]
 requires = ["setuptools >= 77.0.3"]
