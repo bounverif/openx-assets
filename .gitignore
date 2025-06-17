@@ -1,5 +1,5 @@
 # Asset files
-*.blend[0-9]
+*.blend[0-9]*
 *.obj
 *.fbx
 *.tar.gz
@@ -12,8 +12,11 @@
 *.osgb
 *.osgb.license
 *.osgt
+*.osgt.license
 *.glb
+*.glb.license
 *.gltf
+*.gltf.license
 *.bin
 
 ### Python ###
