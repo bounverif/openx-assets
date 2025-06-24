@@ -2,30 +2,44 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-if "bpy" in locals():
+
+def reload_package(module_dict_main):
     import importlib
+    from pathlib import Path
 
-    importlib.reload(ops)
-    importlib.reload(props)
-    importlib.reload(xom3d_utils)
-    importlib.reload(xom3d_vehicle_structure)
-    importlib.reload(ui_vehicle_menu)
-    importlib.reload(ui_vehicle_info_panel)
+    def reload_package_recursive(current_dir, module_dict):
+        for path in current_dir.iterdir():
+            if "__init__" in str(path) or path.stem not in module_dict:
+                continue
 
-else:
-    from . import ops
-    from . import props
-    from . import xom3d_utils
-    from . import xom3d_vehicle_structure
-    from . import ui_vehicle_menu
-    from . import ui_vehicle_info_panel
+            if path.is_file() and path.suffix == ".py":
+                importlib.reload(module_dict[path.stem])
+            elif path.is_dir():
+                reload_package_recursive(path, module_dict[path.stem].__dict__)
+
+    reload_package_recursive(Path(__file__).parent, module_dict_main)
+
+
+if "bpy" in locals():
+    reload_package(locals())
+
+from . import ops
+from . import ui_preferences
+from . import ui_vehicle_menu
+from . import ui_vehicle_info_panel
 
 import bpy
+from . import xom3d
+from . import xom3d_utils
 
 
 def register():
+
+    if not hasattr(bpy.types.Scene, "xom3d_context"):
+        bpy.types.Scene.xom3d_context = xom3d.Context()
+
     ops.register()
-    props.register()
+    ui_preferences.register()
     ui_vehicle_menu.register()
     ui_vehicle_info_panel.register()
 
@@ -33,8 +47,11 @@ def register():
 def unregister():
     ui_vehicle_info_panel.unregister()
     ui_vehicle_menu.unregister()
-    props.unregister()
+    ui_preferences.unregister()
     ops.unregister()
+
+    if hasattr(bpy.types.Scene, "xom3d_context"):
+        del bpy.types.Scene.xom3d_context
 
 
 if __name__ == "__main__":

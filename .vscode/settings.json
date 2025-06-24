@@ -1,10 +1,20 @@
 {
+  "files.associations": {
+    "*.xoma": "json",
+    "*.xomm": "json"
+  },
   "json.schemas": [
     {
       "fileMatch": [
-        "*.xoma",
+        "*.xoma"
+      ],
+      "url": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json"
+    },
+    {
+      "fileMatch": [
         "*.xomm"
-      ]
+      ],
+      "url": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/material_schema.json"
     }
   ]
 }

@@ -1,6 +1,10 @@
 import bpy
+import math
+import json
+import pathlib
 
 from mathutils import Vector
+from jsonschema import validate
 
 
 def add_empty_node(name, parent_name=None, dtype="PLAIN_AXES"):
@@ -22,7 +26,7 @@ def update_depsgraph():
     depsgraph.update()
 
 
-def get_bounding_box():
+def get_bounding_box(rounded=0):
 
     if not any(obj.type == "MESH" for obj in bpy.data.objects):
         return {
@@ -48,6 +52,14 @@ def get_bounding_box():
                 max_y = max(max_y, y)
                 max_z = max(max_z, z)
 
+    if rounded > 0:
+        min_x = round(min_x, rounded)
+        max_x = round(max_x, rounded)
+        min_y = round(min_y, rounded)
+        max_y = round(max_y, rounded)
+        min_z = round(min_z, rounded)
+        max_z = round(max_z, rounded)
+
     return {
         "x": {"min": min_x, "max": max_x},
         "y": {"min": min_y, "max": max_y},
@@ -55,16 +67,27 @@ def get_bounding_box():
     }
 
 
-def get_axle_info(axle=0):
+def get_axle_info(axle=0, rounded=0):
 
     wheel_right = bpy.data.objects.get("Grp_Wheel_{}_0".format(axle))
     wheel_left = bpy.data.objects.get("Grp_Wheel_{}_1".format(axle))
 
+    wheel_diameter = wheel_right.location.z * 2
+    track_width = wheel_left.location.y - wheel_right.location.y
+    position_x = wheel_right.location.x
+    position_z = wheel_right.location.z
+
+    if rounded > 0:
+        wheel_diameter = round(wheel_diameter, rounded)
+        track_width = round(track_width, rounded)
+        position_x = round(position_x, rounded)
+        position_z = round(position_z, rounded)
+
     return {
-        "wheelDiameter": wheel_right.location.z * 2,
-        "trackWidth": wheel_left.location.y - wheel_right.location.y,
-        "positionX": wheel_right.location.x,
-        "positionZ": wheel_right.location.z,
+        "wheelDiameter": wheel_diameter,
+        "trackWidth": track_width,
+        "positionX": position_x,
+        "positionZ": position_z,
     }
 
 
@@ -105,3 +128,157 @@ def move_asset_to_origin():
 def is_vehicle_asset():
     """Check if the current asset is a vehicle asset."""
     return any(obj.name.startswith("Grp_Exterior") for obj in bpy.data.objects)
+
+
+def is_asset_centered(rel_tol=0, abs_tol=1e-6):
+    """Check if the asset is centered at the origin."""
+    bbox = get_bounding_box()
+    if not bbox:
+        return False
+
+    x_centered = math.isclose(
+        bbox["x"]["min"] + bbox["x"]["max"], rel_tol, abs_tol=abs_tol
+    )
+    y_centered = math.isclose(
+        bbox["y"]["min"] + bbox["y"]["max"], rel_tol, abs_tol=abs_tol
+    )
+    z_centered = (
+        math.isclose(bbox["z"]["min"], rel_tol, abs_tol=abs_tol)
+        and bbox["z"]["min"] >= 0
+    )
+
+    return x_centered and y_centered and z_centered
+
+
+def set_active_and_select(active_obj, select_objs):
+    """Helper to clear selection, select specified objects and set active object."""
+    bpy.ops.object.select_all(action="DESELECT")
+    for obj in select_objs:
+        obj.select_set(True)
+    bpy.context.view_layer.objects.active = active_obj
+
+
+def move_empty_parent_to_child():
+    child = bpy.context.active_object
+    if not child:
+        print("No active object selected.")
+        return
+
+    parent = child.parent
+    if not parent:
+        print(f"[Skipped] '{child.name}' has no parent.")
+        return
+
+    if parent.type != "EMPTY":
+        print(
+            f"[Skipped] Parent '{parent.name}' is not an Empty object. Its type is '{parent.type}'."
+        )
+        return
+
+    # Ensure Object mode
+    if bpy.context.mode != "OBJECT":
+        bpy.ops.object.mode_set(mode="OBJECT")
+
+    # Save child's world matrix before parenting changes
+    child_world_matrix = child.matrix_world.copy()
+
+    # Clear parenting but keep child's world transform
+    set_active_and_select(child, [child])
+    bpy.ops.object.parent_clear(type="CLEAR_KEEP_TRANSFORM")
+
+    # Move parent to child's former world matrix
+    parent.matrix_world = child_world_matrix
+
+    # Reparent child to parent with keep transform
+    set_active_and_select(parent, [parent, child])
+    bpy.ops.object.parent_set(type="OBJECT", keep_transform=True)
+
+    # Apply Parent Inverse to the child (bakes inverse matrix)
+    set_active_and_select(child, [child])
+    bpy.ops.object.parent_inverse_apply()
+    print(f"[Done] Applied Parent Inverse to '{child.name}'.")
+
+    # Apply all transforms to the parent (location, rotation, scale)
+    set_active_and_select(child, [child])
+    bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+    print(
+        f"[Done] Applied all transforms (location, rotation, scale) to '{parent.name}'."
+    )
+
+
+def export_scene_gltf(filepath="", export_format="GLB"):
+    """Export the current scene to a GLTF file."""
+    # get current scene filepath
+
+    extension = ".glb" if export_format == "GLB" else ".gltf"
+
+    if not filepath:
+        original = bpy.data.filepath
+        filepath = str(pathlib.Path(original).with_suffix(extension).resolve())
+
+    bpy.ops.export_scene.gltf(
+        filepath=filepath,
+        export_format=export_format,
+        export_vertex_color="NONE",
+        export_yup=True,
+        export_animations=False,
+        # export_draco_mesh_compression_enable=True,
+        # export_materials='PLACEHOLDER',
+        export_extras=True,
+    )
+
+    return filepath
+
+
+def export_scene_fbx(filepath=""):
+    """Export the current scene to an FBX file."""
+
+    if not filepath:
+        original = bpy.data.filepath
+        filepath = str(pathlib.Path(original).with_suffix(".fbx").resolve())
+
+    bpy.ops.export_scene.fbx(
+        filepath=filepath,
+        colors_type="NONE",
+        apply_scale_options="FBX_SCALE_ALL",
+        axis_forward="-X",  # -X
+        axis_up="Z",  #  Z
+    )
+
+    return filepath
+
+
+def deep_merge(d1, d2):
+    merged = dict(d1)
+    for k, v in d2.items():
+        if k in merged and isinstance(merged[k], dict) and isinstance(v, dict):
+            merged[k] = deep_merge(merged[k], v)
+        else:
+            merged[k] = v
+    return merged
+
+
+def export_asset_file(asset_data, user_data=dict(), asset_schema=None, rounded=4):
+    filepath = bpy.data.filepath
+    xomapath = str(pathlib.Path(filepath).with_suffix(".xoma").resolve())
+
+    calculated_data = {
+        "metadata": {
+            "boundingBox": get_bounding_box(rounded=rounded),
+            "vehicleClassData": {
+                "axles": {
+                    "frontAxle": get_axle_info(0, rounded=rounded),
+                    "rearAxle": get_axle_info(1, rounded=rounded),
+                }
+            },
+            "meshCount": get_mesh_count(),
+            "triangleCount": get_triangle_count(),
+        }
+    }
+
+    updated_data = deep_merge(user_data, calculated_data)
+    current_data = deep_merge(asset_data, updated_data)
+
+    # Dump asset data to JSON
+    with open(xomapath, "w", encoding="utf-8") as f:
+        json.dump(current_data, f, indent=2)
