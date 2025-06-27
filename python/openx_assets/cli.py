@@ -67,7 +67,7 @@ def render_command(args):
             pass
         scene.cycles.device = "GPU" if cprefs.compute_device_type != "NONE" else "CPU"
         scene.cycles.use_adaptive_sampling = True
-        scene.cycles.samples = 32
+        scene.cycles.samples = 64
         scene.cycles.use_denoising = True
         scene.render.film_transparent = False  # Let materials reflect the sky
 
@@ -85,7 +85,7 @@ def render_command(args):
                 1.0,
                 1.0,
             )  # white light
-            env_nodes["Background"].inputs[1].default_value = 0.7  # strength
+            env_nodes["Background"].inputs[1].default_value = 1.0  # strength
 
         # Add Sunlight if not present
         if "Sun" not in bpy.data.objects:

@@ -22,7 +22,7 @@ class FileTemplates:
             "copyrights": [],
             "openMaterial3dVersion": "1.0.0",
             "assetVersion": "",
-            "assetType": "",
+            "assetType": "object",
             "objectClass": "vehicle",
             "boundingBox": {"x": [0.0, 0.0], "y": [0.0, 0.0], "z": [0.0, 0.0]},
             "vehicleClassData": {

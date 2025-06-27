@@ -1,6 +1,7 @@
 import bpy
 import math
 import json
+import uuid
 import pathlib
 
 from mathutils import Vector
@@ -109,6 +110,11 @@ def get_triangle_count():
             obj_eval.to_mesh_clear()
 
     return total_triangles
+
+
+def get_uuid():
+    """Generate a UUID for the current Blender file."""
+    return str(uuid.uuid4())
 
 
 def move_asset_to_origin():
@@ -257,6 +263,9 @@ def export_asset_file(asset_data, user_data=dict(), asset_schema=None, rounded=4
     filepath = bpy.data.filepath
     xomapath = str(pathlib.Path(filepath).with_suffix(".xoma").resolve())
 
+    if not asset_data.get("metadata", {}).get("uuid"):
+        asset_data["metadata"]["uuid"] = get_uuid()
+
     calculated_data = {
         "metadata": {
             "boundingBox": get_bounding_box(rounded=rounded),
@@ -277,3 +286,5 @@ def export_asset_file(asset_data, user_data=dict(), asset_schema=None, rounded=4
     # Dump asset data to JSON
     with open(xomapath, "w", encoding="utf-8") as f:
         json.dump(current_data, f, indent=2)
+
+    return xomapath
