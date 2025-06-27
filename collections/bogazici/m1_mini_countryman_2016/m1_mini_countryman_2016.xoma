@@ -12,7 +12,7 @@
       "(c) 2019 razor24 <https://sketchfab.com/razor24>"
     ],
     "openMaterial3dVersion": "1.0.0",
-    "assetVersion": "2025.6.27",
+    "assetVersion": "devel",
     "assetType": "object",
     "objectClass": "vehicle",
     "boundingBox": {
@@ -62,6 +62,5 @@
     "pbrMaterialWorkflow": "metallic",
     "normalMapFormat": "OpenGL",
     "modelCreationTool": "Blender"
-  },
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json"
+  }
 }

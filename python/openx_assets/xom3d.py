@@ -21,7 +21,7 @@ class FileTemplates:
             "license": "",
             "copyrights": [],
             "openMaterial3dVersion": "1.0.0",
-            "assetVersion": "",
+            "assetVersion": "devel",
             "assetType": "object",
             "objectClass": "vehicle",
             "boundingBox": {"x": [0.0, 0.0], "y": [0.0, 0.0], "z": [0.0, 0.0]},
