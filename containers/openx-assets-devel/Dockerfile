@@ -41,8 +41,8 @@ RUN export FBXSDK_INSTALL_PREFIX=/opt/fbxsdk &&\
 FROM docker.io/library/debian:12 AS openx-assets-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
 
 # Install dependencies
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
@@ -55,8 +55,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       ca-certificates \
       git \
       gnupg2 \
+      zlib1g \
       tar zip unzip xz-utils \
       make \
+      build-essential \
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
@@ -67,14 +69,34 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
     apt-get update -qq && \
     apt-get install -qy --no-install-recommends \
       python3 \
+      python3-dev \
       python3-pip \
       python3-numpy \
       pipx \
-      reuse \
       libxml2 \
-      zlib1g \
+      libx11-6 \
+      \
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+RUN pipx ensurepath && \
+    pipx install --pip-args="--no-cache-dir" reuse
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
+    export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update -qq && \
+    apt-get install -qy --no-install-recommends \
+      libxrender1 \
+      libxxf86vm1 \
+      libxfixes3 \
+      libxi6 \
+      libxkbcommon0 \
+      libsm6 \
+      libgl1 \
+      && \
+    apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 FROM openx-assets-builder AS openx-assets-devel
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
