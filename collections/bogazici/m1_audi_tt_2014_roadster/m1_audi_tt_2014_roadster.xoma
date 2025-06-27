@@ -59,5 +59,6 @@
     "textureResolutions": [],
     "pbrMaterialWorkflow": "metallic",
     "normalMapFormat": "OpenGL"
-  }
+  },
+  "asset_version": "1.0.0"
 }

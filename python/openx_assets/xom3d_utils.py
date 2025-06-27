@@ -286,5 +286,6 @@ def export_asset_file(asset_data, user_data=dict(), asset_schema=None, rounded=4
     # Dump asset data to JSON
     with open(xomapath, "w", encoding="utf-8") as f:
         json.dump(current_data, f, indent=2)
+        f.write("\n")
 
     return xomapath

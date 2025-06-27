@@ -43,6 +43,8 @@ def export_command(args):
 
         template = FileTemplates.xoma_1_0_0
         asset_data = xom3d_utils.deep_merge(template, filedata)
+        if args.asset_version:
+            asset_data["metadata"]["assetVersion"] = args.asset_version
         xom3d_utils.export_asset_file(asset_data)
 
 
@@ -239,6 +241,10 @@ def main():
         "--destdir",
         type=pathlib.Path,
         help="Output directory for exported files (default: next to source file)",
+    )
+    export_parser.add_argument(
+        "--asset-version",
+        help="Asset version to use in the exported file",
     )
 
     export_parser.set_defaults(func=export_command)
