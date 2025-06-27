@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "Audi TT Roadster",
+    "description": "A 3D model of Audi TT 2014 Roadster, suitable for use in simulations and visualizations.",
+    "uuid": "48e6bd58-cae5-4960-83c4-c405a72cd47e",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2019 razor24 <https://sketchfab.com/razor24>"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "",
+    "assetType": "",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.089,
+        2.089
+      ],
+      "y": [
+        -0.9913,
+        0.9913
+      ],
+      "z": [
+        0.0,
+        1.3278
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6597,
+          "trackWidth": 1.578,
+          "positionX": 1.2053,
+          "positionZ": 0.3299
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6597,
+          "trackWidth": 1.578,
+          "positionX": -1.3025,
+          "positionZ": 0.3299
+        }
+      },
+      "performance": {
+        "maxSpeed": 0.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 32,
+    "triangleCount": 32261,
+    "animated": false,
+    "textureResolutions": [],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

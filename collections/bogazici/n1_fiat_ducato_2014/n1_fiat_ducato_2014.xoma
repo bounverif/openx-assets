@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "Fiat Ducato",
+    "description": "A 3D model of Fiat Ducato 2014, suitable for use in simulations and visualizations.",
+    "uuid": "1d4c44e5-201b-4329-aea5-7fd2cef357bd",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MIT-2.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2019 razor24 <https://sketchfab.com/razor24>"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "",
+    "assetType": "",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.4996,
+        2.4996
+      ],
+      "y": [
+        -1.2538,
+        1.2538
+      ],
+      "z": [
+        0.0,
+        2.2452
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7009,
+          "trackWidth": 1.7962,
+          "positionX": 1.5421,
+          "positionZ": 0.3504
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7009,
+          "trackWidth": 1.7962,
+          "positionX": -1.4604,
+          "positionZ": 0.3504
+        }
+      },
+      "performance": {
+        "maxSpeed": 0.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 34,
+    "triangleCount": 35486,
+    "animated": false,
+    "textureResolutions": [""],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

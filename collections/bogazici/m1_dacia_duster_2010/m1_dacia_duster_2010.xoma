@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "Dacia Duster",
+    "description": "A 3D model of Dacia Duster 2010, suitable for use in simulations and visualizations.",
+    "uuid": "b1f3457c-3cc3-49cf-9742-c73e0beb88bb",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2019 razor24 <https://sketchfab.com/razor24>"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "",
+    "assetType": "",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.1608,
+        2.1608
+      ],
+      "y": [
+        -1.0012,
+        1.0012
+      ],
+      "z": [
+        0.0,
+        1.6817
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6778,
+          "trackWidth": 1.5577,
+          "positionX": 1.3327,
+          "positionZ": 0.3389
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6778,
+          "trackWidth": 1.5577,
+          "positionX": -1.3424,
+          "positionZ": 0.3389
+        }
+      },
+      "performance": {
+        "maxSpeed": 0.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 31,
+    "triangleCount": 38082,
+    "animated": false,
+    "textureResolutions": [],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

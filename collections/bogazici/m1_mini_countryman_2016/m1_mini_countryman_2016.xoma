@@ -1,29 +1,36 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
   "metadata": {
-    "name": "m1_mini_countryman_2016",
-    "description": "OpenX Assets - Bogazici University Collection",
+    "name": "Mini Countryman",
+    "description": "A 3D model of Mini Countryman 2016, suitable for use in simulations and visualizations.",
     "uuid": "aa536d40-2ebd-575e-9f3b-f7988afdbfb5",
-    "assetVersion": "2025.6.12",
-    "openMaterial3dVersion": "1.0.0",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
       "(c) 2019 razor24 <https://sketchfab.com/razor24>"
     ],
-    "license": "MPL-2.0",
-    "authors": [
-      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
-    ],
-    "modelCreationTool": "Blender",
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "2025.6.12",
     "assetType": "object",
     "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.1538,
+        2.1538
+      ],
+      "y": [
+        -0.9877,
+        0.9877
+      ],
+      "z": [
+        0.0,
+        1.5874
+      ]
+    },
     "vehicleClassData": {
       "vehicleCategory": "car",
-      "performance": {
-        "maxSpeed": 41.67,
-        "maxAcceleration": 8.0,
-        "maxDeceleration": 8.0
-      },
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,
@@ -39,29 +46,22 @@
           "positionX": -1.3492,
           "positionZ": 0.3415
         }
+      },
+      "performance": {
+        "maxSpeed": 41.67,
+        "maxAcceleration": 8.0,
+        "maxDeceleration": 8.0
       }
     },
-    "animated": false,
-    "pbrMaterialWorkflow": "metallic",
-    "triangleCount": 32286,
     "meshCount": 42,
+    "triangleCount": 32286,
+    "animated": false,
     "textureResolutions": [
       "1K"
     ],
+    "pbrMaterialWorkflow": "metallic",
     "normalMapFormat": "OpenGL",
-    "boundingBox": {
-      "x": [
-        -2.1538,
-        2.1538
-      ],
-      "y": [
-        -0.9877,
-        0.9877
-      ],
-      "z": [
-        0.0,
-        1.5874
-      ]
-    }
-  }
+    "modelCreationTool": "Blender"
+  },
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json"
 }

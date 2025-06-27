@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "Hyundai Tucson",
+    "description": "A 3D model of Hyundai Tucson 2015, suitable for use in simulations and visualizations.",
+    "uuid": "2c637af2-98e8-42e0-b05c-9e8314df2dd5",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2019 razor24 <https://sketchfab.com/razor24>"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "",
+    "assetType": "",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.2662,
+        2.2662
+      ],
+      "y": [
+        -1.0399,
+        1.0399
+      ],
+      "z": [
+        0.0,
+        1.6607
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7143,
+          "trackWidth": 1.5428,
+          "positionX": 1.2846,
+          "positionZ": 0.3571
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7143,
+          "trackWidth": 1.5428,
+          "positionX": -1.3888,
+          "positionZ": 0.3571
+        }
+      },
+      "performance": {
+        "maxSpeed": 0.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 38,
+    "triangleCount": 33152,
+    "animated": false,
+    "textureResolutions": [],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}
