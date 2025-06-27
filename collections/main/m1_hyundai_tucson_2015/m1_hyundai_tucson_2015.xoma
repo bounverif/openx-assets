@@ -33,7 +33,7 @@
       "vehicleCategory": "car",
       "axles": {
         "frontAxle": {
-          "maxSteering": 0.0,
+          "maxSteering": 0.175,
           "wheelDiameter": 0.7143,
           "trackWidth": 1.5428,
           "positionX": 1.2846,
