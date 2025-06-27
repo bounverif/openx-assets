@@ -16,21 +16,29 @@ def export_command(args):
         print(f"No .blend files found with pattern: {args.pattern}")
         return
 
-    for filepath in blend_files:
-        print(f"Exporting file: {filepath}")
-        bpy.ops.wm.open_mainfile(filepath=filepath)
+    if args.destdir:
+        destdir = pathlib.Path(args.destdir).resolve()
+        destdir.mkdir(parents=True, exist_ok=True)
+
+    for blendpath in blend_files:
+        print(f"Exporting file: {blendpath}")
+        bpy.ops.wm.open_mainfile(filepath=blendpath)
+
+        relative_dir = pathlib.Path(blendpath).relative_to(args.collection).parent
+        assets_dir = (
+            destdir / relative_dir if args.destdir else pathlib.Path(blendpath).parent
+        )
 
         if args.export_glb:
-            xom3d_utils.export_scene_gltf(export_format="GLB")
-            print(f"Exported {filepath} to GLB format.")
+            xom3d_utils.export_scene_gltf(destdir=assets_dir, export_format="GLB")
         if args.export_gltf:
-            xom3d_utils.export_scene_gltf(export_format="GLTF_SEPARATE")
-            print(f"Exported {filepath} to GLTF (Separate) format.")
+            xom3d_utils.export_scene_gltf(
+                destdir=assets_dir, export_format="GLTF_SEPARATE"
+            )
         if args.export_fbx:
-            xom3d_utils.export_scene_fbx()
-            print(f"Exported {filepath} to FBX format.")
+            xom3d_utils.export_scene_fbx(destdir=assets_dir)
 
-        xomapath = str(pathlib.Path(filepath).with_suffix(".xoma").resolve())
+        xomapath = str(pathlib.Path(blendpath).with_suffix(".xoma").resolve())
         try:
             with open(xomapath, "r") as file:
                 filedata = json.load(file)
@@ -45,7 +53,7 @@ def export_command(args):
         asset_data = xom3d_utils.deep_merge(template, filedata)
         if args.asset_version:
             asset_data["metadata"]["assetVersion"] = args.asset_version
-        xom3d_utils.export_asset_file(asset_data)
+        xom3d_utils.export_asset_file(asset_data, destdir=assets_dir)
 
 
 def render_command(args):
@@ -54,9 +62,9 @@ def render_command(args):
         print(f"No .blend files found with pattern: {args.pattern}")
         return
 
-    for filepath in blend_files:
-        print(f"Rendering file: {filepath}")
-        bpy.ops.wm.open_mainfile(filepath=filepath)
+    for blendpath in blend_files:
+        print(f"Rendering file: {blendpath}")
+        bpy.ops.wm.open_mainfile(filepath=blendpath)
         scene = bpy.context.scene
 
         # Use Cycles with GPU if available
@@ -144,7 +152,7 @@ def render_command(args):
             ground.data.materials.append(mat)
 
         # Set output render resolution and format
-        pngpath = str(pathlib.Path(filepath).with_suffix(".png").resolve())
+        pngpath = str(pathlib.Path(blendpath).with_suffix(".png").resolve())
         scene.render.filepath = pngpath
         scene.render.image_settings.file_format = "PNG"
         scene.render.resolution_x = 400

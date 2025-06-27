@@ -207,18 +207,20 @@ def move_empty_parent_to_child():
     )
 
 
-def export_scene_gltf(filepath="", export_format="GLB"):
+def export_scene_gltf(destdir="", export_format="GLB"):
     """Export the current scene to a GLTF file."""
     # get current scene filepath
 
     extension = ".glb" if export_format == "GLB" else ".gltf"
 
-    if not filepath:
-        original = bpy.data.filepath
-        filepath = str(pathlib.Path(original).with_suffix(extension).resolve())
+    blendpath = bpy.data.filepath
+    asset_path = pathlib.Path(blendpath).with_suffix(extension).resolve()
+
+    if destdir:
+        asset_path = pathlib.Path(destdir) / pathlib.Path(asset_path.name)
 
     bpy.ops.export_scene.gltf(
-        filepath=filepath,
+        filepath=str(asset_path),
         export_format=export_format,
         export_vertex_color="NONE",
         export_yup=True,
@@ -228,25 +230,27 @@ def export_scene_gltf(filepath="", export_format="GLB"):
         export_extras=True,
     )
 
-    return filepath
+    return str(asset_path)
 
 
-def export_scene_fbx(filepath=""):
+def export_scene_fbx(destdir=""):
     """Export the current scene to an FBX file."""
 
-    if not filepath:
-        original = bpy.data.filepath
-        filepath = str(pathlib.Path(original).with_suffix(".fbx").resolve())
+    blendpath = bpy.data.filepath
+    asset_path = pathlib.Path(blendpath).with_suffix(".fbx").resolve()
+
+    if destdir:
+        asset_path = pathlib.Path(destdir) / pathlib.Path(asset_path.name)
 
     bpy.ops.export_scene.fbx(
-        filepath=filepath,
+        filepath=str(asset_path),
         colors_type="NONE",
         apply_scale_options="FBX_SCALE_ALL",
         axis_forward="-X",  # -X
         axis_up="Z",  #  Z
     )
 
-    return filepath
+    return str(asset_path)
 
 
 def deep_merge(d1, d2):
@@ -259,9 +263,14 @@ def deep_merge(d1, d2):
     return merged
 
 
-def export_asset_file(asset_data, user_data=dict(), asset_schema=None, rounded=4):
+def export_asset_file(asset_data, user_data=dict(), destdir="", rounded=4):
+    """Export asset data to a .xoma file."""
+
     filepath = bpy.data.filepath
-    xomapath = str(pathlib.Path(filepath).with_suffix(".xoma").resolve())
+    xomapath = pathlib.Path(filepath).with_suffix(".xoma").resolve()
+
+    if destdir:
+        xomapath = pathlib.Path(destdir) / pathlib.Path(xomapath.name)
 
     if not asset_data.get("metadata", {}).get("uuid"):
         asset_data["metadata"]["uuid"] = get_uuid()

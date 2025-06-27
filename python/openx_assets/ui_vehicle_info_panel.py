@@ -175,10 +175,7 @@ class XOM3D_OT_ExportAsset(bpy.types.Operator):
             self.report({"WARNING"}, "No export format selected")
             return
 
-        xom3d_utils.export_asset_file(
-            asset_data=context.scene.xom3d_context.asset,
-            asset_schema=context.scene.xom3d_context.asset_schema,
-        )
+        xom3d_utils.export_asset_file(asset_data=context.scene.xom3d_context.asset)
 
         self.report({"INFO"}, f"Exported assets")
 
