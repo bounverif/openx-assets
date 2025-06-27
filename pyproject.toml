@@ -1,15 +1,25 @@
 [project]
 name = "openx-assets"
 version = "0.2.0"
-description = "OpenX Assets"
+authors = [{name="Dogan Ulus", email="dogan.ulus@bogazici.edu.tr" }]
+description = "Develop simulation assets using ASAM OpenX standards"
 readme = "python/openx_assets/README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 license = "GPL-3.0-or-later"
 dependencies = [
-    "bpy >=4.2.0",
+    "numpy<2", # Ensure compatibility with Blender 4.2 and existing bpy builds
+    "bpy>=4.2.0",
+    "mathutils",
     "jsonschema[format]",
 ]
 license-files = ["python/openx_assets/LICENSE"]
+
+[project.urls]
+"Homepage" = "https://github.com/bounverif/openx_assets/"
+"Bug Tracker" = "https://github.com/bounverif/openx_assets/issues"
+
+[project.scripts]
+openx-assets = "openx_assets.cli:main"
 
 [build-system]
 requires = ["setuptools >= 77.0.3"]
