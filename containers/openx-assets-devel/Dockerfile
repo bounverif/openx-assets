@@ -1,7 +1,7 @@
 ARG IMAGE_NAME=localhost/openx-assets
 ARG VERSION=latest
 
-FROM docker.io/library/debian:trixie AS openx-openscenegraph-builder
+FROM docker.io/library/debian:12 AS openx-openscenegraph-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
@@ -38,7 +38,7 @@ RUN export FBXSDK_INSTALL_PREFIX=/opt/fbxsdk &&\
     sh /usr/local/bin/fbxsdk-install.sh &&\
     sh /usr/local/bin/openscenegraph-install.sh
 
-FROM docker.io/library/debian:trixie AS openx-assets-builder
+FROM docker.io/library/debian:12 AS openx-assets-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 ENV LANG C.UTF-8
@@ -57,7 +57,6 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       gnupg2 \
       tar zip unzip xz-utils \
       make \
-      python3 python3-pip pipx \
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
@@ -67,8 +66,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update -qq && \
     apt-get install -qy --no-install-recommends \
-      blender \
+      python3 \
+      python3-pip \
       python3-numpy \
+      pipx \
       reuse \
       libxml2 \
       zlib1g \
