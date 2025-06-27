@@ -40,15 +40,7 @@ osgb:
 catalogs:
 	@echo "Generating OpenX asset catalogs..."
 	@mkdir -p "$(DESTDIR)/catalogs"
-	cp $(PROJECT_DIR)/catalogs/* "$(DESTDIR)/catalogs/"
-
-xosc-catalog:
-	@echo "Generating XOSC catalog..."
-	@mkdir -p "$(DESTDIR)/xosc-catalog"
-	@find "$(DESTDIR)/assets" -type f -name "*.glb" | while IFS= read -r glb_path; do \
-		rel_path="$${glb_path#$(DESTDIR)/assets/}"; \
-		cat "$(PROJECT_DIR)/xosc-template.xml" | sed "s|__ASSET_PATH__|$${rel_path}|g" > "$(DESTDIR)/xosc-catalog/$${rel_path%.glb}.xosc"; \
-	done
+	cp -r $(PROJECT_DIR)/catalogs/* "$(DESTDIR)/catalogs/"
 
 bundle: purge assets osgb catalogs clean
 	@echo "Bundling OpenX assets into a single archive..."
@@ -67,4 +59,4 @@ clean:
 purge: clean
 	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets.zip" -delete
 
-.PHONY: install assets osgb bundle all
+.PHONY: install assets catalogs osgb bundle all
