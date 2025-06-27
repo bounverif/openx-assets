@@ -29,7 +29,7 @@ jobs:
           rm -rf ${FBXSDK_INSTALL_PREFIX}
           ldconfig
       - name: Install OpenX Assets Python package
-        run: pip install .
+        run: pip install . --break-system-packages
       - name: Build and bundle OpenX assets
         run: make bundle
       - name: Create github release
