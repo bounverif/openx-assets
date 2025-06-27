@@ -15,11 +15,11 @@ The latest release is available under [Releases](https://github.com/bounverif/op
 
 ## 3D Vehicle Gallery
 
-| [![Audi Q7](collections/bogazici/m1_audi_q7_2015/m1_audi_q7_2015.png)](collections/bogazici/m1_audi_q7_2015) | [![Audi TT Roadster](collections/bogazici/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.png)](collections/bogazici/m1_audi_tt_2014_roadster) | [![Dacia Duster](collections/bogazici/m1_dacia_duster_2010/m1_dacia_duster_2010.png)](collections/bogazici/m1_dacia_duster_2010) |
+| [![Audi Q7](collections/main/m1_audi_q7_2015/m1_audi_q7_2015.png)](collections/main/m1_audi_q7_2015) | [![Audi TT Roadster](collections/main/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.png)](collections/main/m1_audi_tt_2014_roadster) | [![Dacia Duster](collections/main/m1_dacia_duster_2010/m1_dacia_duster_2010.png)](collections/main/m1_dacia_duster_2010) |
 |:--:|:--:|:--:|
 | Audi Q7 | Audi TT Roadster | Dacia Duster |
 
-| [![Hyundai Tucson](collections/bogazici/m1_hyundai_tucson_2015/m1_hyundai_tucson_2015.png)](collections/bogazici/m1_hyundai_tucson_2015) | [![Mini Countryman](collections/bogazici/m1_mini_countryman_2016/m1_mini_countryman_2016.png)](collections/bogazici/m1_mini_countryman_2016) | [![Fiat Ducato](collections/bogazici/n1_fiat_ducato_2014/n1_fiat_ducato_2014.png)](collections/bogazici/n1_fiat_ducato_2014) |
+| [![Hyundai Tucson](collections/main/m1_hyundai_tucson_2015/m1_hyundai_tucson_2015.png)](collections/main/m1_hyundai_tucson_2015) | [![Mini Countryman](collections/main/m1_mini_countryman_2016/m1_mini_countryman_2016.png)](collections/main/m1_mini_countryman_2016) | [![Fiat Ducato](collections/main/n1_fiat_ducato_2014/n1_fiat_ducato_2014.png)](collections/main/n1_fiat_ducato_2014) |
 |:--:|:--:|:--:|
 | Hyundai Tucson | Mini Countryman | Fiat Ducato |
 
