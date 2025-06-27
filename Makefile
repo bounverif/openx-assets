@@ -1,91 +1,70 @@
-# SPDX-FileCopyrightText: 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>
+# SPDX-FileCopyrightText: 2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>
 # SPDX-License-Identifier: MPL-2.0
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-COLLECTIONS ?= bogazici generic
+COLLECTION ?= collections/main
+DESTDIR ?= /tmp/openx-assets
+OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
-OPENX_ASSETS_COLLECTIONS := bogazici
-OPENX_ASSETS_VANILLA_COLLECTIONS := audi fiat ford tesla toyota volkswagen volvo
 
-BLENDER_USER_RESOURCES := $(shell blender --background --factory-startup --python-expr "import bpy; print(bpy.utils.resource_path('USER'))" | head -n 1)
+all: purge assets osgb catalogs
 
-esmini-assets:
-	rm -rf /tmp/esmini-assets
-	@mkdir -p /tmp/esmini-assets/models
-	@mkdir -p /tmp/esmini-assets/vehicles
-	@for collection in $(COLLECTIONS); do \
-		echo "Processing $$collection"; \
-		$(MAKE) $$collection; \
+install:
+	@echo "Installing OpenX Assets Python Package"
+	pip install .
+
+assets:
+	@echo "Bundling OpenX assets..."
+	@mkdir -p $(DESTDIR)/assets
+	openx-assets export $(COLLECTION) \
+		--destdir $(DESTDIR)/assets \
+		--glb \
+		--gltf \
+		--fbx \
+		--asset-version $(OPENX_ASSETS_VERSION)
+
+osgb:
+	@echo "Converting OpenX FBX assets to OSGB format..."
+	@find "$(DESTDIR)" -type f -name "*.fbx" | while IFS= read -r fbx_path; do \
+		rel_path="$${fbx_path#$(DESTDIR)/}"; \
+		output_path="$(DESTDIR)/$${rel_path%.fbx}.osgb"; \
+		mkdir -p "$$(dirname "$${output_path}")"; \
+		echo "Converting '$${fbx_path}' to '$${output_path}'"; \
+		osgconv "$${fbx_path}" "$${output_path}" -o 90-1,0,0; \
+		osgconv "$${output_path}" "$${output_path}" -o -90-0,0,1; \
+		if [ $$? -ne 0 ]; then \
+			echo "Error converting '$${fbx_path}'. Skipping..."; \
+		fi; \
 	done
-	@cd /tmp/esmini-assets && zip -r $(PROJECT_DIR)/esmini-assets.zip .
 
-bogazici:
-	@mkdir -p /tmp/esmini-assets/models/bogazici/
-	@mkdir -p ${PROJECT_DIR}/assets/models/bogazici/
-	#
-	$(MAKE) -C src bogazici
-	@cp -r ${PROJECT_DIR}/src/bogazici/osgb/* ${PROJECT_DIR}/assets/models/bogazici/
-	@cp -r ${PROJECT_DIR}/assets/models/bogazici/* /tmp/esmini-assets/models/bogazici/
-	@cp -r ${PROJECT_DIR}/assets/vehicles/bogazici.xosc /tmp/esmini-assets/vehicles/
-	rm -rf ${PROJECT_DIR}/src/bogazici/fbx
-	rm -rf ${PROJECT_DIR}/src/bogazici/osgb
+catalogs:
+	@echo "Generating OpenX asset catalogs..."
+	@mkdir -p "$(DESTDIR)/catalogs"
+	cp $(PROJECT_DIR)/catalogs/* "$(DESTDIR)/catalogs/"
 
-generic:
-	@mkdir -p /tmp/esmini-assets/models/generic
-	@mkdir -p ${PROJECT_DIR}/assets/models/generic/
-	#
-	$(MAKE) -C src generic
-	@cp -r ${PROJECT_DIR}/src/generic/osgb/* ${PROJECT_DIR}/assets/models/generic/
-	@cp -r ${PROJECT_DIR}/assets/models/generic/* /tmp/esmini-assets/models/generic/
-	@cp -r ${PROJECT_DIR}/assets/vehicles/generic.xosc /tmp/esmini-assets/vehicles/
-	rm -rf ${PROJECT_DIR}/src/generic/fbx
-	rm -rf ${PROJECT_DIR}/src/generic/osgb
+xosc-catalog:
+	@echo "Generating XOSC catalog..."
+	@mkdir -p "$(DESTDIR)/xosc-catalog"
+	@find "$(DESTDIR)/assets" -type f -name "*.glb" | while IFS= read -r glb_path; do \
+		rel_path="$${glb_path#$(DESTDIR)/assets/}"; \
+		cat "$(PROJECT_DIR)/xosc-template.xml" | sed "s|__ASSET_PATH__|$${rel_path}|g" > "$(DESTDIR)/xosc-catalog/$${rel_path%.glb}.xosc"; \
+	done
 
-openx-assets:
+bundle: purge assets osgb catalogs clean
+	@echo "Bundling OpenX assets into a single archive..."
+	@cd $(DESTDIR) && zip -r $(PROJECT_DIR)/openx-assets.zip .
+
+clean:
+	@echo "Cleaning OpenX assets..."
 	rm -rf /tmp/openx-assets
-	mkdir -p /tmp/openx-assets/vanilla
-	@for collection in $(OPENX_ASSETS_VANILLA_COLLECTIONS); do \
-		echo "Processing $$collection"; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*.xoma /tmp/openx-assets/vanilla/ || true; \
-	done
-	@for collection in $(OPENX_ASSETS_COLLECTIONS); do \
-		echo "Processing $$collection"; \
-		mkdir -p /tmp/openx-assets/$$collection; \
-		$(MAKE) xom-$$collection; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.xoma /tmp/openx-assets/$$collection/ || true; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.glb /tmp/openx-assets/$$collection/ || true; \
-		# cp -r ${PROJECT_DIR}/collections/$$collection/*/*.gltf /tmp/openx-assets/$$collection/ || true; \
-		# cp -r ${PROJECT_DIR}/collections/$$collection/*/*.bin /tmp/openx-assets/$$collection/ || true; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.fbx /tmp/openx-assets/$$collection/ || true; \
-		cp -r ${PROJECT_DIR}/collections/$$collection/*/*.osgb /tmp/openx-assets/$$collection/ || true; \
-	done
-	@cd /tmp/openx-assets && zip -r "$(PROJECT_DIR)/openx-assets.zip" .
+	find collections -type f -name "*.fbx" -delete
+	find collections -type f -name "*.glb" -delete
+	find collections -type f -name "*.bin" -delete
+	find collections -type f -name "*.gltf" -delete
+	find collections -type f -name "*.osgb" -delete
+	find collections -type f -name "*.osgt" -delete
 
-xom-bogazici:
-	@for asset in m1_mini_countryman_2016 m1_audi_q7_2015; do \
-		echo "Processing $$asset"; \
-		blender --background \
-			collections/bogazici/$$asset/$$asset.blend \
-			--python scripts/blender-export-xom.py \
-			-- \
-			--xoma-template collections/bogazici/collection.xoma.json \
-			--export-fbx \
-			--export-gltf \
-			--export-glb;\
-		osgconv -o 90-1,0,0 \
-			collections/bogazici/$$asset/$$asset.fbx \
-			collections/bogazici/$$asset/$$asset.osgb; \
-		osgconv -o -90-0,0,1 \
-			collections/bogazici/$$asset/$$asset.osgb \
-			collections/bogazici/$$asset/$$asset.osgb; \
-	done
+purge: clean
+	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets.zip" -delete
 
-
-xom-generic:
-	@echo "Processing generic"
-
-blender:
-	mkdir -p ${BLENDER_USER_RESOURCES}/extensions/user_default
-	ln -s ${PROJECT_DIR}/python/openx_assets ${BLENDER_USER_RESOURCES}/extensions/user_default/
-
-.PHONY: all generic-package
+.PHONY: install assets osgb bundle all
