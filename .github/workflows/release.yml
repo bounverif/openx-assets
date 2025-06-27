@@ -28,6 +28,8 @@ jobs:
           mv ${FBXSDK_INSTALL_PREFIX}/lib/release/* /usr/local/lib
           rm -rf ${FBXSDK_INSTALL_PREFIX}
           ldconfig
+      - name: Install OpenX Assets Python package
+        run: pip install .
       - name: Build and bundle OpenX assets
         run: make bundle
       - name: Create github release
