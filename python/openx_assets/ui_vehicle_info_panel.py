@@ -351,12 +351,12 @@ def update_xom3d_asset_panel(scene):
     # Assign bounding box values
     bb_data = xom3d_utils.get_bounding_box()
 
-    panel_data.bounding_box.min[0] = bb_data["x"]["min"]
-    panel_data.bounding_box.max[0] = bb_data["x"]["max"]
-    panel_data.bounding_box.min[1] = bb_data["y"]["min"]
-    panel_data.bounding_box.max[1] = bb_data["y"]["max"]
-    panel_data.bounding_box.min[2] = bb_data["z"]["min"]
-    panel_data.bounding_box.max[2] = bb_data["z"]["max"]
+    panel_data.bounding_box.min[0] = bb_data["x"][0]
+    panel_data.bounding_box.max[0] = bb_data["x"][1]
+    panel_data.bounding_box.min[1] = bb_data["y"][0]
+    panel_data.bounding_box.max[1] = bb_data["y"][1]
+    panel_data.bounding_box.min[2] = bb_data["z"][0]
+    panel_data.bounding_box.max[2] = bb_data["z"][1]
 
     if "vehicle" == panel_data.asset_type:
         front_axle_data = xom3d_utils.get_axle_info(0)

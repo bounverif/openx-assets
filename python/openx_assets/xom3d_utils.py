@@ -61,9 +61,9 @@ def get_bounding_box(rounded=0):
         max_z = round(max_z, rounded)
 
     return {
-        "x": {"min": min_x, "max": max_x},
-        "y": {"min": min_y, "max": max_y},
-        "z": {"min": min_z, "max": max_z},
+        "x": [min_x, max_x],
+        "y": [min_y, max_y],
+        "z": [min_z, max_z],
     }
 
 
@@ -120,9 +120,9 @@ def move_asset_to_origin():
 
     for obj in bpy.data.objects:
         if obj.type == "MESH":
-            obj.location.x -= (bbox["x"]["min"] + bbox["x"]["max"]) / 2
-            obj.location.y -= (bbox["y"]["min"] + bbox["y"]["max"]) / 2
-            obj.location.z -= bbox["z"]["min"]
+            obj.location.x -= (bbox["x"][0] + bbox["x"][1]) / 2
+            obj.location.y -= (bbox["y"][0] + bbox["y"][1]) / 2
+            obj.location.z -= bbox["z"][0]
 
 
 def is_vehicle_asset():
@@ -136,15 +136,10 @@ def is_asset_centered(rel_tol=0, abs_tol=1e-6):
     if not bbox:
         return False
 
-    x_centered = math.isclose(
-        bbox["x"]["min"] + bbox["x"]["max"], rel_tol, abs_tol=abs_tol
-    )
-    y_centered = math.isclose(
-        bbox["y"]["min"] + bbox["y"]["max"], rel_tol, abs_tol=abs_tol
-    )
+    x_centered = math.isclose(bbox["x"][0] + bbox["x"][1], rel_tol, abs_tol=abs_tol)
+    y_centered = math.isclose(bbox["y"][0] + bbox["y"][1], rel_tol, abs_tol=abs_tol)
     z_centered = (
-        math.isclose(bbox["z"]["min"], rel_tol, abs_tol=abs_tol)
-        and bbox["z"]["min"] >= 0
+        math.isclose(bbox["z"][0], rel_tol, abs_tol=abs_tol) and bbox["z"][0] >= 0
     )
 
     return x_centered and y_centered and z_centered
