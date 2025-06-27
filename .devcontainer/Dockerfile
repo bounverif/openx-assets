@@ -1,4 +1,4 @@
-FROM ghcr.io/bounverif/esmini-assets:latest-builder
+FROM ghcr.io/bounverif/openx-assets:latest-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 # Download and install Autodesk FBX SDK dependencies seperately

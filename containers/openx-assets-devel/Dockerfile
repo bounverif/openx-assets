@@ -1,7 +1,7 @@
-ARG IMAGE_NAME=localhost/esmini-assets
+ARG IMAGE_NAME=localhost/openx-assets
 ARG VERSION=latest
 
-FROM docker.io/library/debian:trixie AS esmini-openscenegraph-builder
+FROM docker.io/library/debian:trixie AS openx-openscenegraph-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
@@ -33,12 +33,12 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-COPY esmini-assets-devel/scripts/* /usr/local/bin/
+COPY openx-assets-devel/scripts/* /usr/local/bin/
 RUN export FBXSDK_INSTALL_PREFIX=/opt/fbxsdk &&\
     sh /usr/local/bin/fbxsdk-install.sh &&\
     sh /usr/local/bin/openscenegraph-install.sh
 
-FROM docker.io/library/debian:trixie AS esmini-assets-builder
+FROM docker.io/library/debian:trixie AS openx-assets-builder
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 ENV LANG C.UTF-8
@@ -61,7 +61,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-COPY --from=esmini-openscenegraph-builder /usr/local/ /usr/local/
+COPY --from=openx-openscenegraph-builder /usr/local/ /usr/local/
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -75,7 +75,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-FROM esmini-assets-builder AS esmini-assets-devel
+FROM openx-assets-builder AS openx-assets-devel
 ARG TARGETARCH TARGETOS TARGETPLATFORM TARGETVARIANT
 
 # Container user

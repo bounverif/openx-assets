@@ -2,13 +2,13 @@ name: buildah-build-devel
 on:
   push:
     paths:
-      - containers/esmini-assets-devel/**
+      - containers/openx-assets-devel/**
       - .github/workflows/buildah-build-devel.yml # Self-trigger
   workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io/bounverif
-  IMAGE_NAME: esmini-assets
+  IMAGE_NAME: openx-assets
   HOSTARCH: amd64
   PLATFORM: linux-amd64
   VERSION: latest
@@ -60,9 +60,9 @@ jobs:
           build-args: |
             VERSION=${{ env.VERSION }}
           extra-args: |
-            --target esmini-assets-builder
+            --target openx-assets-builder
           containerfiles: |
-            ./containers/esmini-assets-devel/Dockerfile
+            ./containers/openx-assets-devel/Dockerfile
 
       - name: Build devel container image
         id: build-devel
@@ -76,9 +76,9 @@ jobs:
           build-args: |
             VERSION=${{ env.VERSION }}
           extra-args: |
-            --target esmini-assets-devel
+            --target openx-assets-devel
           containerfiles: |
-            ./containers/esmini-assets-devel/Dockerfile
+            ./containers/openx-assets-devel/Dockerfile
 
       - name: Push to GitHub Container Repository
         if: github.ref == 'refs/heads/main'
@@ -130,9 +130,9 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and push manifest list for esmini-assets-builder
+      - name: Create and push manifest list for openx-assets-builder
         run: |
-          MANIFEST=esmini-builder
+          MANIFEST=openx-builder
           FULL_IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           buildah manifest create $MANIFEST
           for digest in ${{ runner.temp }}/digests/digest-builder-*; do
@@ -141,9 +141,9 @@ jobs:
           done
           buildah manifest push --all $MANIFEST docker://$FULL_IMAGE_NAME:${{ env.VERSION }}-builder
 
-      - name: Create and push manifest list for esmini-assets-devel
+      - name: Create and push manifest list for openx-assets-devel
         run: |
-          MANIFEST=esmini-devel
+          MANIFEST=openx-devel
           FULL_IMAGE_NAME=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           buildah manifest create $MANIFEST
           for digest in ${{ runner.temp }}/digests/digest-devel-*; do
