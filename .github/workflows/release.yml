@@ -28,6 +28,15 @@ jobs:
           mv ${FBXSDK_INSTALL_PREFIX}/lib/release/* /usr/local/lib
           rm -rf ${FBXSDK_INSTALL_PREFIX}
           ldconfig
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          apt-get install -y \
+            build-essential \
+            cmake \
+            python3-pip \
+            python3-setuptools \
+            python3-wheel
       - name: Install OpenX Assets Python package
         run: pip install . --break-system-packages
       - name: Build and bundle OpenX assets
