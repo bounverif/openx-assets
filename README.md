@@ -13,7 +13,7 @@ The latest release is available under [Releases](https://github.com/bounverif/op
   - ✔️ Mass properties  
   - ⏳ Kinematic parameters (work in progress — contributions welcome)
 
-## Asset Gallery
+## 3D Vehicle Gallery
 
 | [![Audi Q7](collections/bogazici/m1_audi_q7_2015/m1_audi_q7_2015.png)](collections/bogazici/m1_audi_q7_2015) | [![Audi TT Roadster](collections/bogazici/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.png)](collections/bogazici/m1_audi_tt_2014_roadster) | [![Dacia Duster](collections/bogazici/m1_dacia_duster_2010/m1_dacia_duster_2010.png)](collections/bogazici/m1_dacia_duster_2010) |
 |:--:|:--:|:--:|
