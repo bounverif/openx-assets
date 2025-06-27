@@ -1,3 +1,5 @@
+*.old
+
 # Asset collections under development
 devel
 collections-devel
