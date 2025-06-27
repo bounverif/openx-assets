@@ -1,0 +1,17 @@
+version = 1
+
+[[annotations]]
+path = [
+    "m1_audi_q7_2015/**",
+    "m1_audi_tt_2014_roadster/**",
+    "m1_dacia_duster_2010/**",
+    "m1_hyundai_tucson_2015/**",
+    "m1_mini_countryman_2016/**",
+    "n1_fiat_ducato_2014/**"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2019 razor24 <https://sketchfab.com/razor24>"
+]
+SPDX-License-Identifier = "MPL-2.0"

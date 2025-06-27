@@ -8,6 +8,9 @@ path = [
   ".devcontainer/**",
   ".github/**",
   ".gitignore",
+  ".gitattributes",
+  ".pre-commit-config.yaml",
+  ".vscode/**",
   "containers/**",
   "README.md"
 ]
@@ -16,7 +19,22 @@ SPDX-License-Identifier = "MPL-2.0"
 
 [[annotations]]
 path = [
+  "catalogs/**",
+]
+SPDX-FileCopyrightText = ["2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"]
+SPDX-License-Identifier = "MPL-2.0"
+
+[[annotations]]
+path = [
+  "scripts/**",
+]
+SPDX-FileCopyrightText = ["2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"]
+SPDX-License-Identifier = "MPL-2.0"
+
+[[annotations]]
+path = [
   "python/openx_assets/**",
+  "pyproject.toml",
 ]
 SPDX-FileCopyrightText = ["2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"]
 SPDX-License-Identifier = "GPL-3.0-or-later"
