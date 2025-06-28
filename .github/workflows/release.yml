@@ -1,8 +1,16 @@
 name: OpenX Assets Release
-description: |
-  This workflow builds and packages the OpenX assets and creates a GitHub release.
+
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run the workflow without creating a release"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
   schedule:
     - cron: "12 5 1 * *"
 
@@ -17,10 +25,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Prepare environment variables
-        run: |
-          echo "VERSION=$(date +'%Y%m%d')" >> $GITHUB_ENV
-      - name: Download and install FBX SDK
+
+      - name: Download and install FBX SDK at runtime
         run: |
           export FBXSDK_INSTALL_PREFIX="/tmp/install"
           mkdir -p ${FBXSDK_INSTALL_PREFIX}
@@ -28,21 +34,15 @@ jobs:
           mv ${FBXSDK_INSTALL_PREFIX}/lib/release/* /usr/local/lib
           rm -rf ${FBXSDK_INSTALL_PREFIX}
           ldconfig
-      - name: Install system dependencies
-        run: |
-          apt-get update
-          apt-get install -y \
-            build-essential \
-            cmake \
-            python3-pip \
-            python3-dev \
-            pkg-config
+
       - name: Install OpenX Assets Python package
         run: pip install . --break-system-packages
+
       - name: Build and bundle OpenX assets
         run: make bundle
-      - name: Create github release
-        if: github.ref == 'refs/heads/main'
+
+      - name: Create GitHub release
+        if: github.ref == 'refs/heads/main' && inputs.dry_run != 'true'
         uses: softprops/action-gh-release@v2
         with:
           files: openx-assets.zip
