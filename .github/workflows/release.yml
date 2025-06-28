@@ -11,8 +11,6 @@ on:
         options:
           - "true"
           - "false"
-  schedule:
-    - cron: "12 5 1 * *"
 
 permissions:
   contents: write
