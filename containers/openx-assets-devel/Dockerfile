@@ -94,6 +94,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       libxkbcommon0 \
       libsm6 \
       libgl1 \
+      libfontconfig1 \
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
