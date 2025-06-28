@@ -298,3 +298,10 @@ def export_asset_file(asset_data, user_data=dict(), destdir="", rounded=4):
         f.write("\n")
 
     return xomapath
+
+
+def flatten_mesh_hierarchy():
+    for obj in bpy.context.scene.objects:
+        if obj.type == "MESH" and obj.parent:
+            obj.matrix_world = obj.matrix_world.copy()
+            obj.parent = None

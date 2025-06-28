@@ -3,7 +3,7 @@ schema_version = "1.0.0"
 # Example of manifest file for a Blender extension
 # Change the values according to your extension
 id = "openx_assets"
-version = "0.2.0"
+version = "0.3.0"
 name = "OpenX Assets"
 tagline = "Develop simulation assets using ASAM OpenX standards"
 maintainer = "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"

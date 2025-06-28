@@ -1,6 +1,6 @@
 [project]
 name = "openx-assets"
-version = "0.2.0"
+version = "0.3.0"
 authors = [{name="Dogan Ulus", email="dogan.ulus@bogazici.edu.tr" }]
 description = "Develop simulation assets using ASAM OpenX standards"
 readme = "python/openx_assets/README.md"
