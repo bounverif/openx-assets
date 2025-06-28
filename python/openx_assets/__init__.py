@@ -45,24 +45,27 @@ class XOM3D_Context:
 
 
 def register():
-
-    if not hasattr(bpy.types.Scene, "xom3d_context"):
-        bpy.types.Scene.xom3d_context = XOM3D_Context()
-
     ops.register()
     ui_preferences.register()
     ui_vehicle_menu.register()
     ui_vehicle_info_panel.register()
 
+    if not hasattr(bpy.types.Scene, "xom3d_context"):
+        bpy.types.Scene.xom3d_context = XOM3D_Context()
+        bpy.types.Scene.xom3d_context.asset = dict()
+        bpy.types.Scene.xom3d_context.asset_schema = dict()
+        bpy.types.Scene.xom3d_context.materials = dict()
+        bpy.types.Scene.xom3d_context.material_schema = dict()
+
 
 def unregister():
+    if hasattr(bpy.types.Scene, "xom3d_context"):
+        del bpy.types.Scene.xom3d_context
+
     ui_vehicle_info_panel.unregister()
     ui_vehicle_menu.unregister()
     ui_preferences.unregister()
     ops.unregister()
-
-    if hasattr(bpy.types.Scene, "xom3d_context"):
-        del bpy.types.Scene.xom3d_context
 
 
 if __name__ == "__main__":
