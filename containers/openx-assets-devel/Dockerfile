@@ -54,6 +54,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       wget \
       ca-certificates \
       git \
+      git-lfs \
       gnupg2 \
       zlib1g \
       tar zip unzip xz-utils \
