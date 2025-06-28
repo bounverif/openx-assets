@@ -58,6 +58,8 @@ Due to licensing restrictions, we cannot distribute the Autodesk FBX SDK, which 
 
 ## License Information
 
-All contents of this repository, including source code, simulation assets, and associated tools, are distributed under the [Mozilla Public License 2.0 (MPL-2.0)](https://opensource.org/licenses/MPL-2.0) unless otherwise specified.
+All contents of this repository—including source code, simulation assets, and associated tools—are distributed under the [Mozilla Public License 2.0 (MPL-2.0)](https://opensource.org/licenses/MPL-2.0), unless otherwise noted. Portions of the 3D assets are derived from original works licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
-The Openx Assets Blender extension package is distributed under the [GNU General Public License v3.0 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0) or later.
+The OpenX Assets Blender extension package is distributed under the [GNU General Public License v3.0 (GPL-3.0)](https://opensource.org/licenses/GPL-3.0) or later.
+
+This project complies with the [REUSE Specification 3.3](https://reuse.software/spec-3.3/).
