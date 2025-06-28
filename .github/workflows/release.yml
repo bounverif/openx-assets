@@ -26,6 +26,10 @@ jobs:
         with:
           lfs: 'true'
 
+      - name: Prepare environment variables
+        run: |
+            echo "VERSION=$(date +'%Y%m%d')" >> $GITHUB_ENV
+
       - name: Download and install FBX SDK at runtime
         run: |
           export FBXSDK_INSTALL_PREFIX="/tmp/install"
