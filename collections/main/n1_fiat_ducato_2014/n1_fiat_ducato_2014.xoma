@@ -6,10 +6,10 @@
     "authors": [
       "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
-    "license": "MIT-2.0",
+    "license": "MPL-2.0 AND CC-BY-4.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-      "(c) 2019 razor24 <https://sketchfab.com/razor24>"
+      "(c) 2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
     "assetVersion": "devel",

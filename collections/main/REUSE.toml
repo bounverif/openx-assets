@@ -12,6 +12,6 @@ path = [
 precedence = "closest"
 SPDX-FileCopyrightText = [
     "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-    "2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0."
+    "2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0"
 ]
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
