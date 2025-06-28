@@ -6,8 +6,7 @@ import bpy
 import mathutils
 
 from . import xom3d_utils
-
-from .xom3d import FileTemplates
+from . import xom3d_templates
 
 
 def export_command(args):
@@ -49,7 +48,7 @@ def export_command(args):
             print(f"Error parsing {xomapath}: {e}")
             filedata = {}
 
-        template = FileTemplates.xoma_1_0_0
+        template = xom3d_templates.XOM3D.template_1_0_0.copy()
         asset_data = xom3d_utils.deep_merge(template, filedata)
         if args.asset_version:
             asset_data["metadata"]["assetVersion"] = args.asset_version

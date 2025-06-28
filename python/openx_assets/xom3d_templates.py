@@ -3,16 +3,8 @@ from typing import List, Optional, Dict, Tuple
 
 
 @dataclass
-class Context:
-    asset_schema: Optional[Dict] = None
-    asset: Optional[Dict] = None
-    material_schema: Optional[Dict] = None
-    materials: Optional[Dict] = None
-
-
-@dataclass
-class FileTemplates:
-    xoma_1_0_0 = {
+class XOM3D:
+    template_1_0_0 = {
         "metadata": {
             "name": "",
             "description": "",

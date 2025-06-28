@@ -4,7 +4,6 @@ import json
 import os
 import pathlib
 
-from . import xom3d
 from . import xom3d_utils
 
 

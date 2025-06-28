@@ -29,14 +29,25 @@ from . import ui_vehicle_menu
 from . import ui_vehicle_info_panel
 
 import bpy
-from . import xom3d
+
+from dataclasses import dataclass
+from typing import Optional, Dict, Tuple
+
 from . import xom3d_utils
+
+
+@dataclass
+class XOM3D_Context:
+    asset_schema: Optional[Dict] = None
+    asset: Optional[Dict] = None
+    material_schema: Optional[Dict] = None
+    materials: Optional[Dict] = None
 
 
 def register():
 
     if not hasattr(bpy.types.Scene, "xom3d_context"):
-        bpy.types.Scene.xom3d_context = xom3d.Context()
+        bpy.types.Scene.xom3d_context = XOM3D_Context()
 
     ops.register()
     ui_preferences.register()
