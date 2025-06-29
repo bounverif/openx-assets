@@ -1,15 +1,14 @@
 {
   "metadata": {
-    "name": "Police BMW X1",
-    "description": "A 3D model of a police vehicle, based on BMW X1 2016",
-    "uuid": "1d4c44e5-201b-4329-aea5-7fd2cef357bd",
+    "name": "Volvo V60 Polestar",
+    "description": "A 3D model of a Volvo V60 Polestar 2013, suitable for use in simulations and visualizations.",
     "authors": [
       "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
     "license": "MPL-2.0 AND CC-BY-4.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-      "(c) 2022 mk2design <https://sketchfab.com/mk2design>, licensed under CC-BY-4.0"
+      "(c) 2022 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
     "assetVersion": "devel",
@@ -17,16 +16,16 @@
     "objectClass": "vehicle",
     "boundingBox": {
       "x": [
-        -86.4012,
-        86.4012
+        -2.3372,
+        2.3372
       ],
       "y": [
-        -5.9907,
-        5.9907
+        -1.0425,
+        1.0425
       ],
       "z": [
         0.0,
-        1.7373
+        1.4941
       ]
     },
     "vehicleClassData": {
@@ -34,17 +33,17 @@
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,
-          "wheelDiameter": 0.7394,
-          "trackWidth": 1.5914,
-          "positionX": 1.4849,
-          "positionZ": 0.3697
+          "wheelDiameter": 0.638,
+          "trackWidth": 1.5817,
+          "positionX": 1.3777,
+          "positionZ": 0.319
         },
         "rearAxle": {
           "maxSteering": 0.0,
-          "wheelDiameter": 0.7394,
-          "trackWidth": 1.5914,
-          "positionX": -1.3669,
-          "positionZ": 0.3697
+          "wheelDiameter": 0.638,
+          "trackWidth": 1.5817,
+          "positionX": -1.4075,
+          "positionZ": 0.319
         }
       },
       "performance": {
@@ -53,13 +52,14 @@
         "maxDeceleration": 0.0
       }
     },
-    "meshCount": 15,
-    "triangleCount": 50254,
+    "meshCount": 24,
+    "triangleCount": 53132,
     "animated": false,
     "textureResolutions": [
       ""
     ],
     "pbrMaterialWorkflow": "metallic",
-    "normalMapFormat": "OpenGL"
+    "normalMapFormat": "OpenGL",
+    "uuid": "55f534cb-e53f-424e-bce7-899167154aab"
   }
 }
