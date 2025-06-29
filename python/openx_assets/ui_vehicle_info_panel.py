@@ -387,7 +387,7 @@ def update_xom3d_on_load(dummy=None):
             with open(xomapath, "r", encoding="utf-8") as f:
                 bpy.context.scene.xom3d_context.asset = json.load(f)
 
-        asset_metadata = bpy.context.scene.xom3d_context.asset.get("name", {})
+        asset_metadata = bpy.context.scene.xom3d_context.asset.get("metadata", {})
 
         panel_data = bpy.context.scene.xom3d_asset_panel_data
         panel_data.asset_name = asset_metadata.get("name", "Unnamed Asset")
