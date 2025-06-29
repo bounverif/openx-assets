@@ -71,7 +71,7 @@ def get_bounding_box(rounded=0):
 def get_axle_info(axle=0, rounded=0):
 
     wheel_right = bpy.data.objects.get("Grp_Wheel_{}_0".format(axle))
-    wheel_left = bpy.data.objects.get("Grp_Wheel_{}_1".format(axle))
+    wheel_left = bpy.data.objects.get("Grp_Wheel_{}_1".format(axle), wheel_right)
 
     wheel_diameter = wheel_right.location.z * 2
     track_width = wheel_left.location.y - wheel_right.location.y
