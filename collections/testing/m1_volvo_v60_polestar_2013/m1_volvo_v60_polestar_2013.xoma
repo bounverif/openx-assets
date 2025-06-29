@@ -8,7 +8,7 @@
     "license": "MPL-2.0 AND CC-BY-4.0",
     "copyrights": [
       "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-      "(c) 2022 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
+      "(c) 2023 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
     "assetVersion": "devel",
@@ -47,12 +47,12 @@
         }
       },
       "performance": {
-        "maxSpeed": 0.0,
+        "maxSpeed": 70.0,
         "maxAcceleration": 0.0,
         "maxDeceleration": 0.0
       }
     },
-    "meshCount": 24,
+    "meshCount": 29,
     "triangleCount": 53132,
     "animated": false,
     "textureResolutions": [

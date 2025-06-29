@@ -16,6 +16,16 @@ path = [
 ]
 SPDX-FileCopyrightText = [
     "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-    "2022 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
+    "2023 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "amr_viggo_s100n/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2021 Janis Zeps <https://sketchfab.com/Zeps3D>, licensed under CC-BY-4.0"
 ]
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"

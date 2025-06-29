@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "name": "Viggo S100-N",
+    "description": "A 3D model of Viggo S100-N Street Sweeper Robot, suitable for use in simulations and visualizations.",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "uuid": "bcaef877-0c7a-4566-abe3-4d949883e69e",
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2021 Janis Zeps <https://sketchfab.com/Zeps3D>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "devel",
+    "assetType": "object",
+    "objectClass": "other",
+    "boundingBox": {
+      "x": [
+        -1.1341,
+        1.1341
+      ],
+      "y": [
+        -0.8875,
+        0.8875
+      ],
+      "z": [
+        0.0,
+        1.8329
+      ]
+    },
+    "meshCount": 18,
+    "triangleCount": 15108,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL",
+    "vehicleClassData": {
+      "axles": {
+        "frontAxle": {
+          "wheelDiameter": 0.6653,
+          "trackWidth": 0.0,
+          "positionX": 0.6646,
+          "positionZ": 0.3326
+        },
+        "rearAxle": {
+          "wheelDiameter": 0.6752,
+          "trackWidth": -1.1279,
+          "positionX": -0.6204,
+          "positionZ": 0.3376
+        }
+      }
+    }
+  }
+}
