@@ -14,7 +14,7 @@
     "openMaterial3dVersion": "1.0.0",
     "assetVersion": "devel",
     "assetType": "object",
-    "objectClass": "other",
+    "objectClass": "vehicle",
     "boundingBox": {
       "x": [
         -1.1341,
@@ -38,19 +38,27 @@
     "pbrMaterialWorkflow": "metallic",
     "normalMapFormat": "OpenGL",
     "vehicleClassData": {
+      "vehicleCategory": "car",
       "axles": {
         "frontAxle": {
+          "maxSteering": 0.175,
           "wheelDiameter": 0.6653,
           "trackWidth": 0.0,
           "positionX": 0.6646,
           "positionZ": 0.3326
         },
         "rearAxle": {
+          "maxSteering": 0.0,
           "wheelDiameter": 0.6752,
-          "trackWidth": -1.1279,
+          "trackWidth": 1.1279,
           "positionX": -0.6204,
           "positionZ": 0.3376
         }
+      },
+      "performance": {
+        "maxSpeed": 0.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
       }
     }
   }
