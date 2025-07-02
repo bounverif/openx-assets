@@ -44,7 +44,7 @@ class XOM3D:
             "meshCount": 1,
             "triangleCount": 1,
             "animated": False,
-            "textureResolutions": [],
+            "textureResolutions": [""],
             "pbrMaterialWorkflow": "metallic",
             "normalMapFormat": "OpenGL",
         }

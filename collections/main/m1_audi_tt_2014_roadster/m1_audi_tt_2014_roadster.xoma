@@ -56,7 +56,9 @@
     "meshCount": 32,
     "triangleCount": 32261,
     "animated": false,
-    "textureResolutions": [],
+    "textureResolutions": [
+      ""
+    ],
     "pbrMaterialWorkflow": "metallic",
     "normalMapFormat": "OpenGL"
   },

@@ -57,7 +57,7 @@
     "triangleCount": 32286,
     "animated": false,
     "textureResolutions": [
-      "1K"
+      ""
     ],
     "pbrMaterialWorkflow": "metallic",
     "normalMapFormat": "OpenGL",
