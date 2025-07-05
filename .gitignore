@@ -25,6 +25,39 @@ collections-devel
 *.gltf.license
 *.bin
 
+### Images ###
+
+*.jpg
+*.jpeg
+*.jpe
+*.jif
+*.jfif
+*.jfi
+*.jp2
+*.j2k
+*.jpf
+*.jpx
+*.jpm
+*.mj2
+*.jxr
+*.hdp
+*.wdp
+*.gif
+*.raw
+*.webp
+*.png
+*.apng
+*.mng
+*.tiff
+*.tif
+*.pdf
+*.xbm
+*.bmp
+*.dib
+*.ico
+*.3dm
+*.max
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -196,3 +229,9 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+
+### OPENX ASSETS ###
+# OpenX Assets specific files
+
+# Exceptions
+!*.thumbnail.webp

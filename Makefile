@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-COLLECTION ?= src/main
+COLLECTION ?= src/vehicles/main
 DESTDIR ?= /tmp/openx-assets
 OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
@@ -55,6 +55,9 @@ clean:
 	find src -type f -name "*.gltf" -delete
 	find src -type f -name "*.osgb" -delete
 	find src -type f -name "*.osgt" -delete
+	find src -type f -name "*.png" -delete
+	find src -type f -name "*.jpg" -delete
+	find src -type f -name "*.jpeg" -delete
 
 purge: clean
 	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets.zip" -delete
