@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-COLLECTION ?= collections/main
+COLLECTION ?= src/main
 DESTDIR ?= /tmp/openx-assets
 OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
@@ -49,12 +49,12 @@ bundle: purge assets osgb catalogs clean
 clean:
 	@echo "Cleaning OpenX assets..."
 	rm -rf /tmp/openx-assets
-	find collections -type f -name "*.fbx" -delete
-	find collections -type f -name "*.glb" -delete
-	find collections -type f -name "*.bin" -delete
-	find collections -type f -name "*.gltf" -delete
-	find collections -type f -name "*.osgb" -delete
-	find collections -type f -name "*.osgt" -delete
+	find src -type f -name "*.fbx" -delete
+	find src -type f -name "*.glb" -delete
+	find src -type f -name "*.bin" -delete
+	find src -type f -name "*.gltf" -delete
+	find src -type f -name "*.osgb" -delete
+	find src -type f -name "*.osgt" -delete
 
 purge: clean
 	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets.zip" -delete
