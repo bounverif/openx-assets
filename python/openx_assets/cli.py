@@ -151,13 +151,15 @@ def render_command(args):
             ground.data.materials.append(mat)
 
         # Set output render resolution and format
-        pngpath = str(pathlib.Path(blendpath).with_suffix(".png").resolve())
-        scene.render.filepath = pngpath
-        scene.render.image_settings.file_format = "PNG"
-        scene.render.resolution_x = 400
-        scene.render.resolution_y = 300
-
-        bpy.ops.render.render(write_still=True)
+        if not args.no_thumbnail:
+            pngpath = str(
+                pathlib.Path(blendpath).with_suffix(".thumbnail.webp").resolve()
+            )
+            scene.render.filepath = pngpath
+            scene.render.image_settings.file_format = "WEBP"
+            scene.render.resolution_x = 400
+            scene.render.resolution_y = 300
+            bpy.ops.render.render(write_still=True)
 
 
 def validate_command(args):
@@ -259,6 +261,12 @@ def main():
     # Render subcommand
     render_parser = subparsers.add_parser(
         "render", help="Render OpenX assets", parents=[common_parser]
+    )
+    render_parser.add_argument(
+        "--no-thumbnail",
+        action="store_true",
+        default=False,
+        help="Do not generate thumbnail images",
     )
     render_parser.set_defaults(func=render_command)
 
