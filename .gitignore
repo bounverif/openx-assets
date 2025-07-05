@@ -1,11 +1,9 @@
+# Generic ignore
 *.old
-
-# Asset collections under development
-devel
-collections-devel
 
 # Asset files
 *.blend[0-9]*
+!*.blend
 *.obj
 *.fbx
 *.tar.gz
@@ -27,6 +25,10 @@ collections-devel
 
 ### Images ###
 
+*.webp
+!*.thumbnail.webp
+
+# The rest of the image formats
 *.jpg
 *.jpeg
 *.jpe
@@ -44,7 +46,6 @@ collections-devel
 *.wdp
 *.gif
 *.raw
-*.webp
 *.png
 *.apng
 *.mng
@@ -233,5 +234,6 @@ pyrightconfig.json
 ### OPENX ASSETS ###
 # OpenX Assets specific files
 
-# Exceptions
-!*.thumbnail.webp
+# Asset directories under development
+devel
+collections-devel
