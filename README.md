@@ -4,6 +4,10 @@ This repository provides a development environment and a curated collection of s
 
 The simulation assets are originally designed for use with [esmini](https://esmini.github.io/), a lightweight and modular OpenSCENARIO XML simulator, suitable for rapid prototyping, testing, and integration workflows. Future releases will target conformance with the [OpenMATERIAL 3D](https://www.asam.net/standards/detail/openmaterial/) specification, while maintaining compatibility with the OpenSceneGraph (OSG) formats for Esmini support.
 
+If you find this project valuable, please consider **sponsoring our open-source work**. We especially encourage **commercial users** to show their support if they benefit from these assets.
+
+Visit [our GitHub Sponsors page](https://github.com/sponsors/bounverif) to learn more.
+
 ## What's Included in Releases
 
 The latest release is available under [Releases](https://github.com/bounverif/openx-assets/releases) and currently includes:
