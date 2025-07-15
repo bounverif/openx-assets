@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "name": "Tesla Cybertruck",
+    "description": "A 3D model of a Tesla Cybertruck",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2020 Lexyc16 <https://sketchfab.com/Lexyc16>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "devel",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.842,
+        2.842
+      ],
+      "y": [
+        -1.0364,
+        1.0364
+      ],
+      "z": [
+        0.0,
+        1.8079
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.175,
+          "wheelDiameter": 0.8509,
+          "trackWidth": 1.7793,
+          "positionX": 1.9484,
+          "positionZ": 0.4254
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8509,
+          "trackWidth": 1.7793,
+          "positionX": -1.7265,
+          "positionZ": 0.4254
+        }
+      },
+      "performance": {
+        "maxSpeed": 70.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 14,
+    "triangleCount": 8006,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL",
+    "uuid": "3e58fd3f-f17c-4062-9be4-a012e0599f83"
+  }
+}

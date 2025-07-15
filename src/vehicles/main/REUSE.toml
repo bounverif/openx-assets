@@ -45,3 +45,13 @@ SPDX-FileCopyrightText = [
     "2022 mk2design <https://sketchfab.com/mk2design>, licensed under CC-BY-4.0"
 ]
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "n2_tesla_cybertruck_2024/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2020 Lexyc16 <https://sketchfab.com/Lexyc16>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
