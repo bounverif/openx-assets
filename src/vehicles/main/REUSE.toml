@@ -9,9 +9,39 @@ path = [
     "m1_mini_countryman_2016/**",
     "n1_fiat_ducato_2014/**"
 ]
-precedence = "closest"
 SPDX-FileCopyrightText = [
     "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
     "2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "m1_mercedes_sl65amg_2008/**",
+    "n2_gmc_hummer_2021_pickup/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 Ajay Gawde <https://sketchfab.com/aagawde>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "m1_volvo_v60_polestar_2013/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "m1_bmw_x1_2016/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2022 mk2design <https://sketchfab.com/mk2design>, licensed under CC-BY-4.0"
 ]
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"

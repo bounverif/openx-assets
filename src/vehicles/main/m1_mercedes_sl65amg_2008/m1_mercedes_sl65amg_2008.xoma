@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "name": "Mercedes SL65 AMG",
+    "description": "A 3D model of a Mercedes SL65 AMG",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Ajay Gawde <https://sketchfab.com/aagawde>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "devel",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.5435,
+        2.5435
+      ],
+      "y": [
+        -1.1454,
+        1.1454
+      ],
+      "z": [
+        0.0,
+        1.416
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.175,
+          "wheelDiameter": 0.7507,
+          "trackWidth": 1.843,
+          "positionX": 1.4165,
+          "positionZ": 0.3753
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7507,
+          "trackWidth": 1.843,
+          "positionX": -1.388,
+          "positionZ": 0.3753
+        }
+      },
+      "performance": {
+        "maxSpeed": 70.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 21,
+    "triangleCount": 16258,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL",
+    "uuid": "fcea09f3-26cb-4c0d-8361-8c9317741b5e"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "name": "GMC Hummer EV Pickup",
+    "description": "A 3D model of a GMC Hummer EV Pickup Truck",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Ajay Gawde <https://sketchfab.com/aagawde>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "devel",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.7593,
+        2.7593
+      ],
+      "y": [
+        -1.1971,
+        1.1971
+      ],
+      "z": [
+        0.0,
+        1.9402
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.175,
+          "wheelDiameter": 0.8734,
+          "trackWidth": 1.87,
+          "positionX": 1.8684,
+          "positionZ": 0.4367
+        },
+        "rearAxle": {
+          "maxSteering": 0.175,
+          "wheelDiameter": 0.8734,
+          "trackWidth": 1.87,
+          "positionX": -1.5793,
+          "positionZ": 0.4367
+        }
+      },
+      "performance": {
+        "maxSpeed": 70.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 17,
+    "triangleCount": 31258,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL",
+    "uuid": "79b75420-72d0-4af1-a5e0-37a699fa476e"
+  }
+}

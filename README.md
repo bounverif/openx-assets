@@ -11,7 +11,7 @@ Visit [our GitHub Sponsors page](https://github.com/sponsors/bounverif) to learn
 ## What's Included in Releases
 
 The latest release is available under [Releases](https://github.com/bounverif/openx-assets/releases) and currently includes:
-- Low- and medium-polygon 3D vehicle assets with preliminary [OpenMATERIAL 3D](https://www.asam.net/standards/detail/openmaterial/) compliance (work in progress)
+- Low- and medium-polygon 3D vehicle assets with preliminary [OpenMATERIAL 3D](https://www.asam.net/standards/detail/openmaterial/) compliance
 - [OpenSCENARIO XML](https://www.asam.net/standards/detail/openscenario-xml/) vehicle catalogs and [OpenMATERIAL 3D](https://www.asam.net/standards/detail/openmaterial/) asset files based on real-world vehicle models, annotated with:
   - ✔️ Bounding box dimensions  
   - ✔️ Mass properties  
