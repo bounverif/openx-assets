@@ -19,13 +19,17 @@ The latest release is available under [Releases](https://github.com/bounverif/op
 
 ## 3D Vehicle Gallery
 
-| [![Audi Q7](src/vehicles/main/m1_audi_q7_2015/m1_audi_q7_2015.thumbnail.webp)](src/vehicles/main/m1_audi_q7_2015) | [![Audi TT Roadster](src/vehicles/main/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.thumbnail.webp)](src/vehicles/main/m1_audi_tt_2014_roadster) | [![Dacia Duster](src/vehicles/main/m1_dacia_duster_2010/m1_dacia_duster_2010.thumbnail.webp)](src/vehicles/main/m1_dacia_duster_2010) |
-|:--:|:--:|:--:|
-| Audi Q7 | Audi TT Roadster | Dacia Duster |
+| [![Audi Q7](src/vehicles/main/m1_audi_q7_2015/m1_audi_q7_2015.thumbnail.webp)](src/vehicles/main/m1_audi_q7_2015) | [![Audi TT Roadster](src/vehicles/main/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.thumbnail.webp)](src/vehicles/main/m1_audi_tt_2014_roadster) | [![BMW X1](src/vehicles/main/m1_bmw_x1_2016/m1_bmw_x1_2016.thumbnail.webp)](src/vehicles/main/m1_bmw_x1_2016)| [![Dacia Duster](src/vehicles/main/m1_dacia_duster_2010/m1_dacia_duster_2010.thumbnail.webp)](src/vehicles/main/m1_dacia_duster_2010) |
+|:--:|:--:|:--:|:--:|
+| Audi Q7 | Audi TT Roadster | BMW X1 | Dacia Duster |
 
-| [![Hyundai Tucson](src/vehicles/main/m1_hyundai_tucson_2015/m1_hyundai_tucson_2015.thumbnail.webp)](src/vehicles/main/m1_hyundai_tucson_2015) | [![Mini Countryman](src/vehicles/main/m1_mini_countryman_2016/m1_mini_countryman_2016.thumbnail.webp)](src/vehicles/main/m1_mini_countryman_2016) | [![Fiat Ducato](src/vehicles/main/n1_fiat_ducato_2014/n1_fiat_ducato_2014.thumbnail.webp)](src/vehicles/main/n1_fiat_ducato_2014) |
-|:--:|:--:|:--:|
-| Hyundai Tucson | Mini Countryman | Fiat Ducato |
+| [![Hyundai Tucson](src/vehicles/main/m1_hyundai_tucson_2015/m1_hyundai_tucson_2015.thumbnail.webp)](src/vehicles/main/m1_hyundai_tucson_2015) | [![Mercedes SL65](src/vehicles/main/m1_mercedes_sl65amg_2008/m1_mercedes_sl65amg_2008.thumbnail.webp)](src/vehicles/main/m1_mercedes_sl65amg_2008)  | [![Mini Countryman](src/vehicles/main/m1_mini_countryman_2016/m1_mini_countryman_2016.thumbnail.webp)](src/vehicles/main/m1_mini_countryman_2016) | [![Mini Countryman](src/vehicles/main/m1_volvo_v60_polestar_2013/m1_volvo_v60_polestar_2013.thumbnail.webp)](src/vehicles/main/m1_volvo_v60_polestar_2013) |
+|:--:|:--:|:--:|:--:|
+| Hyundai Tucson | Mercedes SL65 | Mini Countryman | Volvo V60 Polestar |
+
+| [![Volvo XC30](src/vehicles/main/m1_volvo_xc30_2024/m1_volvo_xc30_2024.thumbnail.webp)](src/vehicles/main/m1_volvo_xc30_2024) | [![Fiat Ducato](src/vehicles/main/n1_fiat_ducato_2014/n1_fiat_ducato_2014.thumbnail.webp)](src/vehicles/main/n1_fiat_ducato_2014) | [![GMC Hummer](src/vehicles/main/n2_gmc_hummer_2021_pickup/n2_gmc_hummer_2021_pickup.thumbnail.webp)](src/vehicles/main/n2_gmc_hummer_2021_pickup) | [![Tesla Cybertruck](src/vehicles/main/n2_tesla_cybertruck_2024/n2_tesla_cybertruck_2024.thumbnail.webp)](src/vehicles/main/n2_tesla_cybertruck_2024) |
+|:--:|:--:|:--:|:--:|
+| Volvo XC30 | Fiat Ducato | GMC Hummer | Tesla Cybertruck |
 
 ## Blender Extension Package for Asset Development
 
