@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "name": "Volvo XC30",
+    "description": "A 3D model of a Volvo XC30 2024, suitable for use in simulations and visualizations.",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Mehdi Lagzouli <https://sketchfab.com/LagzDesign>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.0.0",
+    "assetVersion": "devel",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.1194,
+        2.1194
+      ],
+      "y": [
+        -1.0137,
+        1.0137
+      ],
+      "z": [
+        0.0,
+        1.582
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.175,
+          "wheelDiameter": 0.7591,
+          "trackWidth": 1.6142,
+          "positionX": 1.3808,
+          "positionZ": 0.3795
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7591,
+          "trackWidth": 1.6142,
+          "positionX": -1.3904,
+          "positionZ": 0.3795
+        }
+      },
+      "performance": {
+        "maxSpeed": 70.0,
+        "maxAcceleration": 0.0,
+        "maxDeceleration": 0.0
+      }
+    },
+    "meshCount": 15,
+    "triangleCount": 59354,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL",
+    "uuid": "9241b9d4-69b4-4510-945e-fb056afc5e42"
+  }
+}
