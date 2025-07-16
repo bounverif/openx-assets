@@ -38,7 +38,7 @@ SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 
 [[annotations]]
 path = [
-    "m1_volvo_xc30_2024/**",
+    "m1_volvo_ex30_2024/**",
 ]
 SPDX-FileCopyrightText = [
     "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",

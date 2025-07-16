@@ -27,9 +27,9 @@ The latest release is available under [Releases](https://github.com/bounverif/op
 |:--:|:--:|:--:|:--:|
 | Hyundai Tucson | Mercedes SL65 | Mini Countryman | Volvo V60 Polestar |
 
-| [![Volvo XC30](src/vehicles/main/m1_volvo_xc30_2024/m1_volvo_xc30_2024.thumbnail.webp)](src/vehicles/main/m1_volvo_xc30_2024) | [![Fiat Ducato](src/vehicles/main/n1_fiat_ducato_2014/n1_fiat_ducato_2014.thumbnail.webp)](src/vehicles/main/n1_fiat_ducato_2014) | [![GMC Hummer](src/vehicles/main/n2_gmc_hummer_2021_pickup/n2_gmc_hummer_2021_pickup.thumbnail.webp)](src/vehicles/main/n2_gmc_hummer_2021_pickup) | [![Tesla Cybertruck](src/vehicles/main/n2_tesla_cybertruck_2024/n2_tesla_cybertruck_2024.thumbnail.webp)](src/vehicles/main/n2_tesla_cybertruck_2024) |
+| [![Volvo EX30](src/vehicles/main/m1_volvo_ex30_2024/m1_volvo_ex30_2024.thumbnail.webp)](src/vehicles/main/m1_volvo_ex30_2024) | [![Fiat Ducato](src/vehicles/main/n1_fiat_ducato_2014/n1_fiat_ducato_2014.thumbnail.webp)](src/vehicles/main/n1_fiat_ducato_2014) | [![GMC Hummer](src/vehicles/main/n2_gmc_hummer_2021_pickup/n2_gmc_hummer_2021_pickup.thumbnail.webp)](src/vehicles/main/n2_gmc_hummer_2021_pickup) | [![Tesla Cybertruck](src/vehicles/main/n2_tesla_cybertruck_2024/n2_tesla_cybertruck_2024.thumbnail.webp)](src/vehicles/main/n2_tesla_cybertruck_2024) |
 |:--:|:--:|:--:|:--:|
-| Volvo XC30 | Fiat Ducato | GMC Hummer | Tesla Cybertruck |
+| Volvo EX30 | Fiat Ducato | GMC Hummer | Tesla Cybertruck |
 
 ## Blender Extension Package for Asset Development
 
