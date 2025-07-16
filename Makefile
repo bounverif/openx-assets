@@ -19,7 +19,6 @@ assets:
 	openx-assets export $(COLLECTION) \
 		--destdir $(DESTDIR)/assets \
 		--glb \
-		--gltf \
 		--fbx \
 		--asset-version $(OPENX_ASSETS_VERSION)
 
