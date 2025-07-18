@@ -28,15 +28,14 @@ The latest release is available under link:https://github.com/bounverif/openx-as
 :figure-caption!:
 |===
 
-a| image::src/vehicles/main/m1_audi_q7_2015/m1_audi_q7_2015.thumbnail.webp[alt="Audi Q7", title="Audi Q7", link="src/vehicles/main/m1_audi_q7_2015"]
+a| image::src/vehicles/main/m1_audi_q7_2015/m1_audi_q7_2015.thumbnail.webp[alt="Audi Q7", link="src/vehicles/main/m1_audi_q7_2015"]
 a| image::src/vehicles/main/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.thumbnail.webp[alt="Audi TT Roadster", title="Audi TT Roadster", link="src/vehicles/main/m1_audi_tt_2014_roadster"]
 a| image::src/vehicles/main/m1_bmw_x1_2016/m1_bmw_x1_2016.thumbnail.webp[alt="BMW X1", title="BMW X1", link="src/vehicles/main/m1_bmw_x1_2016"]
 a| image::src/vehicles/main/m1_dacia_duster_2010/m1_dacia_duster_2010.thumbnail.webp[alt="Dacia Duster", title="Dacia Duster", link="src/vehicles/main/m1_dacia_duster_2010"]
 
 a| image::src/vehicles/main/m1_hyundai_tucson_2015/m1_hyundai_tucson_2015.thumbnail.webp[alt="Hyundai Tucson", title="Hyundai Tucson", link="src/vehicles/main/m1_hyundai_tucson_2015"]
-a| image::src/vehicles/main/m1_mercedes_sl65amg_2008/m1_mercedes_sl65amg_2008.thumbnail.webp[alt="Mercedes SL65 AMG", title="Mercedes SL65 AMG", link="src/vehicles/main/m1_mercedes_sl65amg_2008"]
+a| image::src/vehicles/main/m1_mercedes_sl65amg_2008/m1_mercedes_sl65amg_2008.thumbnail.webp[alt="Mercedes SL65 AMG", title="Mercedes SL65", link="src/vehicles/main/m1_mercedes_sl65amg_2008"]
 a| image::src/vehicles/main/m1_mini_countryman_2016/m1_mini_countryman_2016.thumbnail.webp[alt="Mini Countryman", title="Mini Countryman", link="src/vehicles/main/m1_mini_countryman_2016"]
-asd
 a| image::src/vehicles/main/m1_volvo_v60_polestar_2013/m1_volvo_v60_polestar_2013.thumbnail.webp[alt="Volvo V60 Polestar", title="Volvo V60 Polestar", link="src/vehicles/main/m1_volvo_v60_polestar_2013"]
 
 a| image::src/vehicles/main/m1_volvo_ex30_2024/m1_volvo_ex30_2024.thumbnail.webp[alt="Volvo EX30", title="Volvo EX30", link="src/vehicles/main/m1_volvo_ex30_2024"]
