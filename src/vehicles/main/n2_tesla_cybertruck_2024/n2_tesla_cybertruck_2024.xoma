@@ -49,9 +49,9 @@
         }
       },
       "performance": {
-        "maxSpeed": 70.0,
-        "maxAcceleration": 0.0,
-        "maxDeceleration": 0.0
+        "maxSpeed": 60.0,
+        "maxAcceleration": 6.5,
+        "maxDeceleration": 8.5
       }
     },
     "meshCount": 14,
