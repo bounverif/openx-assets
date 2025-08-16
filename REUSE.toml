@@ -19,7 +19,7 @@ SPDX-License-Identifier = "MPL-2.0"
 
 [[annotations]]
 path = [
-  "catalogs/**",
+  "xom3d/**",
 ]
 SPDX-FileCopyrightText = ["2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"]
 SPDX-License-Identifier = "MPL-2.0"
