@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/Open-MB/mb-schema/main/schemas/vehicle.json",
   "metadata": {
     "name": "Tesla Cybertruck",
     "description": "A 3D model of a Tesla Cybertruck",
@@ -29,7 +30,8 @@
       ]
     },
     "vehicleClassData": {
-      "vehicleCategory": "car",
+      "vehicleCategory": "truck",
+      "mass": 3200,
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,

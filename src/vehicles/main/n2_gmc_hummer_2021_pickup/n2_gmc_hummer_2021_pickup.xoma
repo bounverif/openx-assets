@@ -29,7 +29,8 @@
       ]
     },
     "vehicleClassData": {
-      "vehicleCategory": "car",
+      "vehicleCategory": "truck",
+      "mass": 4500,
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,

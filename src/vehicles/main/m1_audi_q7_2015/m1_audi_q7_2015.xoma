@@ -31,6 +31,7 @@
     },
     "vehicleClassData": {
       "vehicleCategory": "car",
+      "mass": 2550,
       "axles": {
         "frontAxle": {
           "maxSteering": 0.175,
