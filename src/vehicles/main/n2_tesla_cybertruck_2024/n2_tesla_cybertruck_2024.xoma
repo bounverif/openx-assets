@@ -34,7 +34,7 @@
       "mass": 3200,
       "axles": {
         "frontAxle": {
-          "maxSteering": 0.175,
+          "maxSteering": 0.55,
           "wheelDiameter": 0.8509,
           "trackWidth": 1.7793,
           "positionX": 1.9484,
