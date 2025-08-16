@@ -11,15 +11,24 @@ all: purge assets osgb catalogs
 
 install:
 	@echo "Installing OpenX Assets Python Package"
-	pip install .
+	pip install -e .
 
 assets:
 	@echo "Bundling OpenX assets..."
-	@mkdir -p $(DESTDIR)/assets
+	@mkdir -p $(DESTDIR)/model3d
 	openx-assets export $(COLLECTION) \
-		--destdir $(DESTDIR)/assets \
+		--destdir $(DESTDIR)/model3d \
 		--glb \
 		--fbx \
+		--asset-version $(OPENX_ASSETS_VERSION)
+
+assets-catalog:
+	@echo "Bundling OpenX asset catalogs..."
+	@mkdir -p $(DESTDIR)/catalogs
+	openx-assets catalog $(COLLECTION) \
+		--name "openx_assets_3d" \
+		--model3d-ext "osgb" \
+		--destdir $(DESTDIR)/catalogs \
 		--asset-version $(OPENX_ASSETS_VERSION)
 
 osgb:
@@ -36,18 +45,27 @@ osgb:
 		fi; \
 	done
 
-catalogs:
+db-catalog:
 	@echo "Generating OpenX asset catalogs..."
 	@mkdir -p "$(DESTDIR)/catalogs"
-	cp -r $(PROJECT_DIR)/catalogs/* "$(DESTDIR)/catalogs/"
+	for dir in $(wildcard $(PROJECT_DIR)/xom3d/vehicles/*); do \
+		name=$$(basename $$dir); \
+		openx-assets catalog $$dir \
+			--name "$$name" \
+			--destdir $(DESTDIR)/catalogs \
+			--asset-version $(OPENX_ASSETS_VERSION); \
+	done
+	@mkdir -p "$(DESTDIR)/xom3d/vehicles"
+	cp -r $(PROJECT_DIR)/xom3d/vehicles/* "$(DESTDIR)/xom3d/vehicles"
 
-bundle: purge assets osgb catalogs clean
+
+bundle: purge assets osgb assets-catalog db-catalog clean
 	@echo "Bundling OpenX assets into a single archive..."
 	@cd $(DESTDIR) && zip -r $(PROJECT_DIR)/openx-assets.zip .
 
 clean:
 	@echo "Cleaning OpenX assets..."
-	rm -rf /tmp/openx-assets
+	rm -rf $(DESTDIR)
 	find src -type f -name "*.fbx" -delete
 	find src -type f -name "*.glb" -delete
 	find src -type f -name "*.bin" -delete

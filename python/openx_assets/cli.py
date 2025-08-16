@@ -7,6 +7,7 @@ import mathutils
 
 from . import xom3d_utils
 from . import xom3d_templates
+from . import xosc_utils
 
 
 def export_command(args):
@@ -162,6 +163,42 @@ def render_command(args):
             bpy.ops.render.render(write_still=True)
 
 
+def catalog_command(args):
+    xoma_files = glob.glob(args.collection + "/" + "**/*.xoma", recursive=True)
+
+    if args.destdir:
+        destdir = pathlib.Path(args.destdir).resolve()
+        destdir.mkdir(parents=True, exist_ok=True)
+
+    doc, catalog = xosc_utils.catalog_create(name=args.name, version=args.asset_version)
+
+    for xomapath in xoma_files:
+
+        model3d_path = None
+        if args.model3d_ext:
+            name = pathlib.Path(xomapath).stem
+            model3d_path = str(
+                pathlib.Path("..") / "model3d" / name / f"{name}.{args.model3d_ext}"
+            )
+
+        with open(xomapath, "r") as f:
+            vehicle_data = json.load(f)
+            xosc_utils.catalog_add_vehicle(
+                doc,
+                catalog,
+                name=pathlib.Path(xomapath).stem,
+                model3d=model3d_path,
+                asset_data=vehicle_data,
+            )
+
+    # write it to the file
+    catalog_path = destdir / f"{args.name}.catalog.xosc"
+    with open(catalog_path, "w") as f:
+        f.write(doc.toprettyxml())
+
+    print(f"Catalog written to: {catalog_path}")
+
+
 def validate_command(args):
     blend_files = glob.glob(args.pattern)
     if not blend_files:
@@ -200,6 +237,10 @@ def main():
         "--pattern",
         default="**/*.blend",
         help="Glob pattern to match .blend files (default: *.blend)",
+    )
+    common_parser.add_argument(
+        "--asset-version",
+        help="Asset version to use in the exported file",
     )
 
     # Export subcommand
@@ -251,10 +292,10 @@ def main():
         type=pathlib.Path,
         help="Output directory for exported files (default: next to source file)",
     )
-    export_parser.add_argument(
-        "--asset-version",
-        help="Asset version to use in the exported file",
-    )
+    # export_parser.add_argument(
+    #     "--asset-version",
+    #     help="Asset version to use in the exported file",
+    # )
 
     export_parser.set_defaults(func=export_command)
 
@@ -269,6 +310,27 @@ def main():
         help="Do not generate thumbnail images",
     )
     render_parser.set_defaults(func=render_command)
+
+    # Catalog subcommand
+    catalog_parser = subparsers.add_parser(
+        "catalog", help="Generate OpenScenario XML catalogs", parents=[common_parser]
+    )
+    catalog_parser.add_argument(
+        "--name",
+        default="openx-assets",
+        help="Set catalog name",
+    )
+    catalog_parser.add_argument(
+        "--destdir",
+        type=pathlib.Path,
+        help="Output directory for catalog files (default: collection dir)",
+    )
+    catalog_parser.add_argument(
+        "--model3d-ext",
+        type=str,
+        help="Set model 3D file extension",
+    )
+    catalog_parser.set_defaults(func=catalog_command)
 
     # Validate subcommand
     validate_parser = subparsers.add_parser(
