@@ -35,11 +35,12 @@ osgb:
 	@echo "Converting OpenX FBX assets to OSGB format..."
 	@find "$(DESTDIR)" -type f -name "*.fbx" | while IFS= read -r fbx_path; do \
 		rel_path="$${fbx_path#$(DESTDIR)/}"; \
-		output_path="$(DESTDIR)/$${rel_path%.fbx}.osgb"; \
-		mkdir -p "$$(dirname "$${output_path}")"; \
-		echo "Converting '$${fbx_path}' to '$${output_path}'"; \
-		osgconv "$${fbx_path}" "$${output_path}" -o 90-1,0,0; \
-		osgconv "$${output_path}" "$${output_path}" -o -90-0,0,1; \
+		osgb_path="$(DESTDIR)/$${rel_path%.fbx}.osgb"; \
+		mkdir -p "$$(dirname "$${osgb_path}")"; \
+		echo "Converting '$${fbx_path}' to '$${osgb_path}'"; \
+		# osgconv "$${fbx_path}" "$${osgb_path}" -o 90-1,0,0 --use-world-frame; \
+ 		# osgconv "$${osgb_path}" "$${osgb_path}" -o -90-0,0,1 --use-world-frame; \
+		osgconv "$${fbx_path}" "$${osgb_path}" -o 120-0.5773503,-0.5773503,-0.5773503 --use-world-frame; \
 		if [ $$? -ne 0 ]; then \
 			echo "Error converting '$${fbx_path}'. Skipping..."; \
 		fi; \
