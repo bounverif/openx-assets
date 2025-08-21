@@ -38,22 +38,23 @@ def export_command(args):
         if args.export_fbx:
             xom3d_utils.export_scene_fbx(destdir=assets_dir)
 
-        xomapath = str(pathlib.Path(blendpath).with_suffix(".xoma").resolve())
-        try:
-            with open(xomapath, "r") as file:
-                filedata = json.load(file)
-        except FileNotFoundError:
-            print(f"Warning: {xomapath} not found.")
-            filedata = {}
-        except json.JSONDecodeError as e:
-            print(f"Error parsing {xomapath}: {e}")
-            filedata = {}
+        if args.export_xoma:
+            xomapath = str(pathlib.Path(blendpath).with_suffix(".xoma").resolve())
+            try:
+                with open(xomapath, "r") as file:
+                    filedata = json.load(file)
+            except FileNotFoundError:
+                print(f"Warning: {xomapath} not found.")
+                filedata = {}
+            except json.JSONDecodeError as e:
+                print(f"Error parsing {xomapath}: {e}")
+                filedata = {}
 
-        template = xom3d_templates.XOM3D.template_1_0_0.copy()
-        asset_data = xom3d_utils.deep_merge(template, filedata)
-        if args.asset_version:
-            asset_data["metadata"]["assetVersion"] = args.asset_version
-        xom3d_utils.export_asset_file(asset_data, destdir=assets_dir)
+            template = xom3d_templates.XOM3D.template_1_0_0.copy()
+            asset_data = xom3d_utils.deep_merge(template, filedata)
+            if args.asset_version:
+                asset_data["metadata"]["assetVersion"] = args.asset_version
+            xom3d_utils.export_asset_file(asset_data, destdir=assets_dir)
 
 
 def render_command(args):
@@ -288,14 +289,23 @@ def main():
         help="Do not export to FBX format",
     )
     export_parser.add_argument(
+        "--xoma",
+        dest="export_xoma",
+        action="store_true",
+        default=False,
+        help="Export to XOMA format",
+    )
+    export_parser.add_argument(
+        "--no-xoma",
+        dest="export_xoma",
+        action="store_false",
+        help="Do not export to XOMA format",
+    )
+    export_parser.add_argument(
         "--destdir",
         type=pathlib.Path,
         help="Output directory for exported files (default: next to source file)",
     )
-    # export_parser.add_argument(
-    #     "--asset-version",
-    #     help="Asset version to use in the exported file",
-    # )
 
     export_parser.set_defaults(func=export_command)
 

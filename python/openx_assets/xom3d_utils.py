@@ -5,7 +5,6 @@ import uuid
 import pathlib
 
 from mathutils import Vector
-from jsonschema import validate
 
 
 def add_empty_node(name, parent_name=None, dtype="PLAIN_AXES"):

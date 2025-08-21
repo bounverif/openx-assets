@@ -8,9 +8,8 @@ requires-python = ">=3.9"
 license = "GPL-3.0-or-later"
 dependencies = [
     "numpy<2", # Ensure compatibility with Blender 4.2 and existing bpy builds
-    "bpy>=4.2.0,<4.5",
-    "mathutils",
-    "jsonschema[format]",
+    "bpy>=4.2.0",
+    "mathutils"
 ]
 license-files = ["python/openx_assets/LICENSE"]
 

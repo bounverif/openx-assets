@@ -2,7 +2,6 @@ import bpy
 
 from bpy.props import BoolProperty
 
-from jsonschema import validate
 from . import xom3d_utils
 
 
