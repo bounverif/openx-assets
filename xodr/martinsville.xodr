@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8'?>
+<OpenDRIVE>
+  <header name="martinsville" revMajor="1" revMinor="5" date="2025-08-22 21:21:06.060748"
+    north="0.0" south="0.0" east="0.0" west="0.0" />
+  <road rule="LHT" id="0" junction="-1" length="845.8215625092363">
+    <link>
+      <successor elementType="road" elementId="0" />
+    </link>
+    <planView>
+      <geometry s="0" x="0" y="0" hdg="0" length="121.92">
+        <line />
+      </geometry>
+      <geometry s="121.92" x="121.92" y="0.0" hdg="0" length="179.07078125461817">
+        <arc curvature="0.017543859649122806" />
+      </geometry>
+      <geometry s="300.9907812546182" x="121.92000000000006" y="114.0" hdg="3.1415926535897922"
+        length="243.84">
+        <line />
+      </geometry>
+      <geometry s="544.8307812546182" x="-121.91999999999994" y="114.00000000000024"
+        hdg="3.1415926535897922" length="179.07078125461817">
+        <arc curvature="0.017543859649122806" />
+      </geometry>
+      <geometry s="723.9015625092363" x="-121.92000000000012" y="2.4158453015843406e-13"
+        hdg="6.2831853071795845" length="121.92">
+        <line />
+      </geometry>
+    </planView>
+    <elevationProfile>
+      <elevation s="0" a="0" b="0" c="0" d="0" />
+      <elevation s="121.92" a="0.0" b="0.0567" c="0" d="0" />
+      <elevation s="181.83" a="3.4" b="0.0" c="0" d="0" />
+      <elevation s="241.83" a="3.4" b="-0.0567" c="0" d="0" />
+      <elevation s="301.75" a="0.0" b="0.0" c="0" d="0" />
+      <elevation s="544.83" a="0.0" b="0.0567" c="0" d="0" />
+      <elevation s="604.79" a="3.4" b="0.0" c="0" d="0" />
+      <elevation s="664.75" a="3.4" b="-0.0567" c="0" d="0" />
+      <elevation s="724.71" a="0.0" b="0.0" c="0" d="0" />
+    </elevationProfile>
+    <lateralProfile>
+      <superelevation s="0" a="0" b="0" c="0" d="0" />
+      <superelevation s="121.92" a="0.0" b="-0.003495" c="0" d="0" />
+      <superelevation s="181.83" a="-0.20944" b="0.0" c="0" d="0" />
+      <superelevation s="241.83" a="-0.20944" b="0.003495" c="0" d="0" />
+      <superelevation s="301.75" a="0.0" b="0.0" c="0" d="0" />
+      <superelevation s="544.83" a="0.0" b="-0.003495" c="0" d="0" />
+      <superelevation s="604.79" a="-0.20944" b="0.0" c="0" d="0" />
+      <superelevation s="664.75" a="-0.20944" b="0.003495" c="0" d="0" />
+      <superelevation s="724.71" a="0.0" b="0.0" c="0" d="0" />
+    </lateralProfile>
+    <lanes>
+      <laneSection s="0">
+        <left>
+          <lane id="4" type="driving" level="false">
+            <link>
+              <successor id="4" />
+            </link>
+            <width a="4.2" b="0.0" c="0.0" d="0.0" sOffset="0" />
+            <roadMark sOffset="0" type="solid" weight="standard" color="standard" height="0.02"
+              width="0.2" />
+          </lane>
+          <lane id="3" type="driving" level="false">
+            <link>
+              <successor id="3" />
+              <neighbor id="4" />
+              <neighbor id="2" />
+            </link>
+            <width a="4.2" b="0.0" c="0.0" d="0.0" sOffset="0" />
+            <roadMark sOffset="0" type="broken" weight="standard" color="standard" height="0.02"
+              width="0.2">
+              <type name="broken" width="0.2">
+                <line length="3" space="9" tOffset="0" width="0.15" sOffset="0" />
+              </type>
+            </roadMark>
+          </lane>
+          <lane id="2" type="driving" level="false">
+            <link>
+              <successor id="2" />
+              <neighbor id="3" />
+              <neighbor id="1" />
+            </link>
+            <width a="4.2" b="0.0" c="0.0" d="0.0" sOffset="0" />
+            <roadMark sOffset="0" type="broken" weight="standard" color="standard" height="0.02"
+              width="0.2">
+              <type name="broken" width="0.2">
+                <line length="3" space="9" tOffset="0" width="0.15" sOffset="0" />
+              </type>
+            </roadMark>
+          </lane>
+          <lane id="1" type="driving" level="false">
+            <link>
+              <successor id="1" />
+              <neighbor id="2" />
+            </link>
+            <width a="4.2" b="0.0" c="0.0" d="0.0" sOffset="0" />
+            <roadMark sOffset="0" type="broken" weight="standard" color="standard" height="0.02"
+              width="0.2">
+              <type name="broken" width="0.2">
+                <line length="3" space="9" tOffset="0" width="0.15" sOffset="0" />
+              </type>
+            </roadMark>
+          </lane>
+        </left>
+        <center>
+          <lane id="0" type="none" level="false">
+            <roadMark sOffset="0" type="solid" weight="standard" color="standard" height="0.02"
+              width="0.2" />
+          </lane>
+        </center>
+      </laneSection>
+    </lanes>
+    <objects>
+      <object id="0" s="0" t="-0.0" subtype="None" dynamic="no" zOffset="0.0" pitch="0" roll="0"
+        height="1.5" name="outer-barrier" type="barrier" orientation="none" hdg="0.0">
+        <repeat length="845.8215625092363" distance="0" s="0" tStart="-0.0" tEnd="-0.0"
+          heightStart="1.5" heightEnd="1.5" zOffsetStart="0.0" zOffsetEnd="0.0" />
+      </object>
+      <object id="1" s="300" t="17.8" subtype="None" dynamic="no" zOffset="0.0" pitch="0" roll="0"
+        height="0.5" name="inner-barrier-1" type="barrier" orientation="none"
+        hdg="3.141592653589793">
+        <repeat length="545.8215625092363" distance="0" s="300" tStart="17.8" tEnd="17.8"
+          heightStart="0.5" heightEnd="0.5" zOffsetStart="0.0" zOffsetEnd="0.0" widthStart="1.0"
+          widthEnd="1.0" />
+      </object>
+      <object id="2" s="0" t="17.8" subtype="None" dynamic="no" zOffset="0.0" pitch="0" roll="0"
+        height="0.5" name="inner-barrier-2" type="barrier" orientation="none"
+        hdg="3.141592653589793">
+        <repeat length="250.0" distance="0" s="0" tStart="17.8" tEnd="17.8" heightStart="0.5"
+          heightEnd="0.5" zOffsetStart="0.0" zOffsetEnd="0.0" widthStart="1.0" widthEnd="1.0" />
+      </object>
+    </objects>
+  </road>
+</OpenDRIVE>
