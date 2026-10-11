@@ -4,12 +4,10 @@ version = "0.3.0"
 authors = [{name="Dogan Ulus", email="dogan.ulus@bogazici.edu.tr" }]
 description = "Develop simulation assets using ASAM OpenX standards"
 readme = "python/openx_assets/README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.13"
 license = "GPL-3.0-or-later"
 dependencies = [
-    "numpy<2", # Ensure compatibility with Blender 4.2 and existing bpy builds
-    "bpy>=4.2.0",
-    "mathutils"
+    "bpy>=5.2,<5.3", # Blender 5.2 LTS, matching the .blend files; provides mathutils
 ]
 license-files = ["python/openx_assets/LICENSE"]
 
