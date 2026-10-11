@@ -31,8 +31,8 @@
       ]
     },
     "vehicleClassData": {
-      "vehicleCategory": "car",
-      "mass": 1950,
+      "vehicleCategory": "van",
+      "mass": 1935,
       "axles": {
         "frontAxle": {
           "maxSteering": 0.55,
@@ -50,7 +50,7 @@
         }
       },
       "performance": {
-        "maxSpeed": 44.0,
+        "maxSpeed": 43.1,
         "maxAcceleration": 2.5,
         "maxDeceleration": 7.0
       }

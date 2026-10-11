@@ -31,7 +31,7 @@
     },
     "vehicleClassData": {
       "vehicleCategory": "car",
-      "mass": 1800,
+      "mass": 1560,
       "axles": {
         "frontAxle": {
           "maxSteering": 0.6,
@@ -49,9 +49,9 @@
         }
       },
       "performance": {
-        "maxSpeed": 56.0,
-        "maxAcceleration": 4.0,
-        "maxDeceleration": 8.0
+        "maxSpeed": 62.5,
+        "maxAcceleration": 3.7,
+        "maxDeceleration": 11.0
       }
     },
     "meshCount": 17,

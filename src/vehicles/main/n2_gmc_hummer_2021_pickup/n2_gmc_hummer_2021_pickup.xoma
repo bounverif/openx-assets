@@ -31,7 +31,7 @@
     },
     "vehicleClassData": {
       "vehicleCategory": "truck",
-      "mass": 4500,
+      "mass": 4186,
       "axles": {
         "frontAxle": {
           "maxSteering": 0.55,
@@ -49,9 +49,9 @@
         }
       },
       "performance": {
-        "maxSpeed": 58.0,
-        "maxAcceleration": 6.0,
-        "maxDeceleration": 8.0
+        "maxSpeed": 47.5,
+        "maxAcceleration": 8.9,
+        "maxDeceleration": 7.6
       }
     },
     "meshCount": 17,
