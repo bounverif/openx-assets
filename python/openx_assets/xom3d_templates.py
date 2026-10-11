@@ -5,6 +5,7 @@ from typing import List, Optional, Dict, Tuple
 @dataclass
 class XOM3D:
     template_1_0_0 = {
+        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
         "metadata": {
             "name": "",
             "description": "",
@@ -13,7 +14,7 @@ class XOM3D:
             "license": "",
             "copyrights": [],
             "openMaterial3dVersion": "1.0.0",
-            "assetVersion": "devel",
+            "assetVersion": "0.0.0",
             "assetType": "object",
             "objectClass": "vehicle",
             "boundingBox": {"x": [0.0, 0.0], "y": [0.0, 0.0], "z": [0.0, 0.0]},
@@ -47,5 +48,5 @@ class XOM3D:
             "textureResolutions": [""],
             "pbrMaterialWorkflow": "metallic",
             "normalMapFormat": "OpenGL",
-        }
+        },
     }

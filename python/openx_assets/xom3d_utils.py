@@ -1,6 +1,7 @@
 import bpy
 import math
 import json
+import re
 import uuid
 import pathlib
 
@@ -206,6 +207,82 @@ def move_empty_parent_to_child():
     )
 
 
+def remove_clearcoat():
+    """Disable the coat layer so the glTF exporter skips KHR_materials_clearcoat."""
+    # The exporter also writes the extension when coat roughness is non-default
+    coat_defaults = {"Coat Weight": 0.0, "Coat Roughness": 0.03}
+    for material in bpy.data.materials:
+        if not material.use_nodes:
+            continue
+        for node in material.node_tree.nodes:
+            if node.type != "BSDF_PRINCIPLED":
+                continue
+            for name, default in coat_defaults.items():
+                socket = node.inputs.get(name)
+                if socket is None:
+                    continue
+                for link in list(socket.links):
+                    material.node_tree.links.remove(link)
+                socket.default_value = default
+
+
+def _material_signature(material):
+    """Hashable summary of a material's node tree, used to detect duplicates."""
+    if not material.use_nodes:
+        return (False, tuple(material.diffuse_color))
+
+    def value(socket):
+        v = getattr(socket, "default_value", None)
+        if v is None:
+            return None
+        if hasattr(v, "__len__"):
+            return tuple(round(x, 6) for x in v)
+        return round(v, 6) if isinstance(v, float) else v
+
+    nodes = []
+    for node in material.node_tree.nodes:
+        inputs = tuple((s.identifier, value(s)) for s in node.inputs if not s.is_linked)
+        image = node.image.name if node.type == "TEX_IMAGE" and node.image else None
+        nodes.append((node.name, node.bl_idname, inputs, image))
+    links = tuple(
+        sorted(
+            (
+                l.from_node.name,
+                l.from_socket.identifier,
+                l.to_node.name,
+                l.to_socket.identifier,
+            )
+            for l in material.node_tree.links
+        )
+    )
+    return (True, tuple(sorted(nodes, key=lambda n: n[0])), links)
+
+
+def merge_duplicate_materials():
+    """Merge identical materials that differ only by a numeric suffix (e.g. 'paint.001')."""
+    groups = {}
+    for material in bpy.data.materials:
+        base_name = re.sub(r"\.\d{3}$", "", material.name)
+        groups.setdefault(base_name, []).append(material)
+
+    merged = 0
+    for base_name, materials in groups.items():
+        if len(materials) < 2:
+            continue
+        # Prefer the unsuffixed material as the one to keep
+        materials.sort(key=lambda m: (m.name != base_name, m.name))
+        keep = materials[0]
+        signature = _material_signature(keep)
+        for duplicate in materials[1:]:
+            if _material_signature(duplicate) == signature:
+                duplicate.user_remap(keep)
+                bpy.data.materials.remove(duplicate)
+                merged += 1
+        if keep.name != base_name and base_name not in bpy.data.materials:
+            keep.name = base_name
+    return merged
+
+
 def export_scene_gltf(destdir="", export_format="GLB"):
     """Export the current scene to a GLTF file."""
     # get current scene filepath
@@ -218,6 +295,7 @@ def export_scene_gltf(destdir="", export_format="GLB"):
     if destdir:
         asset_path = pathlib.Path(destdir) / pathlib.Path(asset_path.name)
 
+    asset_path.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.export_scene.gltf(
         filepath=str(asset_path),
         export_format=export_format,
@@ -241,6 +319,7 @@ def export_scene_fbx(destdir=""):
     if destdir:
         asset_path = pathlib.Path(destdir) / pathlib.Path(asset_path.name)
 
+    asset_path.parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.export_scene.fbx(
         filepath=str(asset_path),
         colors_type="NONE",

@@ -2,5 +2,14 @@
   "name": "OpenX Assets",
   "build": {
     "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "nonroot",
+  "updateRemoteUserUID": true,
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Anthropic.claude-code"
+      ]
+    }
   }
 }

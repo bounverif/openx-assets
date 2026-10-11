@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-COLLECTION ?= src/vehicles/main
+COLLECTION ?= src/vehicles
 DESTDIR ?= /tmp/openx-assets
 OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
 
-all: purge assets osgb catalogs
+all: purge assets assets-osgb model3d-catalog xosc-catalog xom3d-catalog
 
 install:
 	@echo "Installing OpenX Assets Python Package"
@@ -22,16 +22,17 @@ assets:
 		--fbx \
 		--asset-version $(OPENX_ASSETS_VERSION)
 
-assets-catalog:
-	@echo "Bundling OpenX asset catalogs..."
-	@mkdir -p $(DESTDIR)/catalogs
-	openx-assets catalog $(COLLECTION) \
-		--name "openx_assets_3d" \
-		--model3d-ext "osgb" \
-		--destdir $(DESTDIR)/catalogs \
+assets-fbx-only:
+	@echo "Bundling OpenX assets..."
+	@mkdir -p $(DESTDIR)/model3d
+	openx-assets export $(COLLECTION) \
+		--destdir $(DESTDIR)/model3d \
+		--fbx \
+		--no-glb \
+		--no-xoma \
 		--asset-version $(OPENX_ASSETS_VERSION)
 
-osgb:
+assets-osgb:
 	@echo "Converting OpenX FBX assets to OSGB format..."
 	@find "$(DESTDIR)" -type f -name "*.fbx" | while IFS= read -r fbx_path; do \
 		rel_path="$${fbx_path#$(DESTDIR)/}"; \
@@ -46,7 +47,16 @@ osgb:
 		fi; \
 	done
 
-db-catalog:
+model3d-catalog:
+	@echo "Bundling OpenX asset catalogs..."
+	@mkdir -p $(DESTDIR)/catalogs
+	openx-assets catalog $(COLLECTION) \
+		--name "model3d" \
+		--model3d-ext "osgb" \
+		--destdir $(DESTDIR)/catalogs \
+		--asset-version $(OPENX_ASSETS_VERSION)
+
+xosc-catalog:
 	@echo "Generating OpenX asset catalogs..."
 	@mkdir -p "$(DESTDIR)/catalogs"
 	for dir in $(wildcard $(PROJECT_DIR)/xom3d/vehicles/*); do \
@@ -55,14 +65,20 @@ db-catalog:
 			--name "$$name" \
 			--destdir $(DESTDIR)/catalogs \
 			--asset-version $(OPENX_ASSETS_VERSION); \
-	done
+	done;
+
+xom3d-catalog:
 	@mkdir -p "$(DESTDIR)/xom3d/vehicles"
-	cp -r $(PROJECT_DIR)/xom3d/vehicles/* "$(DESTDIR)/xom3d/vehicles"
+	@ cp -r $(PROJECT_DIR)/xom3d/vehicles/* "$(DESTDIR)/xom3d/vehicles"
 
-
-bundle: purge assets osgb assets-catalog db-catalog clean
+bundle: purge assets assets-osgb model3d-catalog xosc-catalog xom3d-catalog clean
 	@echo "Bundling OpenX assets into a single archive..."
 	@cd $(DESTDIR) && zip -r $(PROJECT_DIR)/openx-assets.zip .
+
+esmini: purge assets-fbx-only assets-osgb model3d-catalog xosc-catalog
+	@echo "Bundling OpenX assets for esmini..."
+	@find $(DESTDIR) -type f -name "*.fbx" -delete
+	@cd $(DESTDIR) && zip -r $(PROJECT_DIR)/openx-assets-esmini.zip .
 
 clean:
 	@echo "Cleaning OpenX assets..."
@@ -79,5 +95,8 @@ clean:
 
 purge: clean
 	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets.zip" -delete
+	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets-esmini.zip" -delete
+	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets-gltf.zip" -delete
+	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets-openusd.zip" -delete
 
-.PHONY: install assets catalogs osgb bundle all
+.PHONY: all install assets assets-fbx-only assets-osgb model3d-catalog xosc-catalog xom3d-catalog bundle esmini clean purge
