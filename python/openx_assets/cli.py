@@ -29,6 +29,11 @@ def export_command(args):
             destdir / relative_dir if args.destdir else pathlib.Path(blendpath).parent
         )
 
+        # Clean up materials in memory only; the .blend file is not saved
+        xom3d_utils.merge_duplicate_materials()
+        if not args.keep_clearcoat:
+            xom3d_utils.remove_clearcoat()
+
         if args.export_glb:
             xom3d_utils.export_scene_gltf(destdir=assets_dir, export_format="GLB")
         if args.export_gltf:
@@ -292,7 +297,7 @@ def main():
         "--xoma",
         dest="export_xoma",
         action="store_true",
-        default=False,
+        default=True,
         help="Export to XOMA format",
     )
     export_parser.add_argument(
@@ -300,6 +305,13 @@ def main():
         dest="export_xoma",
         action="store_false",
         help="Do not export to XOMA format",
+    )
+    export_parser.add_argument(
+        "--clearcoat",
+        dest="keep_clearcoat",
+        action="store_true",
+        default=False,
+        help="Keep material clearcoat (KHR_materials_clearcoat) in exported models",
     )
     export_parser.add_argument(
         "--destdir",

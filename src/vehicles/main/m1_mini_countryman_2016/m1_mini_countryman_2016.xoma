@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
   "metadata": {
     "name": "Mini Countryman",
     "description": "A 3D model of Mini Countryman 2016, suitable for use in simulations and visualizations.",
@@ -12,7 +13,7 @@
       "(c) 2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
-    "assetVersion": "devel",
+    "assetVersion": "0.0.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "boundingBox": {

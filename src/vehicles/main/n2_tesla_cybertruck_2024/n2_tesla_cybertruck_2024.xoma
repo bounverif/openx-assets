@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Open-MB/mb-schema/main/schemas/vehicle.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
   "metadata": {
     "name": "Tesla Cybertruck",
     "description": "A 3D model of a Tesla Cybertruck",
@@ -12,7 +12,7 @@
       "(c) 2020 Lexyc16 <https://sketchfab.com/Lexyc16>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
-    "assetVersion": "devel",
+    "assetVersion": "0.0.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "boundingBox": {

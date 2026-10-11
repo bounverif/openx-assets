@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
   "metadata": {
     "name": "Audi TT Roadster",
     "description": "A 3D model of Audi TT 2014 Roadster, suitable for use in simulations and visualizations.",
@@ -12,7 +13,7 @@
       "(c) 2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
-    "assetVersion": "devel",
+    "assetVersion": "0.0.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "boundingBox": {
@@ -34,7 +35,7 @@
       "mass": 1550,
       "axles": {
         "frontAxle": {
-          "maxSteering": 0.70,
+          "maxSteering": 0.7,
           "wheelDiameter": 0.6597,
           "trackWidth": 1.578,
           "positionX": 1.2053,

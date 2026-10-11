@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
   "metadata": {
     "name": "Volvo EX30",
     "description": "A 3D model of a Volvo EX30 2024, suitable for use in simulations and visualizations.",
@@ -11,7 +12,7 @@
       "(c) 2023 Mehdi Lagzouli <https://sketchfab.com/LagzDesign>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.0.0",
-    "assetVersion": "devel",
+    "assetVersion": "0.0.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "boundingBox": {
