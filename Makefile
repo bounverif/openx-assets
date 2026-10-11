@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-COLLECTION ?= src/vehicles/main
+COLLECTION ?= src/vehicles
 DESTDIR ?= /tmp/openx-assets
 OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
