@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  REGISTRY: ghcr.io/bounverif
+  REGISTRY: ghcr.io/vevalabs
   IMAGE_NAME: openx-assets
   HOSTARCH: amd64
   PLATFORM: linux-amd64
