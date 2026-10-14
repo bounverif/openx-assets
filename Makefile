@@ -32,13 +32,18 @@ assets:
 		--asset-version $(OPENX_ASSETS_VERSION)
 
 # Convert the exported FBX files to OSGB (FBX is Y-up, OpenX assets are Z-up).
+# The detour through OSG text format gives materials a non-black ambient colour for esmini.
 assets-osgb: assets
 	@echo "Converting OpenX FBX assets to OSGB format..."
 	@find "$(STAGEDIR)/vehicles" -type f -name "*.fbx" | while IFS= read -r fbx_path; do \
+		osgt_path="$${fbx_path%.fbx}.osgt"; \
 		osgb_path="$${fbx_path%.fbx}.osgb"; \
 		echo "Converting '$${fbx_path}' to '$${osgb_path}'"; \
-		osgconv "$${fbx_path}" "$${osgb_path}" -o 120-0.5773503,-0.5773503,-0.5773503 --use-world-frame \
+		{ osgconv "$${fbx_path}" "$${osgt_path}" -o 120-0.5773503,-0.5773503,-0.5773503 --use-world-frame \
+			&& python3 $(PROJECT_DIR)/scripts/osgt_ambient_from_diffuse.py "$${osgt_path}" \
+			&& osgconv "$${osgt_path}" "$${osgb_path}"; } \
 			|| echo "Error converting '$${fbx_path}'. Skipping..."; \
+		rm -f "$${osgt_path}"; \
 	done
 
 # Copy files matching $(2) from $(STAGEDIR)/vehicles into the $(1) bundle's vehicles, one directory per model.
