@@ -12,6 +12,7 @@ on:
           - "true"
           - "false"
   # Pull requests build and check every bundle but never publish.
+  # The esmini bundle has its own workflow (esmini.yml).
   pull_request:
     branches:
       - main
@@ -49,8 +50,6 @@ jobs:
             export_flags: --glb --xoma
           - bundle: fbx
             export_flags: --fbx --xoma
-          - bundle: esmini
-            export_flags: --fbx --xoma
           - bundle: usdz
             export_flags: --usdz --xoma
           - bundle: catalog
@@ -59,17 +58,6 @@ jobs:
         uses: actions/checkout@v7
         with:
           lfs: ${{ matrix.bundle != 'catalog' }}
-
-      # osgconv reads FBX through the FBX SDK plugin.
-      - name: Download and install FBX SDK at runtime
-        if: matrix.bundle == 'esmini'
-        run: |
-          export FBXSDK_INSTALL_PREFIX="/tmp/install"
-          mkdir -p ${FBXSDK_INSTALL_PREFIX}
-          sh /usr/local/bin/fbxsdk-install.sh
-          mv ${FBXSDK_INSTALL_PREFIX}/lib/release/* /usr/local/lib
-          rm -rf ${FBXSDK_INSTALL_PREFIX}
-          ldconfig
 
       - name: Install OpenX Assets Python package
         run: pip install . --break-system-packages
@@ -111,7 +99,6 @@ jobs:
           /tmp/qc-venv/bin/pip install --quiet "git+https://github.com/asam-ev/qc-openmaterial-3d@${QC_OPENMATERIAL_REF}"
           echo /tmp/qc-venv/bin >> $GITHUB_PATH
 
-      # The esmini bundle has no .xoma files.
       - name: Check bundles
         run: |
           mkdir -p bundles
