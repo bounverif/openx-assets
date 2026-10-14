@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Mercedes-Benz G-Class",
+    "description": "A 3D model of a Mercedes-Benz G-Class 2008 (W463, long wheelbase, G 500), suitable for use in simulations and visualizations.",
+    "uuid": "09f73a5a-d844-4f3b-af27-cd2f4e8efabf",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2020 Lexyc16 <https://sketchfab.com/Lexyc16>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.3476,
+        2.3541
+      ],
+      "y": [
+        -1.0488,
+        1.0488
+      ],
+      "z": [
+        0.0,
+        1.9653
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.45,
+          "wheelDiameter": 0.8069,
+          "trackWidth": 1.5591,
+          "positionX": 1.5651,
+          "positionZ": 0.4034
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.8069,
+          "trackWidth": 1.5591,
+          "positionX": -1.2846,
+          "positionZ": 0.4034
+        }
+      },
+      "performance": {
+        "maxSpeed": 58.3,
+        "maxAcceleration": 4.6,
+        "maxDeceleration": 9.0
+      },
+      "mass": 2455
+    },
+    "meshCount": 33,
+    "triangleCount": 15900,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

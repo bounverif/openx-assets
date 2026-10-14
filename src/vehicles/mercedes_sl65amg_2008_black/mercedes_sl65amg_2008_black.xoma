@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Mercedes SL65 AMG Black Series",
+    "description": "A 3D model of a Mercedes-Benz SL65 AMG Black Series (R230, 2008), suitable for use in simulations and visualizations.",
+    "uuid": "fcea09f3-26cb-4c0d-8361-8c9317741b5e",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Ajay Gawde <https://sketchfab.com/aagawde>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.3221,
+        2.3221
+      ],
+      "y": [
+        -1.0457,
+        1.0457
+      ],
+      "z": [
+        0.0,
+        1.2927
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.7,
+          "wheelDiameter": 0.6854,
+          "trackWidth": 1.6826,
+          "positionX": 1.2932,
+          "positionZ": 0.3427
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6854,
+          "trackWidth": 1.6826,
+          "positionX": -1.2672,
+          "positionZ": 0.3427
+        }
+      },
+      "performance": {
+        "maxSpeed": 88.9,
+        "maxAcceleration": 7.3,
+        "maxDeceleration": 11.0
+      },
+      "mass": 1870
+    },
+    "meshCount": 26,
+    "triangleCount": 18318,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

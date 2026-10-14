@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Iveco Daily",
+    "description": "A 3D model of an Iveco Daily (first generation, 1982) 35.8 high-roof panel van with a right-hand sliding door and twin rear doors, suitable for use in simulations and visualizations.",
+    "uuid": "f5954073-286f-40df-829d-32264d4196d8",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 kekomag <https://sketchfab.com/kekomag>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.9332,
+        2.9352
+      ],
+      "y": [
+        -1.1604,
+        1.1604
+      ],
+      "z": [
+        0.0,
+        2.5164
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "van",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6728,
+          "trackWidth": 1.7975,
+          "positionX": 2.1477,
+          "positionZ": 0.3364
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6728,
+          "trackWidth": 1.7975,
+          "positionX": -1.1623,
+          "positionZ": 0.3364
+        }
+      },
+      "performance": {
+        "maxSpeed": 31.9,
+        "maxAcceleration": 1.5,
+        "maxDeceleration": 6.0
+      },
+      "mass": 2100
+    },
+    "meshCount": 30,
+    "triangleCount": 34596,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

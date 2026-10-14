@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Toyota Corolla",
+    "description": "A 3D model of a Toyota Corolla 2014 (E180, European sedan), suitable for use in simulations and visualizations.",
+    "uuid": "11a13966-937b-4506-a02d-b1e1f3d7aa18",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Armored Wave <https://sketchfab.com/armoredwave>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.3029,
+        2.3039
+      ],
+      "y": [
+        -1.0799,
+        1.0799
+      ],
+      "z": [
+        0.0,
+        1.4649
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6561,
+          "trackWidth": 1.5143,
+          "positionX": 1.3285,
+          "positionZ": 0.3281
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6561,
+          "trackWidth": 1.5143,
+          "positionX": -1.3715,
+          "positionZ": 0.3281
+        }
+      },
+      "performance": {
+        "maxSpeed": 54.2,
+        "maxAcceleration": 2.8,
+        "maxDeceleration": 10.2
+      },
+      "mass": 1300
+    },
+    "meshCount": 39,
+    "triangleCount": 44432,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

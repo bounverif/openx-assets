@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic American Coupe",
+    "description": "A 3D model of a fictional mid-1990s American two-door compact coupe, suitable for use in simulations and visualizations.",
+    "uuid": "0fc35218-8e09-42a8-8eb6-b0410df299cb",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.1102,
+        2.1102
+      ],
+      "y": [
+        -0.9105,
+        0.9105
+      ],
+      "z": [
+        0.0,
+        1.3139
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.5539,
+          "trackWidth": 1.4224,
+          "positionX": 1.2594,
+          "positionZ": 0.277
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.5539,
+          "trackWidth": 1.4224,
+          "positionX": -1.2693,
+          "positionZ": 0.277
+        }
+      },
+      "performance": {
+        "maxSpeed": 52.0,
+        "maxAcceleration": 2.9,
+        "maxDeceleration": 8.0
+      },
+      "mass": 1100
+    },
+    "meshCount": 27,
+    "triangleCount": 12191,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

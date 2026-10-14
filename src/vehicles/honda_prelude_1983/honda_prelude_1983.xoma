@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Honda Prelude",
+    "description": "A 3D model of a Honda Prelude (second generation) 1983, suitable for use in simulations and visualizations.",
+    "uuid": "146b9fde-511a-437b-b8dc-2fa94cf503ba",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Blue3D <https://sketchfab.com/Blueberry12>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.1614,
+        2.1614
+      ],
+      "y": [
+        -0.9383,
+        0.9383
+      ],
+      "z": [
+        0.0,
+        1.266
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6139,
+          "trackWidth": 1.5037,
+          "positionX": 1.245,
+          "positionZ": 0.3069
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6139,
+          "trackWidth": 1.5037,
+          "positionX": -1.2046,
+          "positionZ": 0.3069
+        }
+      },
+      "performance": {
+        "maxSpeed": 51.4,
+        "maxAcceleration": 2.7,
+        "maxDeceleration": 7.8
+      },
+      "mass": 1050
+    },
+    "meshCount": 29,
+    "triangleCount": 34196,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

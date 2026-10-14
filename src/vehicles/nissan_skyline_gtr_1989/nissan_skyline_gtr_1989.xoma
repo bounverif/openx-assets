@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Nissan Skyline GT-R (R32)",
+    "description": "A 3D model of a Nissan Skyline GT-R (BNR32) 1989, suitable for use in simulations and visualizations.",
+    "uuid": "5b16fead-25a6-4e8b-a9d6-8451e378cf87",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2023 Blue3D <https://sketchfab.com/Blueberry12>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.2623,
+        2.2623
+      ],
+      "y": [
+        -0.9338,
+        0.9338
+      ],
+      "z": [
+        0.0,
+        1.3292
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.65,
+          "wheelDiameter": 0.6603,
+          "trackWidth": 1.5156,
+          "positionX": 1.3175,
+          "positionZ": 0.3301
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6603,
+          "trackWidth": 1.5156,
+          "positionX": -1.2975,
+          "positionZ": 0.3301
+        }
+      },
+      "performance": {
+        "maxSpeed": 69.4,
+        "maxAcceleration": 5.0,
+        "maxDeceleration": 9.8
+      },
+      "mass": 1430
+    },
+    "meshCount": 32,
+    "triangleCount": 27556,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

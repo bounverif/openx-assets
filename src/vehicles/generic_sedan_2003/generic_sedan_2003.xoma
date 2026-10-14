@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic American Sport Sedan",
+    "description": "A 3D model of a fictional early-2000s American sport sedan, suitable for use in simulations and visualizations.",
+    "uuid": "e8b10aa3-1c92-4a9b-bce3-2ad86007500a",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.216,
+        2.2266
+      ],
+      "y": [
+        -0.9486,
+        0.9486
+      ],
+      "z": [
+        0.0,
+        1.315
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6062,
+          "trackWidth": 1.4181,
+          "positionX": 1.426,
+          "positionZ": 0.3031
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6062,
+          "trackWidth": 1.4181,
+          "positionX": -1.2175,
+          "positionZ": 0.3031
+        }
+      },
+      "performance": {
+        "maxSpeed": 62.5,
+        "maxAcceleration": 3.7,
+        "maxDeceleration": 9.0
+      },
+      "mass": 1650
+    },
+    "meshCount": 38,
+    "triangleCount": 19879,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

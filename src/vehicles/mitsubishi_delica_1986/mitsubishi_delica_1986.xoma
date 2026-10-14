@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Mitsubishi Delica",
+    "description": "A 3D model of a Mitsubishi Delica (third generation, 1986; sold as the L300 in Europe) passenger van with a left-hand sliding door and a top-hinged tailgate, suitable for use in simulations and visualizations.",
+    "uuid": "ac7916c2-3aa4-47b4-ba8a-67c8eeba3d93",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2022 kekomag <https://sketchfab.com/kekomag>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.159,
+        2.1615
+      ],
+      "y": [
+        -0.933,
+        0.933
+      ],
+      "z": [
+        0.0,
+        1.8364
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "van",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.691,
+          "trackWidth": 1.3378,
+          "positionX": 0.9934,
+          "positionZ": 0.3455
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.691,
+          "trackWidth": 1.3378,
+          "positionX": -1.2416,
+          "positionZ": 0.3455
+        }
+      },
+      "performance": {
+        "maxSpeed": 37.5,
+        "maxAcceleration": 2.0,
+        "maxDeceleration": 6.0
+      },
+      "mass": 1440
+    },
+    "meshCount": 28,
+    "triangleCount": 21932,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

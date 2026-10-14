@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Tesla Model 3",
+    "description": "A 3D model of a Tesla Model 3 2017 (first generation, Long Range), suitable for use in simulations and visualizations.",
+    "uuid": "2409d910-3310-4b7e-ae3b-e89fd93d5cdb",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2021 wintrez <https://sketchfab.com/wintrez>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.346,
+        2.346
+      ],
+      "y": [
+        -1.0481,
+        1.0481
+      ],
+      "z": [
+        0.0,
+        1.4545
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.52,
+          "wheelDiameter": 0.7318,
+          "trackWidth": 1.608,
+          "positionX": 1.5488,
+          "positionZ": 0.3659
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7318,
+          "trackWidth": 1.608,
+          "positionX": -1.4053,
+          "positionZ": 0.3659
+        }
+      },
+      "performance": {
+        "maxSpeed": 64.7,
+        "maxAcceleration": 6.3,
+        "maxDeceleration": 11.2
+      },
+      "mass": 1922
+    },
+    "meshCount": 30,
+    "triangleCount": 65966,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

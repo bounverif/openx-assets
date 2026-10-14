@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Sport Sedan",
+    "description": "A 3D model of a fictional late-1990s Japanese sport sedan with an aftermarket body kit and sport wheels, suitable for use in simulations and visualizations.",
+    "uuid": "cbc42960-eac7-4567-8af8-1b971b85e33f",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.2064,
+        2.215
+      ],
+      "y": [
+        -0.9333,
+        0.9333
+      ],
+      "z": [
+        -0.0,
+        1.3574
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6062,
+          "trackWidth": 1.4263,
+          "positionX": 1.4051,
+          "positionZ": 0.3031
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6062,
+          "trackWidth": 1.4263,
+          "positionX": -1.1836,
+          "positionZ": 0.3031
+        }
+      },
+      "performance": {
+        "maxSpeed": 63.9,
+        "maxAcceleration": 4.0,
+        "maxDeceleration": 9.0
+      },
+      "mass": 1400
+    },
+    "meshCount": 35,
+    "triangleCount": 18811,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

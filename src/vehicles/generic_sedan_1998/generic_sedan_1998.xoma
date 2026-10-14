@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Midsize Sedan",
+    "description": "A 3D model of a fictional late-1990s American midsize sedan, suitable for use in simulations and visualizations.",
+    "uuid": "9dc8d069-2b3f-4647-b153-633d152a9ee6",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.5114,
+        2.5186
+      ],
+      "y": [
+        -1.0452,
+        1.0452
+      ],
+      "z": [
+        -0.0,
+        1.422
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6677,
+          "trackWidth": 1.563,
+          "positionX": 1.3948,
+          "positionZ": 0.3338
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6677,
+          "trackWidth": 1.563,
+          "positionX": -1.412,
+          "positionZ": 0.3338
+        }
+      },
+      "performance": {
+        "maxSpeed": 58.3,
+        "maxAcceleration": 3.5,
+        "maxDeceleration": 8.5
+      },
+      "mass": 1650
+    },
+    "meshCount": 36,
+    "triangleCount": 21619,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}
