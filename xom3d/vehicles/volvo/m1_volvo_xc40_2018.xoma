@@ -1,8 +1,8 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
   "metadata": {
     "name": "m1.volvo.xc40.2018",
-    "openMaterial3dVersion": "1.0.0",
+    "openMaterial3dVersion": "1.1.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "uuid": "944f5ac4-b4ec-5e6b-b1aa-df72c519f156",
@@ -14,7 +14,6 @@
     "authors": [
       "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
-    "mass": 1600,
     "vehicleClassData": {
       "vehicleCategory": "car",
       "axles": {
@@ -37,7 +36,8 @@
         "maxSpeed": 55,
         "maxAcceleration": 5.0,
         "maxDeceleration": 10.0
-      }
+      },
+      "mass": 1600
     },
     "boundingBox": {
       "x": [
