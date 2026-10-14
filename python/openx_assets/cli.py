@@ -79,11 +79,20 @@ def render_command(args):
         scene.render.engine = "CYCLES"
         prefs = bpy.context.preferences
         cprefs = prefs.addons["cycles"].preferences
-        try:
-            cprefs.compute_device_type = "CUDA" if "CUDA" in cprefs.devices else "NONE"
-        except:
-            pass
-        scene.cycles.device = "GPU" if cprefs.compute_device_type != "NONE" else "CPU"
+        scene.cycles.device = "CPU"
+        for device_type in ("OPTIX", "CUDA"):
+            try:
+                cprefs.compute_device_type = device_type
+            except TypeError:
+                continue
+            cprefs.get_devices()
+            gpus = [d for d in cprefs.devices if d.type == device_type]
+            if gpus:
+                for d in cprefs.devices:
+                    d.use = d.type == device_type
+                scene.cycles.device = "GPU"
+                print(f"Rendering on {device_type}: {', '.join(d.name for d in gpus)}")
+                break
         scene.cycles.use_adaptive_sampling = True
         scene.cycles.samples = 64
         scene.cycles.use_denoising = True
