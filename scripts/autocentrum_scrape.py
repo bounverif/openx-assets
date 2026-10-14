@@ -58,18 +58,17 @@ def build_vehicle_asset_json(name, scraped_dimensions):
     half_width = width / 2
 
     asset = {
-        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
         "metadata": {
             "name": name,
-            "openMaterial3dVersion": "1.0.0",
+            "openMaterial3dVersion": "1.1.0",
             "assetType": "object",
             "objectClass": "vehicle",
             "uuid": str(uuid.uuid5(uuid.NAMESPACE_DNS, name)),
-            "assetVersion": date.today().isoformat(),
+            "assetVersion": date.today().strftime("%Y.%-m.%-d"),
             "copyrights": ["(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"],
             "license": "MPL-2.0",
             "authors": ["Dogan Ulus <dogan.ulus@bogazici.edu.tr>"],
-            "mass": 1500,
             "vehicleClassData": {
                 "vehicleCategory": "car",
                 "axles": {
@@ -93,6 +92,7 @@ def build_vehicle_asset_json(name, scraped_dimensions):
                     "maxAcceleration": 5.0,
                     "maxDeceleration": 10.0,
                 },
+                "mass": 1500,
             },
             "boundingBox": {
                 "x": [-round(half_length, 4), round(half_length, 4)],

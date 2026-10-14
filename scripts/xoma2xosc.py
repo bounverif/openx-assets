@@ -26,9 +26,7 @@ def add_vehicle(doc, xml_parent, asset_data, vehicle_name):
     vehicle.setAttribute("name", vehicle_name)
     vehicle.setAttribute("vehicleCategory", vehicle_class.get("vehicleCategory", "car"))
     # Fallback mass
-    vehicle.setAttribute(
-        "mass", str(meta.get("humanClassData", {}).get("mass", meta.get("mass", 2000)))
-    )
+    vehicle.setAttribute("mass", str(vehicle_class.get("mass", 2000)))
     xml_parent.appendChild(vehicle)
 
     # BoundingBox

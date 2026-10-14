@@ -30,6 +30,7 @@ class OpenXAssetsPreferences(bpy.types.AddonPreferences):
     bl_idname = __package__
 
     supported_xom3d_versions = [
+        ("1.1.0", "Version 1.1", "ASAM OpenMATERIAL 3D Version 1.1"),
         ("1.0.0", "Version 1.0", "ASAM OpenMATERIAL 3D Version 1.0"),
     ]
 
@@ -37,7 +38,7 @@ class OpenXAssetsPreferences(bpy.types.AddonPreferences):
         name="Version",
         description="ASAM OpenMATERIAL 3D Version",
         items=supported_xom3d_versions,
-        default="1.0.0",
+        default="1.1.0",
         update=xom3d_version_update,
     )
 
