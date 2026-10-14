@@ -8,7 +8,7 @@ OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
 # Every collection exports once into STAGEDIR; each bundle picks its files from there.
 STAGEDIR := $(BUILDDIR)/stage
-BUNDLES := glb fbx osgb usdz catalog
+BUNDLES := glb fbx esmini usdz catalog
 ZIPS := $(foreach b,$(BUNDLES),openx-assets-$(b).zip)
 
 # Formats to export; a single bundle needs fewer (e.g. EXPORT_FLAGS="--glb --xoma").
@@ -65,19 +65,19 @@ bundle-glb: assets
 	$(call copy-models,glb,\( -name "*.glb" -o -name "*.xoma" \))
 
 # OpenSceneGraph models for esmini, all in one directory, with a catalog that references them.
-bundle-osgb: assets-osgb
-	@echo "Bundling OSGB assets..."
-	@rm -rf $(BUILDDIR)/osgb
-	@mkdir -p $(BUILDDIR)/osgb/vehicles
-	find $(STAGEDIR)/vehicles -type f -name "*.osgb" -exec cp {} $(BUILDDIR)/osgb/vehicles \;
+bundle-esmini: assets-osgb
+	@echo "Bundling esmini assets..."
+	@rm -rf $(BUILDDIR)/esmini
+	@mkdir -p $(BUILDDIR)/esmini/vehicles
+	find $(STAGEDIR)/vehicles -type f -name "*.osgb" -exec cp {} $(BUILDDIR)/esmini/vehicles \;
 	openx-assets catalog $(STAGEDIR)/vehicles \
 		--name "vehicles" \
 		--model3d-ext "osgb" \
 		--model3d-flat \
-		--destdir $(BUILDDIR)/osgb/catalogs \
+		--destdir $(BUILDDIR)/esmini/catalogs \
 		--asset-version $(OPENX_ASSETS_VERSION)
-	sed -E 's|"vehicles/([^"/]+)/\*\*"|"vehicles/\1.osgb"|g' $(PROJECT_DIR)/src/REUSE.toml > $(BUILDDIR)/osgb/REUSE.toml
-	echo "$$CATALOG_REUSE" >> $(BUILDDIR)/osgb/REUSE.toml
+	sed -E 's|"vehicles/([^"/]+)/\*\*"|"vehicles/\1.osgb"|g' $(PROJECT_DIR)/src/REUSE.toml > $(BUILDDIR)/esmini/REUSE.toml
+	echo "$$CATALOG_REUSE" >> $(BUILDDIR)/esmini/REUSE.toml
 
 # FBX models with their OpenMATERIAL 3D metadata.
 bundle-fbx: assets

@@ -41,7 +41,7 @@ jobs:
             export_flags: --glb --xoma
           - bundle: fbx
             export_flags: --fbx --xoma
-          - bundle: osgb
+          - bundle: esmini
             export_flags: --fbx --xoma
           - bundle: usdz
             export_flags: --usdz --xoma
@@ -54,7 +54,7 @@ jobs:
 
       # osgconv reads FBX through the FBX SDK plugin.
       - name: Download and install FBX SDK at runtime
-        if: matrix.bundle == 'osgb'
+        if: matrix.bundle == 'esmini'
         run: |
           export FBXSDK_INSTALL_PREFIX="/tmp/install"
           mkdir -p ${FBXSDK_INSTALL_PREFIX}
@@ -103,7 +103,7 @@ jobs:
           /tmp/qc-venv/bin/pip install --quiet "git+https://github.com/asam-ev/qc-openmaterial-3d@${QC_OPENMATERIAL_REF}"
           echo /tmp/qc-venv/bin >> $GITHUB_PATH
 
-      # The OSGB bundle has no .xoma files.
+      # The esmini bundle has no .xoma files.
       - name: Check bundles
         run: |
           mkdir -p bundles
