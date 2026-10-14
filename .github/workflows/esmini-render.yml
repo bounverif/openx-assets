@@ -1,83 +1,18 @@
-name: OpenX Assets esmini Release
+name: esmini Render
 
+# Called by release.yml once the openx-assets-esmini artifact exists in the run.
 on:
-  workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "Dry run"
-        required: false
-        default: "false"
-        type: choice
-        options:
-          - "true"
-          - "false"
-  # Pull requests build and render the bundle, and post the render, but never publish.
-  pull_request:
-    branches:
-      - main
+  workflow_call:
 
 permissions:
   contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
   ESMINI_VERSION: v3.10.0
 
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    outputs:
-      tag: ${{ steps.version.outputs.tag }}
-      asset_version: ${{ steps.version.outputs.asset_version }}
-    steps:
-      - id: version
-        run: |
-          echo "tag=$(date +'%Y%m%d')-esmini" >> "$GITHUB_OUTPUT"
-          echo "asset_version=$(date +'%Y.%-m.%-d')" >> "$GITHUB_OUTPUT"
-
-  bundle:
-    needs: prepare
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/vevalabs/openx-assets:latest-builder
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          lfs: true
-
-      # osgconv reads FBX through the FBX SDK plugin.
-      - name: Download and install FBX SDK at runtime
-        run: |
-          export FBXSDK_INSTALL_PREFIX="/tmp/install"
-          mkdir -p ${FBXSDK_INSTALL_PREFIX}
-          sh /usr/local/bin/fbxsdk-install.sh
-          mv ${FBXSDK_INSTALL_PREFIX}/lib/release/* /usr/local/lib
-          rm -rf ${FBXSDK_INSTALL_PREFIX}
-          ldconfig
-
-      - name: Install OpenX Assets Python package
-        run: pip install . --break-system-packages
-
-      - name: Build esmini bundle
-        run: >-
-          make openx-assets-esmini.zip
-          EXPORT_FLAGS="--fbx --xoma"
-          OPENX_ASSETS_VERSION=${{ needs.prepare.outputs.asset_version }}
-
-      - name: Upload esmini bundle
-        uses: actions/upload-artifact@v7
-        with:
-          name: openx-assets-esmini
-          path: openx-assets-esmini.zip
-          if-no-files-found: error
-
   # Load every vehicle in esmini and tile one frame of each into an image.
   render:
-    needs: bundle
     runs-on: ubuntu-latest
     outputs:
       failed: ${{ steps.render.outputs.failed }}
@@ -204,29 +139,3 @@ jobs:
           else
             gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body "$body"
           fi
-
-  # The esmini bundle gets its own draft release, so it never races the main release.
-  publish:
-    needs: [prepare, bundle, render]
-    if: ${{ !cancelled() && needs.render.result == 'success' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.dry_run != 'true' }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Download esmini bundle
-        uses: actions/download-artifact@v8
-        with:
-          name: openx-assets-esmini
-
-      - name: Create GitHub release
-        uses: softprops/action-gh-release@v3
-        with:
-          files: openx-assets-esmini.zip
-          fail_on_unmatched_files: true
-          name: "OpenX Assets for esmini"
-          tag_name: ${{ needs.prepare.outputs.tag }}
-          make_latest: false
-          draft: true
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
