@@ -8,8 +8,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "Anthropic.claude-code",
-        "AssetToolLabs.mesh-viewer-vscode"
+        "Anthropic.claude-code"
       ]
     }
   }

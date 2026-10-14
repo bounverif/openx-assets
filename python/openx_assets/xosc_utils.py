@@ -23,7 +23,7 @@ def catalog_create(name, author="", version=""):
 
     file_header = doc.createElement("FileHeader")
     file_header.setAttribute("revMajor", "1")
-    file_header.setAttribute("revMinor", "0")
+    file_header.setAttribute("revMinor", "3")
     file_header.setAttribute("author", author)
     file_header.setAttribute("version", version)
     root.appendChild(file_header)
