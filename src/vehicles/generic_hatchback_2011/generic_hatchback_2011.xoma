@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Hatchback",
+    "description": "A 3D model of a fictional early-2010s five-door city hatchback, suitable for use in simulations and visualizations.",
+    "uuid": "743815ba-66ed-486b-b5fe-b08f1778cfbd",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2020-2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -1.9217,
+        1.9217
+      ],
+      "y": [
+        -0.913,
+        0.913
+      ],
+      "z": [
+        0.0,
+        1.4452
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.5955,
+          "trackWidth": 1.4098,
+          "positionX": 1.1023,
+          "positionZ": 0.2977
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.5955,
+          "trackWidth": 1.4098,
+          "positionX": -1.3027,
+          "positionZ": 0.2977
+        }
+      },
+      "performance": {
+        "maxSpeed": 48.6,
+        "maxAcceleration": 2.5,
+        "maxDeceleration": 9.8
+      },
+      "mass": 1150
+    },
+    "meshCount": 29,
+    "triangleCount": 18776,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

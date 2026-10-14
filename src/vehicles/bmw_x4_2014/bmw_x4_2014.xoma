@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "BMW X4",
+    "description": "A 3D model of a BMW X4 2014 (F26), suitable for use in simulations and visualizations.",
+    "uuid": "6c0def9c-e5b4-4ba4-a035-b6a222b05b96",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2022 mk2design <https://sketchfab.com/mk2design>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.3734,
+        2.3755
+      ],
+      "y": [
+        -1.0457,
+        1.0457
+      ],
+      "z": [
+        0.0,
+        1.6447
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.7394,
+          "trackWidth": 1.5426,
+          "positionX": 1.4851,
+          "positionZ": 0.3697
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7394,
+          "trackWidth": 1.5426,
+          "positionX": -1.3749,
+          "positionZ": 0.3697
+        }
+      },
+      "performance": {
+        "maxSpeed": 64.4,
+        "maxAcceleration": 4.3,
+        "maxDeceleration": 11.0
+      },
+      "mass": 1735
+    },
+    "meshCount": 47,
+    "triangleCount": 59086,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

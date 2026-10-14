@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Off-Road SUV",
+    "description": "A 3D model of a fictional mid-1960s long-wheelbase off-road SUV with a white hardtop, suitable for use in simulations and visualizations.",
+    "uuid": "4ff2057d-8225-472a-bf02-eb0e313b3aeb",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2020 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -1.991,
+        1.991
+      ],
+      "y": [
+        -0.8627,
+        0.8627
+      ],
+      "z": [
+        0.0,
+        1.7176
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6772,
+          "trackWidth": 1.2745,
+          "positionX": 1.3808,
+          "positionZ": 0.3386
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6772,
+          "trackWidth": 1.2745,
+          "positionX": -1.275,
+          "positionZ": 0.3386
+        }
+      },
+      "performance": {
+        "maxSpeed": 30.6,
+        "maxAcceleration": 1.8,
+        "maxDeceleration": 6.0
+      },
+      "mass": 1350
+    },
+    "meshCount": 29,
+    "triangleCount": 26494,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

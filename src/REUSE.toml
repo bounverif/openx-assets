@@ -1,0 +1,164 @@
+version = 1
+
+[[annotations]]
+path = [
+    "vehicles/audi_q7_2015/**",
+    "vehicles/audi_tt_2014_roadster/**",
+    "vehicles/dacia_duster_2010/**",
+    "vehicles/hyundai_tucson_2015/**",
+    "vehicles/mini_countryman_2016/**",
+    "vehicles/fiat_ducato_2014/**"
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2019 razor24 <https://sketchfab.com/razor24>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/mercedes_sl65amg_2008_black/**",
+    "vehicles/gmc_hummer_2021/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 Ajay Gawde <https://sketchfab.com/aagawde>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/volvo_v60_polestar_2013/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 myedsu <https://sketchfab.com/myedsu>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/volvo_ex30_2024/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 Mehdi Lagzouli <https://sketchfab.com/LagzDesign>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/bmw_x4_2014/**",
+]
+SPDX-FileCopyrightText = [
+    "2025 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2022 mk2design <https://sketchfab.com/mk2design>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/honda_prelude_1983/**",
+    "vehicles/nissan_350z_2003/**",
+    "vehicles/nissan_skyline_gtr_1989/**",
+]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 Blue3D <https://sketchfab.com/Blueberry12>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/generic_compact_2007/**",
+    "vehicles/generic_hatchback_2007/**",
+    "vehicles/generic_hatchback_2011/**",
+    "vehicles/generic_sedan_1990/**",
+    "vehicles/generic_sedan_1991/**",
+    "vehicles/generic_sedan_1994/**",
+    "vehicles/generic_sedan_1995/**",
+    "vehicles/generic_sedan_1998/**",
+    "vehicles/generic_sedan_1999/**",
+    "vehicles/generic_sedan_2003/**",
+    "vehicles/generic_pickup_1990/**",
+    "vehicles/generic_truck_1990/**",
+    "vehicles/generic_van_1992/**",
+    "vehicles/generic_truck_1995/**",
+    "vehicles/generic_wagon_1980/**",
+    "vehicles/generic_suv_1965/**",
+]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2020-2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/toyota_corolla_2014/**",
+]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 Armored Wave <https://sketchfab.com/armoredwave>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/tesla_model3_2017/**",
+]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2021 wintrez <https://sketchfab.com/wintrez>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = ["vehicles/mercedes_g_class_2008/**"]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2020 Lexyc16 <https://sketchfab.com/Lexyc16>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "vehicles/hyundai_ioniq_5_2022/**",
+]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2022 andikapratamaw <https://sketchfab.com/andikapratamaw>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = ["vehicles/shacman_x6000_2024/**"]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2024 mormphy <https://sketchfab.com/mormphy>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = ["vehicles/mercedes_sprinter_2006/**"]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2022 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = ["vehicles/iveco_daily_2019/**"]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2024 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
+
+[[annotations]]
+path = ["vehicles/iveco_daily_1982/**", "vehicles/mazda_titan_1992/**", "vehicles/mitsubishi_delica_1986/**"]
+SPDX-FileCopyrightText = [
+    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+    "2023 kekomag <https://sketchfab.com/kekomag>, licensed under CC-BY-4.0"
+]
+SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"

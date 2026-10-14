@@ -1,4 +1,5 @@
 import bpy
+import bmesh
 import math
 import json
 import re
@@ -39,19 +40,23 @@ def get_bounding_box(rounded=0):
     min_x = min_y = min_z = float("inf")
     max_x = max_y = max_z = float("-inf")
 
+    # Use world-space vertices: the corners of the local bound_box overestimate
+    # the extent of meshes in rotated frames (e.g. a tilted tailgate hinge)
+    depsgraph = bpy.context.evaluated_depsgraph_get()
     for obj in bpy.data.objects:
         if obj.type == "MESH":
+            obj_eval = obj.evaluated_get(depsgraph)
+            mesh = obj_eval.to_mesh()
             matrix = obj.matrix_world
-            m = [[matrix[i][j] for j in range(4)] for i in range(4)]
-
-            for corner in obj.bound_box:
-                x, y, z = obj.matrix_world @ Vector(corner)
+            for vertex in mesh.vertices:
+                x, y, z = matrix @ vertex.co
                 min_x = min(min_x, x)
                 min_y = min(min_y, y)
                 min_z = min(min_z, z)
                 max_x = max(max_x, x)
                 max_y = max(max_y, y)
                 max_z = max(max_z, z)
+            obj_eval.to_mesh_clear()
 
     if rounded > 0:
         min_x = round(min_x, rounded)
@@ -331,6 +336,86 @@ def export_scene_fbx(destdir=""):
     return str(asset_path)
 
 
+def _alpha_as_transmission():
+    """Copy Principled alpha into transmission; return (socket, old value) pairs to restore."""
+    # The USD exporter writes opacity = 1 - transmission and ignores alpha, so
+    # alpha-blended glass (alpha 0.2, no transmission) would come out opaque black
+    changed = []
+    for material in bpy.data.materials:
+        if not material.use_nodes:
+            continue
+        for node in material.node_tree.nodes:
+            if node.type != "BSDF_PRINCIPLED":
+                continue
+            alpha = node.inputs["Alpha"]
+            transmission = node.inputs["Transmission Weight"]
+            if alpha.is_linked or transmission.is_linked:
+                continue
+            if alpha.default_value < 1.0 and transmission.default_value == 0.0:
+                changed.append((transmission, transmission.default_value))
+                transmission.default_value = 1.0 - alpha.default_value
+    return changed
+
+
+def triangulate_keep_normals():
+    """Triangulate every mesh, keeping each corner's normal as a custom normal."""
+    # The USD exporter's triangulate_meshes (and the Triangulate modifier) drop
+    # custom normals on the faces they split, so the surface looks faceted
+    for mesh in bpy.data.meshes:
+        if all(len(p.vertices) == 3 for p in mesh.polygons):
+            continue
+        normals = {
+            (p.index, mesh.loops[i].vertex_index): mesh.corner_normals[i].vector.copy()
+            for p in mesh.polygons
+            for i in p.loop_indices
+        }
+        bm = bmesh.new()
+        bm.from_mesh(mesh)
+        layer = bm.faces.layers.int.new("orig_face")
+        for face in bm.faces:
+            face[layer] = face.index
+        bmesh.ops.triangulate(bm, faces=bm.faces[:])
+        bm.to_mesh(mesh)
+        bm.free()
+        orig = mesh.attributes["orig_face"].data
+        custom = [
+            normals[(orig[p.index].value, mesh.loops[i].vertex_index)]
+            for p in mesh.polygons
+            for i in p.loop_indices
+        ]
+        mesh.attributes.remove(mesh.attributes["orig_face"])
+        mesh.normals_split_custom_set(custom)
+
+
+def export_scene_usdz(destdir=""):
+    """Export the current scene to a USDZ file."""
+
+    blendpath = bpy.data.filepath
+    asset_path = pathlib.Path(blendpath).with_suffix(".usdz").resolve()
+
+    if destdir:
+        asset_path = pathlib.Path(destdir) / pathlib.Path(asset_path.name)
+
+    asset_path.parent.mkdir(parents=True, exist_ok=True)
+    triangulate_keep_normals()
+    changed = _alpha_as_transmission()
+    try:
+        bpy.ops.wm.usd_export(
+            filepath=str(asset_path),
+            export_animation=False,
+            export_mesh_colors=False,
+            export_cameras=False,
+            export_lights=False,
+            triangulate_meshes=False,  # already done by triangulate_keep_normals
+            convert_scene_units="METERS",
+        )
+    finally:
+        for socket, value in changed:
+            socket.default_value = value
+
+    return str(asset_path)
+
+
 def deep_merge(d1, d2):
     merged = dict(d1)
     for k, v in d2.items():
@@ -349,6 +434,7 @@ def export_asset_file(asset_data, user_data=dict(), destdir="", rounded=4):
 
     if destdir:
         xomapath = pathlib.Path(destdir) / pathlib.Path(xomapath.name)
+        xomapath.parent.mkdir(parents=True, exist_ok=True)
 
     if not asset_data.get("metadata", {}).get("uuid"):
         asset_data["metadata"]["uuid"] = get_uuid()

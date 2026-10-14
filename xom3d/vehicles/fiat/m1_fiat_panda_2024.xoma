@@ -1,8 +1,8 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
   "metadata": {
     "name": "m1.fiat.panda.2024",
-    "openMaterial3dVersion": "1.0.0",
+    "openMaterial3dVersion": "1.1.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "uuid": "59d2b215-802e-5900-bf0f-3b8031ebe5da",
@@ -14,7 +14,6 @@
     "authors": [
       "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
-    "mass": 1400,
     "vehicleClassData": {
       "vehicleCategory": "car",
       "axles": {
@@ -37,7 +36,8 @@
         "maxSpeed": 55,
         "maxAcceleration": 5.0,
         "maxDeceleration": 10.0
-      }
+      },
+      "mass": 1400
     },
     "boundingBox": {
       "x": [

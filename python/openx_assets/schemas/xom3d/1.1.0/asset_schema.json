@@ -1,0 +1,604 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "ASAM OpenMATERIAL 3D Geometry Asset file definition.",
+    "definitions": {
+        "Axle": {
+            "type": "object",
+            "description": "The definition of a vehicle axle, based on the https://releases.asam.net/OpenSCENARIO/1.0.0/Model-Documentation/content/Axle.html[OpenSCENARIO XML vehicle axle definition].",
+            "properties": {
+                "maxSteering": {
+                    "type": "number",
+                    "description": "Maximum steering angle that can be performed by the wheels on this axle. Unit: rad. The steering angle is symmetrical in both directions.",
+                    "minimum": 0,
+                    "maximum": 3.14159
+                },
+                "wheelDiameter": {
+                    "type": "number",
+                    "description": "Diameter of the wheels on this axle. Unit: meter.",
+                    "exclusiveMinimum": 0
+                },
+                "trackWidth": {
+                    "type": "number",
+                    "description": "Distance between the center lines of the wheels at zero steering. Unit: meter.",
+                    "minimum": 0
+                },
+                "positionX": {
+                    "type": "number",
+                    "description": "Longitudinal position of the axle with respect to the center of the vehicle's bounding box projected to the ground. Unit: meter."
+                },
+                "positionZ": {
+                    "type": "number",
+                    "description": "Vertical position of the axle with respect to the center of the vehicle's bounding box projected to the ground. Usually, this is half the wheel diameter. Unit: meter.",
+                    "minimum": 0
+                }
+            },
+            "required": [
+                "maxSteering",
+                "wheelDiameter",
+                "trackWidth",
+                "positionX",
+                "positionZ"
+            ]
+        }
+    },
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "description": "The key meta information about the asset, including its identity, authorship, technical specifications, and legal details.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the asset, such as 'Car Model A' or 'Urban Scene 1'."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A concise summary of the asset's purpose or features in two to three sentences."
+                },
+                "uuid": {
+                    "type": "string",
+                    "description": "Universally unique identifier for the asset in 8-4-4-4-12 format, see cite:[uui]. The uuid stays the same, even if version is updated.",
+                    "pattern": "\\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\b$"
+                },
+                "assetVersion": {
+                    "type": "string",
+                    "description": "The version number of the asset, following semantic versioning (for example, '1.0.0').",
+                    "pattern": "^\\d+\\.\\d+\\.\\d+$"
+                },
+                "openMaterial3dVersion": {
+                    "type": "string",
+                    "description": "The version of the ASAM OpenMATERIAL 3D specification used, adhering to semantic versioning (for example, '1.0.0').",
+                    "pattern": "^\\d+\\.\\d+\\.\\d+$"
+                },
+                "copyrights": {
+                    "type": "array",
+                    "description": "Indicates copyright details, including the year and copyright holder (for example, '© 2024 ACME Inc.').",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1
+                },
+                "license": {
+                    "type": "string",
+                    "description": "Describes the license for asset distribution. Use an SPDX identifier for open-source licenses (for example, 'MIT'), or provide a URL or filename for proprietary licenses."
+                },
+                "authors": {
+                    "type": "array",
+                    "description": "Lists the author(s) of the asset as a name, email, or company.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1
+                },
+                "modelCreationTool": {
+                    "type": "string",
+                    "description": "Specifies the software or tool (and version) used to create the 3D model (for example, 'Blender 3.5')."
+                },
+                "creationDate": {
+                    "type": "string",
+                    "description": "The date and time of asset creation, formatted as YYYYMMDDTHHMMSSZ according to ISO 8601 (for example, '20240703T101728Z').",
+                    "pattern": "^\\d{8}T\\d{6}Z$"
+                },
+                "modelingMethod": {
+                    "type": "string",
+                    "description": "Indicates how the model was created, for example, '3D scan', 'photo-based modeling', or 'freehand design'."
+                },
+                "validationDescription": {
+                    "type": "string",
+                    "description": "Details the validation process used to compare the model geometry with real-world objects."
+                },
+                "assetType": {
+                    "type": "string",
+                    "description": "Specifies whether the asset represents an individual object ('object') or a collection of objects ('scene'). The value 'scene' is deprecated as of ASAM OpenMATERIAL 3D 1.1.0 and is replaced by the 'externalAssetReferences' property.",
+                    "enum": [
+                        "object",
+                        "scene"
+                    ]
+                },
+                "objectClass": {
+                    "type": "string",
+                    "description": "Classifies the object type when 'assetType' is 'object'. The value is one of 'vehicle', 'human', 'environment', or 'other'.",
+                    "enum": [
+                        "vehicle",
+                        "human",
+                        "environment",
+                        "other"
+                    ]
+                },
+                "vehicleClassData": {
+                    "type": "object",
+                    "description": "Vehicle-specific data. This shall be filled if 'objectClass' is 'vehicle' based on the https://releases.asam.net/OpenSCENARIO/1.0.0/Model-Documentation/content/Vehicle.html[OpenSCENARIO XML vehicle definition].",
+                    "properties": {
+                        "vehicleCategory": {
+                            "type": "string",
+                            "description": "Type of the vehicle.",
+                            "enum": [
+                                "car",
+                                "van",
+                                "truck",
+                                "trailer",
+                                "semitrailer",
+                                "bus",
+                                "motorbike",
+                                "bicycle",
+                                "train",
+                                "tram"
+                            ]
+                        },
+                        "performance": {
+                            "type": "object",
+                            "description": "Performance values of a vehicle.",
+                            "properties": {
+                                "maxSpeed": {
+                                    "type": "number",
+                                    "description": "Maximum speed of the vehicle. Unit: meter/second."
+                                },
+                                "maxAcceleration": {
+                                    "type": "number",
+                                    "description": "Maximum acceleration of the vehicle. Unit: meter/second^2^.",
+                                    "minimum": 0
+                                },
+                                "maxDeceleration": {
+                                    "type": "number",
+                                    "description": "Maximum deceleration of the vehicle. Unit: meter/second^2^.",
+                                    "minimum": 0
+                                }
+                            },
+                            "required": [
+                                "maxSpeed",
+                                "maxAcceleration",
+                                "maxDeceleration"
+                            ]
+                        },
+                        "axles": {
+                            "type": "object",
+                            "description": "A set of the axles of a vehicle. A vehicle shall have a front axle and a rear axle. It may have additional axles. The information about the rear axle is needed to transform the origin of the model to coordinate systems of other ASAM standards, for example, the ASAM OpenSCENARIO XML vehicle coordinate system or the ASAM OSI host vehicle coordinate system.",
+                            "properties": {
+                                "frontAxle": {
+                                    "$ref": "#/definitions/Axle"
+                                },
+                                "rearAxle": {
+                                    "$ref": "#/definitions/Axle"
+                                },
+                                "additionalAxles": {
+                                    "type": "array",
+                                    "description": "An optional array of additional axles with the same properties as 'frontAxle' and 'rearAxle'.",
+                                    "items": {
+                                        "$ref": "#/definitions/Axle"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "frontAxle",
+                                "rearAxle"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "vehicleCategory",
+                        "performance",
+                        "axles"
+                    ]
+                },
+                "humanClassData": {
+                    "type": "object",
+                    "description": "Human-specific data. This shall be filled if 'objectClass' is 'human' based on the https://releases.asam.net/OpenSCENARIO/1.0.0/Model-Documentation/content/Pedestrian.html[OpenSCENARIO XML pedestrian definition].",
+                    "properties": {
+                        "mass": {
+                            "type": "number",
+                            "description": "The mass of a human. Unit: kilogram."
+                        }
+                    },
+                    "required": [
+                        "mass"
+                    ]
+                },
+                "animated": {
+                    "type": "boolean",
+                    "description": "Indicates whether the 3D model contains keyframe animations."
+                },
+                "pbrMaterialWorkflow": {
+                    "type": "string",
+                    "description": "Indicates the usage of a physically based rendering (PBR) material workflow as 'metallic', 'specular', or 'none'. This only applies to the internal materials of the 3D model file, not to mapped ASAM OpenMATERIAL 3D property files.",
+                    "enum": [
+                        "metallic",
+                        "specular",
+                        "none"
+                    ]
+                },
+                "triangleCount": {
+                    "type": "integer",
+                    "description": "The total number of triangles in the model. A quad polygon counts as two triangles.",
+                    "minimum": 1
+                },
+                "meshCount": {
+                    "type": "integer",
+                    "description": "The total number of meshes in the 3D model file. A model geometry typically consists of several sub-meshes.",
+                    "minimum": 1
+                },
+                "textureResolutions": {
+                    "type": "array",
+                    "description": "Lists all texture resolutions used in the 3D model, for example, for 'albedo', 'normal', or 'displacement' textures. Possible values are '1K', '2K', and '4K'. If no textures are used in the model, add a single empty string ''.",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "1K",
+                            "2K",
+                            "4K",
+                            ""
+                        ]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                },
+                "normalMapFormat": {
+                    "type": "string",
+                    "description": "Specifies whether the 3D model uses normal maps as textures. If so, their format shall be either 'DirectX' or 'OpenGL'. Otherwise, the value is 'none'.",
+                    "enum": [
+                        "DirectX",
+                        "OpenGL",
+                        "none"
+                    ]
+                },
+                "boundingBox": {
+                    "type": "object",
+                    "description": "Defines the axis-aligned bounding box (AABB), which defines the spatial boundaries of an asset in 3D space. Example: \"boundingBox\": {\"x\": [-2.5, 2.5], \"y\": [-1.1, 1.1], \"z\": [0, 1.8]}",
+                    "properties": {
+                        "x": {
+                            "type": "array",
+                            "description": "Minimum and maximum values in meters along the x-axis.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "y": {
+                            "type": "array",
+                            "description": "Minimum and maximum values in meters along the y-axis.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        },
+                        "z": {
+                            "type": "array",
+                            "description": "Minimum and maximum values in meters along the z-axis.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                        }
+                    },
+                    "required": [
+                        "x",
+                        "y",
+                        "z"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "uuid",
+                "assetVersion",
+                "openMaterial3dVersion",
+                "copyrights",
+                "license",
+                "authors",
+                "objectClass",
+                "animated",
+                "pbrMaterialWorkflow",
+                "triangleCount",
+                "meshCount",
+                "textureResolutions",
+                "normalMapFormat",
+                "boundingBox"
+            ]
+        },
+        "materialMappingUri": {
+            "type": "string",
+            "description": "Relative or absolute file path to a material mapping file (.xomm). In this file, material names from the 3D model file or texture color codes from textures assigned in 'materialTextureAssignment' are linked to ASAM OpenMATERIAL 3D property files. For cross-platform compatibility, Unix-style paths are recommended.",
+            "pattern": ".*\\.xomm$"
+        },
+        "materialTextureAssignment": {
+            "type": "array",
+            "description": "Optional array containing material texture assignments. It links material names contained in the 3D model file to ASAM OpenMATERIAL 3D assignment textures. In a separate material mapping file, the 'color' values in this texture are linked to ASAM OpenMATERIAL 3D property files.",
+            "items": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": "string",
+                        "description": "Name of the material in the 3D model file."
+                    },
+                    {
+                        "type": "string",
+                        "description": "Relative or absolute file path to the ASAM OpenMATERIAL 3D assignment texture. For cross-platform compatibility, Unix-style paths are recommended."
+                    }
+                ],
+                "minItems": 2,
+                "maxItems": 2
+            }
+        },
+        "materialReplacements": {
+            "type": "array",
+            "description": "Optional array containing material reassignments. It links material names contained in the 3D model file to RGB codes or alternative names that are used as keys in the ASAM OpenMATERIAL 3D material mapping file. An example of the material replacement mechanism can be found in the examples folder of the ASAM OpenMATERIAL 3D GitHub repository.",
+            "items": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": "string",
+                        "description": "Name of the material in the 3D model file."
+                    },
+                    {
+                        "type": "string",
+                        "description": "Replacement name or RGB code to use as key into the material mapping instead of the original material name in the 3D model file. RGB codes are formatted as rgb:<R>;<G>;<B>. <R>, <G>, and <B> are integers in the range [0, 255]."
+                    }
+                ],
+                "minItems": 2,
+                "maxItems": 2
+            }
+        },
+        "externalAssetReferences": {
+            "type": "array",
+            "description": "Optional array containing references to external 3D assets. It links parent nodes in the 3D model file to external ASAM OpenMATERIAL 3D asset files (.xoma).",
+            "items": {
+                "type": "object",
+                "required": [
+                    "referenceNode",
+                    "externalAssetUri"
+                ],
+                "properties": {
+                    "referenceNode": {
+                        "type": "string",
+                        "description": "Name of the node in the 3D model file that acts as the parent of the referenced external asset. This node determines the spatial placement and orientation of the external asset."
+                    },
+                    "externalAssetUri": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "description": "Relative or absolute file path to the external ASAM OpenMATERIAL 3D asset file (.xoma). For cross-platform compatibility, Unix-style paths are recommended.",
+						"pattern": ".*\\.xoma$"
+                    }
+                }
+            }
+        },
+        "lightDefinitions": {
+            "type": "array",
+            "description": "A list of discrete light sources, for example, point lights or spotlights, linked to the 3D asset hierarchy.",
+            "items": {
+                "type": "object",
+                "required": [
+                    "node",
+                    "luminousIntensity"
+                ],
+                "properties": {
+                    "node": {
+                        "type": "string",
+                        "description": "Identifier of the node in the 3D model hierarchy that defines the light origin. The light is located at the origin of this node, and the node name determines the lighting function the light is mapped to. For example, a light associated with the node Grp_Light_Low_Beam_Left_0 of a vehicle asset shall be turned on in a simulation when the low beam is activated. If a generic node name is used, for example, Grp_Light_0, the simulator can decide which lighting function to map it to. In this case, the behavior is not standardized."
+                    },
+                    "photometricProfileUri": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "pattern": ".*\\.(ies|ldt|IES|LDT)$",
+                        "description": "Relative or absolute file path to an IES or EULUMDAT file defining the light profile. For cross-platform compatibility, Unix-style paths are recommended."
+                    },
+                    "radiometricProfileUri": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "description": "Relative or absolute file path to a table providing radiance per wavelength. For cross-platform compatibility, Unix-style paths are recommended. The format of the referenced radiance table is not defined in this standard. It may be defined in a future version."
+                    },
+                    "innerConeAngle": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 3.14159,
+                        "description": "Half of the opening angle of a conical spotlight, measured from the cone axis to the angle at which the light falloff begins. Unit: rad; Range: [0, \\(\\pi\\)]. If this field is not set, the default is 0. If a photometric profile is set, this value is overridden but serves as a fallback if a renderer cannot load the profile."
+                    },
+                    "outerConeAngle": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 3.14159,
+                        "description": "Half of the opening angle of a conical spotlight, measured from the cone axis to the angle at which the light falloff ends. Unit: rad; Range: [0, \\(\\pi\\)]. If this field is not set, the light is considered a point light. If a photometric profile is set, this value is overridden but serves as a fallback if a renderer cannot load the profile."
+                    },
+                    "luminousIntensity": {
+                        "type": "number",
+                        "minimum": 0,
+                        "description": "Luminous intensity of the light source. Unit: candela (cd). If a photometric profile is set, this value is overridden but serves as a fallback if a renderer cannot load the profile."
+                    },
+                    "color": {
+                        "type": "object",
+                        "description": "RGB color of the light.",
+                        "required": [
+                            "r",
+                            "g",
+                            "b"
+                        ],
+                        "properties": {
+                            "r": {
+                                "type": "integer",
+                                "description": "Red channel.",
+                                "minimum": 0,
+                                "maximum": 255
+                            },
+                            "g": {
+                                "type": "integer",
+                                "description": "Green channel.",
+                                "minimum": 0,
+                                "maximum": 255
+                            },
+                            "b": {
+                                "type": "integer",
+                                "description": "Blue channel.",
+                                "minimum": 0,
+                                "maximum": 255
+                            }
+                        }
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "minimum": 0,
+                        "description": "Correlated color temperature (CCT) of the light. Unit: kelvin (K)."
+                    }
+                },
+                "oneOf": [
+                    {
+                        "required": [
+                            "color"
+                        ],
+                        "not": {
+                            "required": [
+                                "temperature"
+                            ]
+                        }
+                    },
+                    {
+                        "required": [
+                            "temperature"
+                        ],
+                        "not": {
+                            "required": [
+                                "color"
+                            ]
+                        }
+                    },
+                    {
+                        "not": {
+                            "anyOf": [
+                                {
+                                    "required": [
+                                        "color"
+                                    ]
+                                },
+                                {
+                                    "required": [
+                                        "temperature"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "emissiveLightMapping": {
+            "type": "array",
+            "description": "Mapping of emissive properties to a specific material and an associated group node in the 3D model file. This concept can be used in any type of object.",
+            "items": {
+                "type": "object",
+                "required": [
+                    "assocNode",
+                    "materialName",
+                    "luminance",
+                    "color"
+                ],
+                "properties": {
+                    "assocNode": {
+                        "type": "string",
+                        "description": "Identifier of the node in the 3D model hierarchy that this emissive light is associated with. In contrast to the 'node' property of 'lightDefinitions', this node does not define any spatial placement. It is used solely to derive the lighting function from its name. For example, an emissive material associated with the node Grp_Light_Indicator_Left_0 of a vehicle asset shall be turned on in a simulation when the left indicator is activated. If a generic node name is used, for example, Grp_Light_0, the simulator can decide which lighting function to map it to. In this case, the behavior is not standardized."
+                    },
+                    "materialName": {
+                        "type": "string",
+                        "description": "The name of the material within the 3D model file to which this mapping applies."
+                    },
+                    "luminance": {
+                        "type": "number",
+                        "minimum": 0,
+                        "description": "Luminance of the emissive material. Unit: candela per square meter (cd/m^2^)."
+                    },
+                    "emissiveTextureUri": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "description": "Relative or absolute file path to an emissive texture. See the 'color' property for the equation describing how the emissive texture value is used in the lighting calculation. For cross-platform compatibility, Unix-style paths are recommended."
+                    },
+                    "maskingTextureUri": {
+                        "type": "string",
+                        "format": "uri-reference",
+                        "description": "Relative or absolute file path to the masking texture that masks a defined part of an emissive atlas texture. For cross-platform compatibility, Unix-style paths are recommended."
+                    },
+                    "color": {
+                        "type": "object",
+                        "description": "Emissive color, or RGB multiplier when used in combination with an emissive texture. The final color in the renderer is calculated as finalColor = baseColor + emissiveColor * emissiveTextureColor * emissiveStrength. The simulator shall set emissiveStrength so that the resulting luminance of the emissive material matches the defined 'luminance' value.",
+                        "required": [
+                            "r",
+                            "g",
+                            "b"
+                        ],
+                        "properties": {
+                            "r": {
+                                "type": "integer",
+                                "description": "Red channel.",
+                                "minimum": 0,
+                                "maximum": 255
+                            },
+                            "g": {
+                                "type": "integer",
+                                "description": "Green channel.",
+                                "minimum": 0,
+                                "maximum": 255
+                            },
+                            "b": {
+                                "type": "integer",
+                                "description": "Blue channel.",
+                                "minimum": 0,
+                                "maximum": 255
+                            }
+                        }
+                    }
+                },
+                "dependencies": {
+                    "maskingTextureUri": [
+                        "emissiveTextureUri"
+                    ]
+                }
+            }
+        },
+        "geometryProperties": {
+            "type": "array",
+            "description": "Array of per-node geometry properties, such as physical thickness.",
+            "items": {
+                "type": "object",
+                "required": [
+                    "node"
+                ],
+                "properties": {
+                    "node": {
+                        "type": "string",
+                        "description": "Identifier of the node in the 3D model hierarchy that the properties apply to."
+                    },
+                    "thickness": {
+                        "type": "number",
+                        "minimum": 0,
+                        "description": "Extrusion along the surface normal, applied on the side opposite the viewer, regardless of whether the surface is single-sided or double-sided. Unit: meter; Range: [0, inf[."
+                    }
+                }
+            }
+        },
+        "customProperties": {
+            "type": "object",
+            "description": "Non-standardized asset properties for custom tools or tool chains."
+        }
+    },
+    "required": [
+        "metadata"
+    ]
+}

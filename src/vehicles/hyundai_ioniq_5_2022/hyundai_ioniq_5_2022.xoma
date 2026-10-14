@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Hyundai Ioniq 5",
+    "description": "A 3D model of a Hyundai Ioniq 5 2022 (first generation, Long Range RWD), suitable for use in simulations and visualizations.",
+    "uuid": "5ce99efb-aa47-4c5f-8a30-8d5615d32e0c",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2022 andikapratamaw <https://sketchfab.com/andikapratamaw>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.3287,
+        2.3287
+      ],
+      "y": [
+        -1.0853,
+        1.0853
+      ],
+      "z": [
+        0.0,
+        1.6277
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.52,
+          "wheelDiameter": 0.7512,
+          "trackWidth": 1.5446,
+          "positionX": 1.4586,
+          "positionZ": 0.3756
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7512,
+          "trackWidth": 1.5446,
+          "positionX": -1.5638,
+          "positionZ": 0.3756
+        }
+      },
+      "performance": {
+        "maxSpeed": 51.4,
+        "maxAcceleration": 3.8,
+        "maxDeceleration": 10.5
+      },
+      "mass": 1910
+    },
+    "meshCount": 44,
+    "triangleCount": 37394,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

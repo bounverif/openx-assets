@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic American Sedan",
+    "description": "A 3D model of a fictional early-1990s American full-size sedan in police-package style, suitable for use in simulations and visualizations.",
+    "uuid": "97de49cf-2d83-4847-a99b-a5ceeda51da2",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2022 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.5829,
+        2.5829
+      ],
+      "y": [
+        -1.047,
+        1.047
+      ],
+      "z": [
+        0.0,
+        1.4264
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6439,
+          "trackWidth": 1.5461,
+          "positionX": 1.5185,
+          "positionZ": 0.322
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6439,
+          "trackWidth": 1.5461,
+          "positionX": -1.3369,
+          "positionZ": 0.322
+        }
+      },
+      "performance": {
+        "maxSpeed": 55.6,
+        "maxAcceleration": 3.0,
+        "maxDeceleration": 8.5
+      },
+      "mass": 1700
+    },
+    "meshCount": 29,
+    "triangleCount": 19626,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

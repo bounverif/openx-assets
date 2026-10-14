@@ -42,6 +42,8 @@ def export_command(args):
             )
         if args.export_fbx:
             xom3d_utils.export_scene_fbx(destdir=assets_dir)
+        if args.export_usdz:
+            xom3d_utils.export_scene_usdz(destdir=assets_dir)
 
         if args.export_xoma:
             xomapath = str(pathlib.Path(blendpath).with_suffix(".xoma").resolve())
@@ -55,7 +57,7 @@ def export_command(args):
                 print(f"Error parsing {xomapath}: {e}")
                 filedata = {}
 
-            template = xom3d_templates.XOM3D.template_1_0_0.copy()
+            template = xom3d_templates.XOM3D.template_1_1_0.copy()
             asset_data = xom3d_utils.deep_merge(template, filedata)
             if args.asset_version:
                 asset_data["metadata"]["assetVersion"] = args.asset_version
@@ -94,6 +96,15 @@ def render_command(args):
         # Set up a basic environment lighting
         scene.world.use_nodes = True
         env_nodes = scene.world.node_tree.nodes
+        # Some files have a world with an empty node tree; rebuild it.
+        if "Background" not in env_nodes:
+            env_nodes.clear()
+            background = env_nodes.new("ShaderNodeBackground")
+            background.name = "Background"
+            output = env_nodes.new("ShaderNodeOutputWorld")
+            scene.world.node_tree.links.new(
+                background.outputs["Background"], output.inputs["Surface"]
+            )
         if "Background" in env_nodes:
             env_nodes["Background"].inputs[0].default_value = (
                 1.0,
@@ -183,9 +194,10 @@ def catalog_command(args):
         model3d_path = None
         if args.model3d_ext:
             name = pathlib.Path(xomapath).stem
-            model3d_path = str(
-                pathlib.Path("..") / "model3d" / name / f"{name}.{args.model3d_ext}"
-            )
+            model3d_dir = pathlib.Path("..") / "vehicles"
+            if not args.model3d_flat:
+                model3d_dir = model3d_dir / name
+            model3d_path = str(model3d_dir / f"{name}.{args.model3d_ext}")
 
         with open(xomapath, "r") as f:
             vehicle_data = json.load(f)
@@ -224,7 +236,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="OpenXAssets Command Line Interface",
     )
-    parser.add_argument("--schema", help="Schema version or path", default="1.0")
+    parser.add_argument("--schema", help="Schema version or path", default="1.1")
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -237,7 +249,7 @@ def main():
         default=".",
     )
     common_parser.add_argument(
-        "--schema", default="1.0", help="Schema version or path for validation."
+        "--schema", default="1.1", help="Schema version or path for validation."
     )
     common_parser.add_argument(
         "--pattern",
@@ -292,6 +304,19 @@ def main():
         dest="export_fbx",
         action="store_false",
         help="Do not export to FBX format",
+    )
+    export_parser.add_argument(
+        "--usdz",
+        dest="export_usdz",
+        action="store_true",
+        default=False,
+        help="Export to USDZ format",
+    )
+    export_parser.add_argument(
+        "--no-usdz",
+        dest="export_usdz",
+        action="store_false",
+        help="Do not export to USDZ format",
     )
     export_parser.add_argument(
         "--xoma",
@@ -351,6 +376,12 @@ def main():
         "--model3d-ext",
         type=str,
         help="Set model 3D file extension",
+    )
+    catalog_parser.add_argument(
+        "--model3d-flat",
+        action="store_true",
+        default=False,
+        help="Reference models as vehicles/<name>.<ext> instead of vehicles/<name>/<name>.<ext>",
     )
     catalog_parser.set_defaults(func=catalog_command)
 

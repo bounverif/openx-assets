@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Iveco Daily",
+    "description": "A 3D model of an Iveco Daily (sixth generation, 2019 facelift) 35S medium-wheelbase low-roof panel van, suitable for use in simulations and visualizations.",
+    "uuid": "387a5f18-d09f-4878-853a-b584160c9e66",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2024 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.7766,
+        2.7891
+      ],
+      "y": [
+        -1.2362,
+        1.2362
+      ],
+      "z": [
+        0.0,
+        2.0904
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "van",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.7209,
+          "trackWidth": 1.7513,
+          "positionX": 1.7633,
+          "positionZ": 0.3604
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7209,
+          "trackWidth": 1.7513,
+          "positionX": -1.7567,
+          "positionZ": 0.3604
+        }
+      },
+      "performance": {
+        "maxSpeed": 43.1,
+        "maxAcceleration": 2.5,
+        "maxDeceleration": 7.0
+      },
+      "mass": 2200
+    },
+    "meshCount": 37,
+    "triangleCount": 46989,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

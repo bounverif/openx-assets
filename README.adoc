@@ -28,20 +28,35 @@ The latest release is available under link:https://github.com/bounverif/openx-as
 :figure-caption!:
 |===
 
-| image:src/vehicles/m1_audi_q7_2015/m1_audi_q7_2015.thumbnail.webp[alt="Audi Q7", title="Audi Q7", link="src/vehicles/m1_audi_q7_2015"]
-| image:src/vehicles/m1_audi_tt_2014_roadster/m1_audi_tt_2014_roadster.thumbnail.webp[alt="Audi TT Roadster", title="Audi TT Roadster", link="src/vehicles/m1_audi_tt_2014_roadster"]
-| image:src/vehicles/m1_bmw_x1_2016/m1_bmw_x1_2016.thumbnail.webp[alt="BMW X1", title="BMW X1", link="src/vehicles/m1_bmw_x1_2016"]
-| image:src/vehicles/m1_dacia_duster_2010/m1_dacia_duster_2010.thumbnail.webp[alt="Dacia Duster", title="Dacia Duster", link="src/vehicles/m1_dacia_duster_2010"]
+| image:src/vehicles/audi_q7_2015/audi_q7_2015.thumbnail.webp[alt="Audi Q7", title="Audi Q7", link="src/vehicles/audi_q7_2015"]
+| image:src/vehicles/audi_tt_2014_roadster/audi_tt_2014_roadster.thumbnail.webp[alt="Audi TT Roadster", title="Audi TT Roadster", link="src/vehicles/audi_tt_2014_roadster"]
+| image:src/vehicles/bmw_x4_2014/bmw_x4_2014.thumbnail.webp[alt="BMW X4", title="BMW X4", link="src/vehicles/bmw_x4_2014"]
+| image:src/vehicles/dacia_duster_2010/dacia_duster_2010.thumbnail.webp[alt="Dacia Duster", title="Dacia Duster", link="src/vehicles/dacia_duster_2010"]
 
-| image:src/vehicles/m1_hyundai_tucson_2015/m1_hyundai_tucson_2015.thumbnail.webp[alt="Hyundai Tucson", title="Hyundai Tucson", link="src/vehicles/m1_hyundai_tucson_2015"]
-| image:src/vehicles/m1_mercedes_sl65amg_2008/m1_mercedes_sl65amg_2008.thumbnail.webp[alt="Mercedes SL65 AMG", title="Mercedes SL65 AMG", link="src/vehicles/m1_mercedes_sl65amg_2008"]
-| image:src/vehicles/m1_mini_countryman_2016/m1_mini_countryman_2016.thumbnail.webp[alt="Mini Countryman", title="Mini Countryman", link="src/vehicles/m1_mini_countryman_2016"]
-| image:src/vehicles/m1_volvo_v60_polestar_2013/m1_volvo_v60_polestar_2013.thumbnail.webp[alt="Volvo V60 Polestar", title="Volvo V60 Polestar", link="src/vehicles/m1_volvo_v60_polestar_2013"]
+| image:src/vehicles/honda_prelude_1983/honda_prelude_1983.thumbnail.webp[alt="Honda Prelude", title="Honda Prelude", link="src/vehicles/honda_prelude_1983"]
+| image:src/vehicles/hyundai_ioniq_5_2022/hyundai_ioniq_5_2022.thumbnail.webp[alt="Hyundai Ioniq 5", title="Hyundai Ioniq 5", link="src/vehicles/hyundai_ioniq_5_2022"]
+| image:src/vehicles/hyundai_tucson_2015/hyundai_tucson_2015.thumbnail.webp[alt="Hyundai Tucson", title="Hyundai Tucson", link="src/vehicles/hyundai_tucson_2015"]
+| image:src/vehicles/mercedes_g_class_2008/mercedes_g_class_2008.thumbnail.webp[alt="Mercedes-Benz G-Class", title="Mercedes-Benz G-Class", link="src/vehicles/mercedes_g_class_2008"]
 
-| image:src/vehicles/m1_volvo_ex30_2024/m1_volvo_ex30_2024.thumbnail.webp[alt="Volvo EX30", title="Volvo EX30", link="src/vehicles/m1_volvo_ex30_2024"]
-| image:src/vehicles/n1_fiat_ducato_2014/n1_fiat_ducato_2014.thumbnail.webp[alt="Fiat Ducato", title="Fiat Ducato", link="src/vehicles/n1_fiat_ducato_2014"]
-| image:src/vehicles/n2_gmc_hummer_2021_pickup/n2_gmc_hummer_2021_pickup.thumbnail.webp[alt="GMC Hummer", title="GMC Hummer", link="src/vehicles/n2_gmc_hummer_2021_pickup"]
-| image:src/vehicles/n2_tesla_cybertruck_2024/n2_tesla_cybertruck_2024.thumbnail.webp[alt="Tesla Cybertruck", title="Tesla Cybertruck", link="src/vehicles/n2_tesla_cybertruck_2024"]
+| image:src/vehicles/mercedes_sl65amg_2008_black/mercedes_sl65amg_2008_black.thumbnail.webp[alt="Mercedes SL65 AMG Black Series", title="Mercedes SL65 AMG Black Series", link="src/vehicles/mercedes_sl65amg_2008_black"]
+| image:src/vehicles/mini_countryman_2016/mini_countryman_2016.thumbnail.webp[alt="Mini Countryman", title="Mini Countryman", link="src/vehicles/mini_countryman_2016"]
+| image:src/vehicles/nissan_350z_2003/nissan_350z_2003.thumbnail.webp[alt="Nissan 350Z", title="Nissan 350Z", link="src/vehicles/nissan_350z_2003"]
+| image:src/vehicles/nissan_skyline_gtr_1989/nissan_skyline_gtr_1989.thumbnail.webp[alt="Nissan Skyline GT-R", title="Nissan Skyline GT-R", link="src/vehicles/nissan_skyline_gtr_1989"]
+
+| image:src/vehicles/tesla_model3_2017/tesla_model3_2017.thumbnail.webp[alt="Tesla Model 3", title="Tesla Model 3", link="src/vehicles/tesla_model3_2017"]
+| image:src/vehicles/toyota_corolla_2014/toyota_corolla_2014.thumbnail.webp[alt="Toyota Corolla", title="Toyota Corolla", link="src/vehicles/toyota_corolla_2014"]
+| image:src/vehicles/volvo_ex30_2024/volvo_ex30_2024.thumbnail.webp[alt="Volvo EX30", title="Volvo EX30", link="src/vehicles/volvo_ex30_2024"]
+| image:src/vehicles/volvo_v60_polestar_2013/volvo_v60_polestar_2013.thumbnail.webp[alt="Volvo V60 Polestar", title="Volvo V60 Polestar", link="src/vehicles/volvo_v60_polestar_2013"]
+
+| image:src/vehicles/fiat_ducato_2014/fiat_ducato_2014.thumbnail.webp[alt="Fiat Ducato", title="Fiat Ducato", link="src/vehicles/fiat_ducato_2014"]
+| image:src/vehicles/iveco_daily_1982/iveco_daily_1982.thumbnail.webp[alt="Iveco Daily (1982)", title="Iveco Daily (1982)", link="src/vehicles/iveco_daily_1982"]
+| image:src/vehicles/iveco_daily_2019/iveco_daily_2019.thumbnail.webp[alt="Iveco Daily", title="Iveco Daily", link="src/vehicles/iveco_daily_2019"]
+| image:src/vehicles/mercedes_sprinter_2006/mercedes_sprinter_2006.thumbnail.webp[alt="Mercedes-Benz Sprinter", title="Mercedes-Benz Sprinter", link="src/vehicles/mercedes_sprinter_2006"]
+
+| image:src/vehicles/mitsubishi_delica_1986/mitsubishi_delica_1986.thumbnail.webp[alt="Mitsubishi Delica", title="Mitsubishi Delica", link="src/vehicles/mitsubishi_delica_1986"]
+| image:src/vehicles/gmc_hummer_2021/gmc_hummer_2021.thumbnail.webp[alt="GMC Hummer", title="GMC Hummer", link="src/vehicles/gmc_hummer_2021"]
+| image:src/vehicles/mazda_titan_1992/mazda_titan_1992.thumbnail.webp[alt="Mazda Titan", title="Mazda Titan", link="src/vehicles/mazda_titan_1992"]
+| image:src/vehicles/shacman_x6000_2024/shacman_x6000_2024.thumbnail.webp[alt="Shacman X6000", title="Shacman X6000", link="src/vehicles/shacman_x6000_2024"]
 
 |===
 
@@ -72,6 +87,7 @@ GLTF is the preferred format for all assets in this repository and serves as the
 
 While GLTF is the preferred format, the repository also maintains compatibility with:
 
+- *USD*: Supported for interoperability with other simulation and asset conversion workflows, particularly in the context of USD-based pipelines.
 - *FBX*: Supported primarily for compatibility with other simulation and asset conversion workflows.
 - *OSGB*: Native format for the Esmini simulator. Assets exported in `.osgb` format from the FBX assets can be used directly in Esmini simulation runtime.
 

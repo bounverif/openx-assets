@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Truck",
+    "description": "A 3D model of a fictional mid-1990s Japanese-style cab-over light truck with a 3-tonne box body and dual rear wheels, suitable for use in simulations and visualizations.",
+    "uuid": "c758a0c8-c0f8-4c04-8652-5d531ce3d356",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2021 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -3.0113,
+        3.0079
+      ],
+      "y": [
+        -1.307,
+        1.307
+      ],
+      "z": [
+        0.0,
+        2.8456
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "truck",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.7137,
+          "trackWidth": 1.8877,
+          "positionX": 1.79,
+          "positionZ": 0.3569
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7154,
+          "trackWidth": 1.762,
+          "positionX": -1.5549,
+          "positionZ": 0.3577
+        }
+      },
+      "performance": {
+        "maxSpeed": 27.8,
+        "maxAcceleration": 1.5,
+        "maxDeceleration": 6.0
+      },
+      "mass": 3500
+    },
+    "meshCount": 25,
+    "triangleCount": 19280,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

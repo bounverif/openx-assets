@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Shooting Brake",
+    "description": "A 3D model of a fictional late-2000s three-door compact shooting brake, suitable for use in simulations and visualizations.",
+    "uuid": "892ddce6-7719-41dd-bf2d-1b51c6da351f",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2020-2025 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.1628,
+        2.1628
+      ],
+      "y": [
+        -0.892,
+        0.892
+      ],
+      "z": [
+        -0.0,
+        1.3799
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "car",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.6435,
+          "trackWidth": 1.4919,
+          "positionX": 1.3136,
+          "positionZ": 0.3217
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.6435,
+          "trackWidth": 1.4919,
+          "positionX": -1.2448,
+          "positionZ": 0.3217
+        }
+      },
+      "performance": {
+        "maxSpeed": 58.3,
+        "maxAcceleration": 3.2,
+        "maxDeceleration": 9.8
+      },
+      "mass": 1300
+    },
+    "meshCount": 34,
+    "triangleCount": 17191,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

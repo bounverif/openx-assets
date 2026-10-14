@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "metadata": {
+    "name": "Generic Utility Truck",
+    "description": "A 3D model of a fictional early-1990s Japanese-style regular-cab pickup truck converted into a service vehicle with a utility body of side tool compartments, dual rear wheels and a bull bar, suitable for use in simulations and visualizations.",
+    "uuid": "1a8bf6cf-6d68-423a-905a-d194629bbcf1",
+    "authors": [
+      "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
+    ],
+    "license": "MPL-2.0 AND CC-BY-4.0",
+    "copyrights": [
+      "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
+      "(c) 2022 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+    ],
+    "openMaterial3dVersion": "1.1.0",
+    "assetVersion": "0.0.0",
+    "assetType": "object",
+    "objectClass": "vehicle",
+    "boundingBox": {
+      "x": [
+        -2.6862,
+        2.6862
+      ],
+      "y": [
+        -1.001,
+        1.001
+      ],
+      "z": [
+        0.0,
+        1.6571
+      ]
+    },
+    "vehicleClassData": {
+      "vehicleCategory": "truck",
+      "axles": {
+        "frontAxle": {
+          "maxSteering": 0.6,
+          "wheelDiameter": 0.7125,
+          "trackWidth": 1.5871,
+          "positionX": 1.7851,
+          "positionZ": 0.3563
+        },
+        "rearAxle": {
+          "maxSteering": 0.0,
+          "wheelDiameter": 0.7125,
+          "trackWidth": 1.5461,
+          "positionX": -1.3763,
+          "positionZ": 0.3563
+        }
+      },
+      "performance": {
+        "maxSpeed": 36.1,
+        "maxAcceleration": 1.8,
+        "maxDeceleration": 6.5
+      },
+      "mass": 2100
+    },
+    "meshCount": 27,
+    "triangleCount": 26923,
+    "animated": false,
+    "textureResolutions": [
+      ""
+    ],
+    "pbrMaterialWorkflow": "metallic",
+    "normalMapFormat": "OpenGL"
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.0.0/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
   "metadata": {
     "name": "m1.ford.mondeo.2022",
-    "openMaterial3dVersion": "1.0.0",
+    "openMaterial3dVersion": "1.1.0",
     "assetType": "object",
     "objectClass": "vehicle",
     "uuid": "2b46e803-616c-5e55-99e7-1e2b9793deaa",
@@ -14,7 +14,6 @@
     "authors": [
       "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
-    "mass": 1550,
     "vehicleClassData": {
       "vehicleCategory": "car",
       "axles": {
@@ -37,7 +36,8 @@
         "maxSpeed": 55,
         "maxAcceleration": 5.0,
         "maxDeceleration": 10.0
-      }
+      },
+      "mass": 1550
     },
     "boundingBox": {
       "x": [

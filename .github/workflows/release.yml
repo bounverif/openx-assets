@@ -11,26 +11,58 @@ on:
         options:
           - "true"
           - "false"
+  # Pull requests build and check every bundle but never publish.
+  pull_request:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  release-assets:
+  # Fix the version once so every bundle carries the same one.
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
+      asset_version: ${{ steps.version.outputs.asset_version }}
+    steps:
+      - id: version
+        run: |
+          echo "tag=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+          echo "asset_version=$(date +'%Y.%-m.%-d')" >> $GITHUB_OUTPUT
+
+  bundle:
+    needs: prepare
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/vevalabs/openx-assets:latest-builder
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - bundle: glb
+            export_flags: --glb --xoma
+          - bundle: fbx
+            export_flags: --fbx --xoma
+          - bundle: esmini
+            export_flags: --fbx --xoma
+          - bundle: usdz
+            export_flags: --usdz --xoma
+          - bundle: catalog
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
-          lfs: 'true'
+          lfs: ${{ matrix.bundle != 'catalog' }}
 
-      - name: Prepare environment variables
-        run: |
-            echo "VERSION=$(date +'%Y%m%d')" >> $GITHUB_ENV
-
+      # osgconv reads FBX through the FBX SDK plugin.
       - name: Download and install FBX SDK at runtime
+        if: matrix.bundle == 'esmini'
         run: |
           export FBXSDK_INSTALL_PREFIX="/tmp/install"
           mkdir -p ${FBXSDK_INSTALL_PREFIX}
@@ -42,16 +74,90 @@ jobs:
       - name: Install OpenX Assets Python package
         run: pip install . --break-system-packages
 
-      - name: Build and bundle OpenX assets
-        run: make bundle
+      - name: Build ${{ matrix.bundle }} bundle
+        run: >-
+          make openx-assets-${{ matrix.bundle }}.zip
+          EXPORT_FLAGS="${{ matrix.export_flags }}"
+          OPENX_ASSETS_VERSION=${{ needs.prepare.outputs.asset_version }}
+
+      - name: Upload ${{ matrix.bundle }} bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: openx-assets-${{ matrix.bundle }}
+          path: openx-assets-${{ matrix.bundle }}.zip
+          if-no-files-found: error
+
+  # Check every .xoma in the bundles with the ASAM OpenMATERIAL 3D quality checker.
+  qc:
+    needs: bundle
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    env:
+      # No PyPI release yet; pin a tested commit of asam-ev/qc-openmaterial-3d.
+      QC_OPENMATERIAL_REF: f03d86cab781ee4467e0cd5f5b3963995c099141
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Download bundles
+        uses: actions/download-artifact@v8
+        with:
+          pattern: openx-assets-*
+          merge-multiple: true
+
+      - name: Install ASAM OpenMATERIAL 3D checker
+        run: |
+          python3 -m venv /tmp/qc-venv
+          /tmp/qc-venv/bin/pip install --quiet "git+https://github.com/asam-ev/qc-openmaterial-3d@${QC_OPENMATERIAL_REF}"
+          echo /tmp/qc-venv/bin >> $GITHUB_PATH
+
+      # The esmini bundle has no .xoma files.
+      - name: Check bundles
+        run: |
+          mkdir -p bundles
+          for b in glb fbx usdz catalog; do
+            if [ -f openx-assets-$b.zip ]; then unzip -q openx-assets-$b.zip -d bundles/$b; fi
+          done
+          python3 scripts/qc_openmaterial.py bundles/* --report-dir qc-reports
+
+      - name: Upload QC reports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: qc-reports
+          path: qc-reports
+          if-no-files-found: ignore
+
+  # Render every vehicle of the esmini bundle in esmini; on pull requests, post the image.
+  esmini-render:
+    needs: bundle
+    if: ${{ !cancelled() }}
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: ./.github/workflows/esmini-render.yml
+
+  # A single job creates the release; parallel jobs would race and create duplicate drafts.
+  publish:
+    needs: [prepare, bundle, qc, esmini-render]
+    if: ${{ !cancelled() && needs.qc.result == 'success' && needs.esmini-render.result == 'success' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.dry_run != 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download bundles
+        uses: actions/download-artifact@v8
+        with:
+          pattern: openx-assets-*
+          merge-multiple: true
 
       - name: Create GitHub release
-        if: github.ref == 'refs/heads/main' && inputs.dry_run != 'true'
         uses: softprops/action-gh-release@v3
         with:
-          files: openx-assets.zip
+          files: openx-assets-*.zip
+          fail_on_unmatched_files: true
           name: "OpenX Assets"
-          tag_name: ${{ env.VERSION }}
+          tag_name: ${{ needs.prepare.outputs.tag }}
           make_latest: true
           draft: true
           prerelease: false
