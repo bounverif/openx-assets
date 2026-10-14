@@ -72,6 +72,7 @@ GLTF is the preferred format for all assets in this repository and serves as the
 
 While GLTF is the preferred format, the repository also maintains compatibility with:
 
+- *USD*: Supported for interoperability with other simulation and asset conversion workflows, particularly in the context of USD-based pipelines.
 - *FBX*: Supported primarily for compatibility with other simulation and asset conversion workflows.
 - *OSGB*: Native format for the Esmini simulator. Assets exported in `.osgb` format from the FBX assets can be used directly in Esmini simulation runtime.
 
