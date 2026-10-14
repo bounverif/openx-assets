@@ -116,7 +116,7 @@ def create_vehicle_folders(xml_filepath):
             }
 
             metadata = {
-                "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+                "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
                 "metadata": {
                     "name": original_name,
                     "openMaterial3dVersion": "1.1.0",

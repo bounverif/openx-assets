@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
   "metadata": {
     "name": "Mitsubishi Delica",
     "description": "A 3D model of a Mitsubishi Delica (third generation, 1986; sold as the L300 in Europe) passenger van with a left-hand sliding door and a top-hinged tailgate, suitable for use in simulations and visualizations.",

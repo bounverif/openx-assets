@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
   "metadata": {
     "name": "Mazda Titan",
     "description": "A 3D model of a Mazda Titan (third generation, 1992) 2-tonne class cab-over light truck with a long drop-side flatbed and dual rear wheels, suitable for use in simulations and visualizations.",

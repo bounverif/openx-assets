@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
   "metadata": {
     "name": "Generic Sport Sedan",
     "description": "A 3D model of a fictional late-1990s Japanese sport sedan with an aftermarket body kit and sport wheels, suitable for use in simulations and visualizations.",

@@ -58,7 +58,7 @@ def build_vehicle_asset_json(name, scraped_dimensions):
     half_width = width / 2
 
     asset = {
-        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
         "metadata": {
             "name": name,
             "openMaterial3dVersion": "1.1.0",

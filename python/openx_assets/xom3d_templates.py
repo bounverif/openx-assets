@@ -51,7 +51,7 @@ class XOM3D:
         },
     }
     template_1_1_0 = {
-        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+        "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
         "metadata": {
             "name": "",
             "description": "",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
   "metadata": {
     "name": "Mercedes SL65 AMG Black Series",
     "description": "A 3D model of a Mercedes-Benz SL65 AMG Black Series (R230, 2008), suitable for use in simulations and visualizations.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc1/schemas/asset_schema.json",
+  "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
   "metadata": {
     "name": "Generic Utility Truck",
     "description": "A 3D model of a fictional early-1990s Japanese-style regular-cab pickup truck converted into a service vehicle with a utility body of side tool compartments, dual rear wheels and a bull bar, suitable for use in simulations and visualizations.",
