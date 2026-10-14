@@ -11,9 +11,17 @@ on:
         options:
           - "true"
           - "false"
+  # Pull requests build and check every bundle but never publish.
+  pull_request:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   # Fix the version once so every bundle carries the same one.
@@ -33,6 +41,19 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/vevalabs/openx-assets:latest-builder
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - bundle: glb
+            export_flags: --glb --xoma
+          - bundle: fbx
+            export_flags: --fbx --xoma
+          - bundle: esmini
+            export_flags: --fbx --xoma
+          - bundle: usdz
+            export_flags: --usdz --xoma
+          - bundle: catalog
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -110,8 +131,10 @@ jobs:
   # A single job creates the release; parallel jobs would race and create duplicate drafts.
   publish:
     needs: [prepare, bundle, qc]
-    if: ${{ !cancelled() && needs.qc.result == 'success' && github.ref == 'refs/heads/main' && inputs.dry_run != 'true' }}
+    if: ${{ !cancelled() && needs.qc.result == 'success' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.dry_run != 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Download bundles
         uses: actions/download-artifact@v8
@@ -120,7 +143,6 @@ jobs:
           merge-multiple: true
 
       - name: Create GitHub release
-        if: github.ref == 'refs/heads/main' && inputs.dry_run != 'true'
         uses: softprops/action-gh-release@v3
         with:
           files: openx-assets-*.zip
