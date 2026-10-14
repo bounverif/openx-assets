@@ -3,100 +3,125 @@
 
 PROJECT_DIR := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 COLLECTION ?= src/vehicles
-DESTDIR ?= /tmp/openx-assets
+BUILDDIR ?= $(PROJECT_DIR)/build
 OPENX_ASSETS_VERSION ?= $(shell date +'%Y.%-m.%-d')
 
+# Every collection exports once into STAGEDIR; each bundle picks its files from there.
+STAGEDIR := $(BUILDDIR)/stage
+BUNDLES := glb fbx osgb usdz catalog
+ZIPS := $(foreach b,$(BUNDLES),openx-assets-$(b).zip)
 
-all: purge assets assets-osgb model3d-catalog xosc-catalog xom3d-catalog
+# Formats to export; a single bundle needs fewer (e.g. EXPORT_FLAGS="--glb --xoma").
+EXPORT_FLAGS ?= --glb --fbx --usdz --xoma
+
+
+all: bundle
 
 install:
 	@echo "Installing OpenX Assets Python Package"
 	pip install -e .
 
+# Export EXPORT_FLAGS formats for every .blend in the collection.
 assets:
-	@echo "Bundling OpenX assets..."
-	@mkdir -p $(DESTDIR)/model3d
+	@echo "Exporting OpenX assets..."
+	@mkdir -p $(STAGEDIR)/vehicles
 	openx-assets export $(COLLECTION) \
-		--destdir $(DESTDIR)/model3d \
-		--glb \
-		--fbx \
-		--asset-version $(OPENX_ASSETS_VERSION)
-
-assets-fbx-only:
-	@echo "Bundling OpenX assets..."
-	@mkdir -p $(DESTDIR)/model3d
-	openx-assets export $(COLLECTION) \
-		--destdir $(DESTDIR)/model3d \
-		--fbx \
+		--destdir $(STAGEDIR)/vehicles \
 		--no-glb \
-		--no-xoma \
+		$(EXPORT_FLAGS) \
 		--asset-version $(OPENX_ASSETS_VERSION)
 
-assets-osgb:
+# Convert the exported FBX files to OSGB (FBX is Y-up, OpenX assets are Z-up).
+assets-osgb: assets
 	@echo "Converting OpenX FBX assets to OSGB format..."
-	@find "$(DESTDIR)" -type f -name "*.fbx" | while IFS= read -r fbx_path; do \
-		rel_path="$${fbx_path#$(DESTDIR)/}"; \
-		osgb_path="$(DESTDIR)/$${rel_path%.fbx}.osgb"; \
-		mkdir -p "$$(dirname "$${osgb_path}")"; \
+	@find "$(STAGEDIR)/vehicles" -type f -name "*.fbx" | while IFS= read -r fbx_path; do \
+		osgb_path="$${fbx_path%.fbx}.osgb"; \
 		echo "Converting '$${fbx_path}' to '$${osgb_path}'"; \
-		# osgconv "$${fbx_path}" "$${osgb_path}" -o 90-1,0,0 --use-world-frame; \
- 		# osgconv "$${osgb_path}" "$${osgb_path}" -o -90-0,0,1 --use-world-frame; \
-		osgconv "$${fbx_path}" "$${osgb_path}" -o 120-0.5773503,-0.5773503,-0.5773503 --use-world-frame; \
-		if [ $$? -ne 0 ]; then \
-			echo "Error converting '$${fbx_path}'. Skipping..."; \
-		fi; \
+		osgconv "$${fbx_path}" "$${osgb_path}" -o 120-0.5773503,-0.5773503,-0.5773503 --use-world-frame \
+			|| echo "Error converting '$${fbx_path}'. Skipping..."; \
 	done
 
-model3d-catalog:
-	@echo "Bundling OpenX asset catalogs..."
-	@mkdir -p $(DESTDIR)/catalogs
-	openx-assets catalog $(COLLECTION) \
-		--name "model3d" \
+# Copy files matching $(2) from $(STAGEDIR)/vehicles into the $(1) bundle's vehicles, one directory per model.
+define copy-models
+	@mkdir -p $(BUILDDIR)/$(1)/vehicles
+	cd $(STAGEDIR)/vehicles && find . -type f $(2) -exec cp --parents {} $(BUILDDIR)/$(1)/vehicles \;
+	cp $(PROJECT_DIR)/src/REUSE.toml $(BUILDDIR)/$(1)/REUSE.toml
+endef
+
+# REUSE annotation for the generated catalogs and the vehicle specifications.
+define CATALOG_REUSE
+
+[[annotations]]
+path = ["catalogs/**", "xom3d/**"]
+SPDX-FileCopyrightText = ["2024 Dogan Ulus <dogan.ulus@bogazici.edu.tr>"]
+SPDX-License-Identifier = "MPL-2.0"
+endef
+export CATALOG_REUSE
+
+# glTF models with their OpenMATERIAL 3D metadata.
+bundle-glb: assets
+	@echo "Bundling GLB assets..."
+	@rm -rf $(BUILDDIR)/glb
+	$(call copy-models,glb,\( -name "*.glb" -o -name "*.xoma" \))
+
+# OpenSceneGraph models for esmini, all in one directory, with a catalog that references them.
+bundle-osgb: assets-osgb
+	@echo "Bundling OSGB assets..."
+	@rm -rf $(BUILDDIR)/osgb
+	@mkdir -p $(BUILDDIR)/osgb/vehicles
+	find $(STAGEDIR)/vehicles -type f -name "*.osgb" -exec cp {} $(BUILDDIR)/osgb/vehicles \;
+	openx-assets catalog $(STAGEDIR)/vehicles \
+		--name "vehicles" \
 		--model3d-ext "osgb" \
-		--destdir $(DESTDIR)/catalogs \
+		--model3d-flat \
+		--destdir $(BUILDDIR)/osgb/catalogs \
 		--asset-version $(OPENX_ASSETS_VERSION)
+	sed -E 's|"vehicles/([^"/]+)/\*\*"|"vehicles/\1.osgb"|g' $(PROJECT_DIR)/src/REUSE.toml > $(BUILDDIR)/osgb/REUSE.toml
+	echo "$$CATALOG_REUSE" >> $(BUILDDIR)/osgb/REUSE.toml
 
-xosc-catalog:
-	@echo "Generating OpenX asset catalogs..."
-	@mkdir -p "$(DESTDIR)/catalogs"
+# FBX models with their OpenMATERIAL 3D metadata.
+bundle-fbx: assets
+	@echo "Bundling FBX assets..."
+	@rm -rf $(BUILDDIR)/fbx
+	$(call copy-models,fbx,\( -name "*.fbx" -o -name "*.xoma" \))
+
+# OpenUSD models with their OpenMATERIAL 3D metadata.
+bundle-usdz: assets
+	@echo "Bundling USDZ assets..."
+	@rm -rf $(BUILDDIR)/usdz
+	$(call copy-models,usdz,\( -name "*.usdz" -o -name "*.xoma" \))
+
+# Real-world vehicle specifications and their OpenSCENARIO catalogs.
+bundle-catalog:
+	@echo "Bundling XOM3D vehicle specifications..."
+	@rm -rf $(BUILDDIR)/catalog
+	@mkdir -p $(BUILDDIR)/catalog/xom3d $(BUILDDIR)/catalog/catalogs
+	cp -r $(PROJECT_DIR)/xom3d/vehicles $(BUILDDIR)/catalog/xom3d/
 	for dir in $(wildcard $(PROJECT_DIR)/xom3d/vehicles/*); do \
-		name=$$(basename $$dir); \
 		openx-assets catalog $$dir \
-			--name "$$name" \
-			--destdir $(DESTDIR)/catalogs \
-			--asset-version $(OPENX_ASSETS_VERSION); \
-	done;
+			--name "$$(basename $$dir)" \
+			--destdir $(BUILDDIR)/catalog/catalogs \
+			--asset-version $(OPENX_ASSETS_VERSION) || exit 1; \
+	done
+	echo "version = 1$$CATALOG_REUSE" > $(BUILDDIR)/catalog/REUSE.toml
 
-xom3d-catalog:
-	@mkdir -p "$(DESTDIR)/xom3d/vehicles"
-	@ cp -r $(PROJECT_DIR)/xom3d/vehicles/* "$(DESTDIR)/xom3d/vehicles"
+$(ZIPS): openx-assets-%.zip: bundle-%
+	@echo "Zipping $* bundle..."
+	cp $(PROJECT_DIR)/src/README.md $(BUILDDIR)/$*/README.md
+	@mkdir -p $(BUILDDIR)/$*/LICENSES
+	for f in $(PROJECT_DIR)/LICENSES/*.txt; do \
+		grep -q "$$(basename $$f .txt)" $(BUILDDIR)/$*/REUSE.toml && cp $$f $(BUILDDIR)/$*/LICENSES/ || true; \
+	done
+	@rm -f $(PROJECT_DIR)/$@
+	cd $(BUILDDIR)/$* && zip -qr $(PROJECT_DIR)/$@ .
 
-bundle: purge assets assets-osgb model3d-catalog xosc-catalog xom3d-catalog clean
-	@echo "Bundling OpenX assets into a single archive..."
-	@cd $(DESTDIR) && zip -r $(PROJECT_DIR)/openx-assets.zip .
-
-esmini: purge assets-fbx-only assets-osgb model3d-catalog xosc-catalog
-	@echo "Bundling OpenX assets for esmini..."
-	@find $(DESTDIR) -type f -name "*.fbx" -delete
-	@cd $(DESTDIR) && zip -r $(PROJECT_DIR)/openx-assets-esmini.zip .
+bundle: $(ZIPS)
 
 clean:
 	@echo "Cleaning OpenX assets..."
-	rm -rf $(DESTDIR)
-	find src -type f -name "*.fbx" -delete
-	find src -type f -name "*.glb" -delete
-	find src -type f -name "*.bin" -delete
-	find src -type f -name "*.gltf" -delete
-	find src -type f -name "*.osgb" -delete
-	find src -type f -name "*.osgt" -delete
-	find src -type f -name "*.png" -delete
-	find src -type f -name "*.jpg" -delete
-	find src -type f -name "*.jpeg" -delete
+	rm -rf $(BUILDDIR)
 
 purge: clean
-	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets.zip" -delete
-	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets-esmini.zip" -delete
-	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets-gltf.zip" -delete
-	find $(PROJECT_DIR) -maxdepth 1 -name "openx-assets-openusd.zip" -delete
+	rm -f $(PROJECT_DIR)/openx-assets*.zip
 
-.PHONY: all install assets assets-fbx-only assets-osgb model3d-catalog xosc-catalog xom3d-catalog bundle esmini clean purge
+.PHONY: all install assets assets-osgb $(addprefix bundle-,$(BUNDLES)) bundle clean purge $(ZIPS)
