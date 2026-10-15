@@ -72,16 +72,12 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}
       python3 \
       python3-dev \
       python3-pip \
-      python3-numpy \
-      pipx \
+      python3-venv \
       libxml2 \
       libx11-6 \
       \
       && \
     apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
-
-RUN pipx ensurepath && \
-    pipx install --pip-args="--no-cache-dir" reuse
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked,id=${TARGETPLATFORM}/var/cache/apt \
     export DEBIAN_FRONTEND=noninteractive && \
