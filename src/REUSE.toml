@@ -140,18 +140,13 @@ SPDX-FileCopyrightText = [
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 
 [[annotations]]
-path = ["vehicles/mercedes_sprinter_2006/**"]
-SPDX-FileCopyrightText = [
-    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-    "2022 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+path = [
+    "vehicles/mercedes_sprinter_2006/**",
+    "vehicles/iveco_daily_2019/**"
 ]
-SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
-
-[[annotations]]
-path = ["vehicles/iveco_daily_2019/**"]
 SPDX-FileCopyrightText = [
     "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-    "2024 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+    "2022-2024 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
 ]
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 
