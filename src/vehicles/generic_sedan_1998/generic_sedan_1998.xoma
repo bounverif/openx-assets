@@ -18,8 +18,8 @@
     "objectClass": "vehicle",
     "boundingBox": {
       "x": [
-        -2.5114,
-        2.5186
+        -2.515,
+        2.515
       ],
       "y": [
         -1.0452,
@@ -37,14 +37,14 @@
           "maxSteering": 0.6,
           "wheelDiameter": 0.6677,
           "trackWidth": 1.563,
-          "positionX": 1.3948,
+          "positionX": 1.3912,
           "positionZ": 0.3338
         },
         "rearAxle": {
           "maxSteering": 0.0,
           "wheelDiameter": 0.6677,
           "trackWidth": 1.563,
-          "positionX": -1.412,
+          "positionX": -1.4156,
           "positionZ": 0.3338
         }
       },
@@ -55,8 +55,8 @@
       },
       "mass": 1650
     },
-    "meshCount": 36,
-    "triangleCount": 21619,
+    "meshCount": 44,
+    "triangleCount": 21809,
     "animated": false,
     "textureResolutions": [
       ""

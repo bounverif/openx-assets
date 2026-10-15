@@ -6,7 +6,7 @@ path = [
     "vehicles/audi_tt_2014_roadster/**",
     "vehicles/dacia_duster_2010/**",
     "vehicles/hyundai_tucson_2015/**",
-    "vehicles/mini_countryman_2016/**",
+    "vehicles/mini_countryman_2017/**",
     "vehicles/fiat_ducato_2014/**"
 ]
 SPDX-FileCopyrightText = [
@@ -80,10 +80,7 @@ path = [
     "vehicles/generic_sedan_1998/**",
     "vehicles/generic_sedan_1999/**",
     "vehicles/generic_sedan_2003/**",
-    "vehicles/generic_pickup_1990/**",
-    "vehicles/generic_truck_1990/**",
     "vehicles/generic_van_1992/**",
-    "vehicles/generic_truck_1995/**",
     "vehicles/generic_wagon_1980/**",
     "vehicles/generic_suv_1965/**",
 ]
@@ -132,7 +129,7 @@ SPDX-FileCopyrightText = [
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 
 [[annotations]]
-path = ["vehicles/shacman_x6000_2024/**"]
+path = ["vehicles/shacman_x6000_2019/**"]
 SPDX-FileCopyrightText = [
     "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
     "2024 mormphy <https://sketchfab.com/mormphy>, licensed under CC-BY-4.0"
@@ -140,18 +137,13 @@ SPDX-FileCopyrightText = [
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 
 [[annotations]]
-path = ["vehicles/mercedes_sprinter_2006/**"]
-SPDX-FileCopyrightText = [
-    "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-    "2022 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+path = [
+    "vehicles/mercedes_sprinter_2006/**",
+    "vehicles/iveco_daily_2019/**"
 ]
-SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
-
-[[annotations]]
-path = ["vehicles/iveco_daily_2019/**"]
 SPDX-FileCopyrightText = [
     "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-    "2024 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
+    "2022-2024 Max <https://sketchfab.com/Max-7215>, licensed under CC-BY-4.0"
 ]
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 

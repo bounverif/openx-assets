@@ -1,16 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/asam-ev/OpenMATERIAL-3D/refs/tags/v1.1.0-rc2/schemas/asset_schema.json",
   "metadata": {
-    "name": "Generic Utility Truck",
-    "description": "A 3D model of a fictional early-1990s Japanese-style regular-cab pickup truck converted into a service vehicle with a utility body of side tool compartments, dual rear wheels and a bull bar, suitable for use in simulations and visualizations.",
-    "uuid": "1a8bf6cf-6d68-423a-905a-d194629bbcf1",
+    "name": "Shacman X6000",
+    "description": "A 3D model of a Shacman X6000 4x2 tractor unit (2019), suitable for use in simulations and visualizations.",
+    "uuid": "d03cf84b-0ad5-492f-8640-b607f0f188cb",
     "authors": [
       "Dogan Ulus <dogan.ulus@bogazici.edu.tr>"
     ],
     "license": "MPL-2.0 AND CC-BY-4.0",
     "copyrights": [
       "(c) 2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
-      "(c) 2022 Daniel Zhabotinsky <https://sketchfab.com/DanielZhabotinsky>, licensed under CC-BY-4.0"
+      "(c) 2024 mormphy <https://sketchfab.com/mormphy>, licensed under CC-BY-4.0"
     ],
     "openMaterial3dVersion": "1.1.0",
     "assetVersion": "0.0.0",
@@ -18,16 +18,16 @@
     "objectClass": "vehicle",
     "boundingBox": {
       "x": [
-        -2.6862,
-        2.6862
+        -2.8833,
+        2.8833
       ],
       "y": [
-        -1.001,
-        1.001
+        -1.4109,
+        1.4109
       ],
       "z": [
         0.0,
-        1.6571
+        3.5485
       ]
     },
     "vehicleClassData": {
@@ -35,28 +35,28 @@
       "axles": {
         "frontAxle": {
           "maxSteering": 0.6,
-          "wheelDiameter": 0.7125,
-          "trackWidth": 1.5871,
-          "positionX": 1.7851,
-          "positionZ": 0.3563
+          "wheelDiameter": 1.0822,
+          "trackWidth": 1.8883,
+          "positionX": 1.7132,
+          "positionZ": 0.5411
         },
         "rearAxle": {
           "maxSteering": 0.0,
-          "wheelDiameter": 0.7125,
-          "trackWidth": 1.5461,
-          "positionX": -1.3763,
-          "positionZ": 0.3563
+          "wheelDiameter": 1.0741,
+          "trackWidth": 1.6839,
+          "positionX": -1.8411,
+          "positionZ": 0.537
         }
       },
       "performance": {
-        "maxSpeed": 36.1,
-        "maxAcceleration": 1.8,
-        "maxDeceleration": 6.5
+        "maxSpeed": 25.0,
+        "maxAcceleration": 1.2,
+        "maxDeceleration": 6.0
       },
-      "mass": 2100
+      "mass": 7600
     },
-    "meshCount": 27,
-    "triangleCount": 26923,
+    "meshCount": 39,
+    "triangleCount": 45970,
     "animated": false,
     "textureResolutions": [
       ""
