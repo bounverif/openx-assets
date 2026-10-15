@@ -10,11 +10,11 @@ The simulation assets are originally designed for use with link:https://esmini.g
 
 If you find this project valuable, please consider *sponsoring our open-source work*. We especially encourage *commercial users* to show their support if they benefit from these assets.
 
-Visit link:https://github.com/sponsors/bounverif[our GitHub Sponsors page] to learn more.
+Visit link:https://github.com/sponsors/vevalabs[our GitHub Sponsors page] to learn more.
 
 == What's Included in Releases
 
-The latest release is available under link:https://github.com/bounverif/openx-assets/releases[Releases] and currently includes:
+The latest release is available under link:https://github.com/vevalabs/openx-assets/releases[Releases] and currently includes:
 
 - Low- and medium-polygon 3D vehicle assets with preliminary link:https://www.asam.net/standards/detail/openmaterial/[OpenMATERIAL 3D] compliance
 - link:https://www.asam.net/standards/detail/openscenario-xml/[OpenSCENARIO XML] vehicle catalogs and link:https://www.asam.net/standards/detail/openmaterial/[OpenMATERIAL 3D] asset files based on real-world vehicle models, annotated with:

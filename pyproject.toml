@@ -12,8 +12,8 @@ dependencies = [
 license-files = ["python/openx_assets/LICENSE"]
 
 [project.urls]
-"Homepage" = "https://github.com/bounverif/openx_assets/"
-"Bug Tracker" = "https://github.com/bounverif/openx_assets/issues"
+"Homepage" = "https://github.com/vevalabs/openx-assets/"
+"Bug Tracker" = "https://github.com/vevalabs/openx-assets/issues"
 
 [project.scripts]
 openx-assets = "openx_assets.cli:main"
