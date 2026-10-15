@@ -6,7 +6,7 @@ path = [
     "vehicles/audi_tt_2014_roadster/**",
     "vehicles/dacia_duster_2010/**",
     "vehicles/hyundai_tucson_2015/**",
-    "vehicles/mini_countryman_2016/**",
+    "vehicles/mini_countryman_2017/**",
     "vehicles/fiat_ducato_2014/**"
 ]
 SPDX-FileCopyrightText = [
@@ -132,7 +132,7 @@ SPDX-FileCopyrightText = [
 SPDX-License-Identifier = "MPL-2.0 AND CC-BY-4.0"
 
 [[annotations]]
-path = ["vehicles/shacman_x6000_2024/**"]
+path = ["vehicles/shacman_x6000_2019/**"]
 SPDX-FileCopyrightText = [
     "2026 Dogan Ulus <dogan.ulus@bogazici.edu.tr>",
     "2024 mormphy <https://sketchfab.com/mormphy>, licensed under CC-BY-4.0"

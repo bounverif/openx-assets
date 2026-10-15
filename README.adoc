@@ -39,7 +39,7 @@ The latest release is available under link:https://github.com/vevalabs/openx-ass
 | image:src/vehicles/mercedes_g_class_2008/mercedes_g_class_2008.thumbnail.webp[alt="Mercedes-Benz G-Class", title="Mercedes-Benz G-Class", link="src/vehicles/mercedes_g_class_2008"]
 
 | image:src/vehicles/mercedes_sl65amg_2008_black/mercedes_sl65amg_2008_black.thumbnail.webp[alt="Mercedes SL65 AMG Black Series", title="Mercedes SL65 AMG Black Series", link="src/vehicles/mercedes_sl65amg_2008_black"]
-| image:src/vehicles/mini_countryman_2016/mini_countryman_2016.thumbnail.webp[alt="Mini Countryman", title="Mini Countryman", link="src/vehicles/mini_countryman_2016"]
+| image:src/vehicles/mini_countryman_2017/mini_countryman_2017.thumbnail.webp[alt="Mini Countryman", title="Mini Countryman", link="src/vehicles/mini_countryman_2017"]
 | image:src/vehicles/nissan_350z_2003/nissan_350z_2003.thumbnail.webp[alt="Nissan 350Z", title="Nissan 350Z", link="src/vehicles/nissan_350z_2003"]
 | image:src/vehicles/nissan_skyline_gtr_1989/nissan_skyline_gtr_1989.thumbnail.webp[alt="Nissan Skyline GT-R", title="Nissan Skyline GT-R", link="src/vehicles/nissan_skyline_gtr_1989"]
 
@@ -56,7 +56,7 @@ The latest release is available under link:https://github.com/vevalabs/openx-ass
 | image:src/vehicles/mitsubishi_delica_1986/mitsubishi_delica_1986.thumbnail.webp[alt="Mitsubishi Delica", title="Mitsubishi Delica", link="src/vehicles/mitsubishi_delica_1986"]
 | image:src/vehicles/gmc_hummer_2021/gmc_hummer_2021.thumbnail.webp[alt="GMC Hummer", title="GMC Hummer", link="src/vehicles/gmc_hummer_2021"]
 | image:src/vehicles/mazda_titan_1992/mazda_titan_1992.thumbnail.webp[alt="Mazda Titan", title="Mazda Titan", link="src/vehicles/mazda_titan_1992"]
-| image:src/vehicles/shacman_x6000_2024/shacman_x6000_2024.thumbnail.webp[alt="Shacman X6000", title="Shacman X6000", link="src/vehicles/shacman_x6000_2024"]
+| image:src/vehicles/shacman_x6000_2019/shacman_x6000_2019.thumbnail.webp[alt="Shacman X6000", title="Shacman X6000", link="src/vehicles/shacman_x6000_2019"]
 
 |===
 
