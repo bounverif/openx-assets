@@ -26,7 +26,7 @@
         0.9105
       ],
       "z": [
-        0.0,
+        -0.0,
         1.3139
       ]
     },
@@ -55,8 +55,8 @@
       },
       "mass": 1100
     },
-    "meshCount": 27,
-    "triangleCount": 12191,
+    "meshCount": 33,
+    "triangleCount": 12269,
     "animated": false,
     "textureResolutions": [
       ""

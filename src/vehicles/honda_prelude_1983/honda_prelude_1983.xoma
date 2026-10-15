@@ -55,8 +55,8 @@
       },
       "mass": 1050
     },
-    "meshCount": 29,
-    "triangleCount": 34196,
+    "meshCount": 34,
+    "triangleCount": 34996,
     "animated": false,
     "textureResolutions": [
       ""
