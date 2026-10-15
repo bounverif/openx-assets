@@ -145,15 +145,23 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
       - name: Download bundles
         uses: actions/download-artifact@v8
         with:
           pattern: openx-assets-*
           merge-multiple: true
 
+      # Release notes with the README.adoc thumbnail gallery, pinned to this commit.
+      - name: Write release notes
+        run: python3 scripts/release_gallery.py "${GITHUB_REPOSITORY}" "${GITHUB_SHA}" > release-notes.md
+
       - name: Create GitHub release
         uses: softprops/action-gh-release@v3
         with:
+          body_path: release-notes.md
           files: openx-assets-*.zip
           fail_on_unmatched_files: true
           name: "OpenX Assets"
