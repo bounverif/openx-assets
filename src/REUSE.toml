@@ -80,10 +80,7 @@ path = [
     "vehicles/generic_sedan_1998/**",
     "vehicles/generic_sedan_1999/**",
     "vehicles/generic_sedan_2003/**",
-    "vehicles/generic_pickup_1990/**",
-    "vehicles/generic_truck_1990/**",
     "vehicles/generic_van_1992/**",
-    "vehicles/generic_truck_1995/**",
     "vehicles/generic_wagon_1980/**",
     "vehicles/generic_suv_1965/**",
 ]
