@@ -6,6 +6,9 @@
   "hostRequirements": {
     "gpu": "optional"
   },
+  // /dev/nvidia* is owned by the host's video group (GID 484 here); without
+  // it Cycles can't open the GPU and renders fall back to the CPU.
+  "runArgs": ["--group-add", "484"],
   "remoteUser": "nonroot",
   "updateRemoteUserUID": true,
   "initializeCommand": "gpg --armor --export \"$(git config user.email)\" > .devcontainer/host-pubkeys.asc 2>/dev/null || true",
@@ -14,7 +17,8 @@
     "vscode": {
       "extensions": [
         "Anthropic.claude-code",
-        "AssetToolLabs.mesh-viewer-vscode"
+        "AssetToolLabs.mesh-viewer-vscode",
+        "BucketHsu.adocmd-forge"
       ]
     }
   }

@@ -17,7 +17,8 @@ RUN apt-get update && \
 
 # Blender as a Python module (Blender 5.2 LTS, Python 3.13) and development tools
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.txt
+# --ignore-installed: pip can't upgrade Debian's Python packages (packaging, ...)
+RUN pip install --no-cache-dir --ignore-installed -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 # Non-root user for Docker; VS Code remaps its UID/GID to the host user
 ARG USER=nonroot

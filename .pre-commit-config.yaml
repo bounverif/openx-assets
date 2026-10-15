@@ -11,6 +11,7 @@ repos:
       - id: check-merge-conflict
       - id: check-case-conflict
       - id: check-json
+        exclude: ^\.devcontainer/devcontainer\.json$ # JSONC
       - id: check-symlinks
       - id: check-executables-have-shebangs
       - id: check-xml
