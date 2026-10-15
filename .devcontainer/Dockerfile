@@ -15,8 +15,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends libegl1 libegl-mesa0 && \
     rm -rf /var/lib/apt/lists/*
 
-# Blender as a Python module (Blender 5.2 LTS, Python 3.13), same pin as pyproject.toml
-RUN pip install --no-cache-dir "bpy>=5.2,<5.3"
+# Blender as a Python module (Blender 5.2 LTS, Python 3.13) and development tools
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 # Non-root user for Docker; VS Code remaps its UID/GID to the host user
 ARG USER=nonroot

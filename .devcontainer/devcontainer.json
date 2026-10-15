@@ -8,6 +8,8 @@
   },
   "remoteUser": "nonroot",
   "updateRemoteUserUID": true,
+  "initializeCommand": "gpg --armor --export \"$(git config user.email)\" > .devcontainer/host-pubkeys.asc 2>/dev/null || true",
+  "postAttachCommand": "gpg --import .devcontainer/host-pubkeys.asc 2>/dev/null || true",
   "customizations": {
     "vscode": {
       "extensions": [

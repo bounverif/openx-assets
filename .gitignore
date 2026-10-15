@@ -237,3 +237,6 @@ pyrightconfig.json
 # Asset directories under development
 devel
 collections-devel
+
+# Host GPG public keys exported by the devcontainer
+.devcontainer/host-pubkeys.asc
